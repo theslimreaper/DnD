@@ -19,11 +19,11 @@ public class Screen_Rotator : MonoBehaviour {
 	void FixedUpdate () {
 		if(Input.GetKey(KeyCode.LeftArrow))
 		   {
-			moving=1;
+			moving=-1;
 			}
 		if(Input.GetKey(KeyCode.RightArrow))
 		{
-			moving=-1;
+			moving=1;
 		}
 		if(moving!=0)
 			{
@@ -31,7 +31,6 @@ public class Screen_Rotator : MonoBehaviour {
 
 				if(transform.rotation.eulerAngles.y%(360/arms.Length)<1)
 				{
-					print ("The current Rotation is:"+transform.rotation);
 					moving=0;
 				}
 			}
