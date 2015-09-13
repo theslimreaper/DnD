@@ -10,15 +10,23 @@ public class XML_Loader : MonoBehaviour {
 	void Start () {
 		LoadXml ();
 	}
-	
+
+	//Loads specified XML file content
 	public void LoadXml () {
-		var m_strFilePath = "http://www.w3schools.com/xml/note.xml";
+		var m_strFilePath = "https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml";
 		string xmlStr;
+		var xmlDoc = new XmlDocument();
+
+		//Get SSL Certificate Validated
+		System.Net.ServicePointManager.ServerCertificateValidationCallback += (s,ce,ca,p) => true;
+
+		//Get file from URL
 		using(var wc = new WebClient())
 		{
 			xmlStr = wc.DownloadString(m_strFilePath);
 		}
-		var xmlDoc = new XmlDocument();
+
+		//Load content of file
 		xmlDoc.LoadXml(xmlStr);    
 		print (xmlStr);
 	}
