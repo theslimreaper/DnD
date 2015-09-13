@@ -5,12 +5,12 @@ using System.Net;
 
 
 public class XML_Loader : MonoBehaviour {
-
+	
 	// Use this for initialization
 	void Start () {
 		LoadXml ();
 	}
-
+	
 	public void LoadXml () {
 		var m_strFilePath = "http://www.w3schools.com/xml/note.xml";
 		string xmlStr;
@@ -19,8 +19,8 @@ public class XML_Loader : MonoBehaviour {
 			xmlStr = wc.DownloadString(m_strFilePath);
 		}
 		var xmlDoc = new XmlDocument();
-		xmlDoc.LoadXml(xmlStr);	
+		xmlDoc.LoadXml(xmlStr);    
 		print (xmlStr);
 	}
-
+	
 }
