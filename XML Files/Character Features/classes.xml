@@ -2,7 +2,7 @@
 <compendium version="5" auto_indent="NO">
 
 <class>
-	<name>Barbarian</name>
+	<classname>Barbarian</classname>
 	<hd>12</hd>
 	<proficiency>Strength, Constitution</proficiency>
 	<spellAbility></spellAbility>
@@ -284,7 +284,7 @@
 </class>
 
 <class>
-	<name>Bard</name>
+	<classname>Bard</classname>
 	<hd>8</hd>
 	<proficiency>Dexterity, Charisma</proficiency>
 	<spellAbility>Charisma</spellAbility>
@@ -513,7 +513,7 @@
 </class>
 
 <class>
-	<name>Cleric</name>
+	<classname>Cleric</classname>
 	<hd>8</hd>
 	<proficiency>Wisdom, Charisma</proficiency>
 	<spellAbility>Wisdom</spellAbility>
@@ -1004,7 +1004,7 @@
 </class>
 
 <class>
-	<name>Druid</name>
+	<classname>Druid</classname>
 	<hd>8</hd>
 	<proficiency>Intelligence, Wisdom</proficiency>
 	<spellAbility>Wisdom</spellAbility>
@@ -1315,7 +1315,7 @@
 </class>
 
 <class>
-	<name>Fighter</name>
+	<classname>Fighter</classname>
 	<hd>10</hd>
 	<proficiency>Strength, Constitution</proficiency>
 	<spellAbility>Intelligence</spellAbility>
@@ -1952,7 +1952,7 @@
 </class>
 
 <class>
-	<name>Monk</name>
+	<classname>Monk</classname>
 	<hd>8</hd>
 	<proficiency>Strength, Dexterity</proficiency>
 	<spellAbility></spellAbility>
@@ -2501,7 +2501,7 @@
 </class>
 
 <class>
-	<name>Paladin</name>
+	<classname>Paladin</classname>
 	<hd>10</hd>
 	<proficiency>Wisdom, Charisma</proficiency>
 	<spellAbility>Charisma</spellAbility>
@@ -2932,7 +2932,7 @@
 </class>
 
 <class>
-	<name>Ranger</name>
+	<classname>Ranger</classname>
 	<hd>10</hd>
 	<proficiency>Strength, Dexterity</proficiency>
 	<spellAbility>Wisdom</spellAbility>
@@ -3242,7 +3242,7 @@
 </class>
 
 <class>
-	<name>Rogue</name>
+	<classname>Rogue</classname>
 	<hd>8</hd>
 	<proficiency>Dexterity, Intelligence</proficiency>
 	<spellAbility>Intelligence</spellAbility>
@@ -3547,7 +3547,7 @@
 </class>
 
 <class>
-	<name>Sorcerer</name>
+	<classname>Sorcerer</classname>
 	<hd>6</hd>
 	<proficiency>Constitution, Charisma</proficiency>
 	<spellAbility>Charisma</spellAbility>
@@ -4219,7 +4219,7 @@
 </class>
 
 <class>
-	<name>Warlock</name>
+	<classname>Warlock</classname>
 	<hd>8</hd>
 	<proficiency>Wisdom, Charisma</proficiency>
 	<spellAbility>Charisma</spellAbility>
@@ -5448,7 +5448,7 @@
 </class>
 
 <class>
-	<name>Wizard</name>
+	<classname>Wizard</classname>
 	<hd>6</hd>
 	<proficiency>Intelligence, Wisdom</proficiency>
 	<spellAbility>Intelligence</spellAbility>
