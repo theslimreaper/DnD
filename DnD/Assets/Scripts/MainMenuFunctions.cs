@@ -15,7 +15,7 @@ public class MainMenuFunctions : MonoBehaviour {
 
 	public void createNewCharacter()
 	{
-		Application.LoadLevel ("Base");
+		Application.LoadLevel ("CharacterCreation");
 	}
 	public void loadExistingCharacter()
 	{
