@@ -4,60 +4,76 @@
 <class>
 	<classname>Barbarian</classname>
 	<proficiency>Strength, Constitution</proficiency>
+	<description>Barbarians, different as they might be, are defined by their rage: unbridled, unquenchable, and
+	unthinking fury. More than a mere emotion, their anger is the ferocity of a cornered predator, the unrelenting assault
+	of a storm, the churning turmoil of the sea. For some, their rage springs from a communion with fierce animal spirits.
+	Others draw from a roiling reservoir of anger at a world full of pain. For every barbarian, rage is a power that fuels
+	not just a battle frenzy but also uncanny reflexes, resilience, and feats of strength.</description>
 </class>
 
 <class>
 	<classname>Bard</classname>
 	<proficiency>Dexterity, Charisma</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Cleric</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Druid</classname>
 	<proficiency>Intelligence, Wisdom</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Fighter</classname>
 	<proficiency>Strength, Constitution</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Monk</classname>
 	<proficiency>Strength, Dexterity</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Paladin</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Ranger</classname>
 	<proficiency>Strength, Dexterity</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Rogue</classname>
 	<proficiency>Dexterity, Intelligence</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Sorcerer</classname>
 	<proficiency>Constitution, Charisma</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Warlock</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
+	<description></description>
 </class>
 
 <class>
 	<classname>Wizard</classname>
 	<proficiency>Intelligence, Wisdom</proficiency>
+	<description></description>
 </class>
 </compendium>
