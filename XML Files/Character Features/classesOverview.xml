@@ -14,66 +14,93 @@
 <class>
 	<classname>Bard</classname>
 	<proficiency>Dexterity, Charisma</proficiency>
-	<description></description>
+	<description>Whether scholar, skald, or scoundrel, a bard weaves magic through words and music to inspire allies,
+	demoralize foes, manipulate minds, create illusions, and even heal wounds.</description>
 </class>
 
 <class>
 	<classname>Cleric</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
-	<description></description>
+	<description>Clerics are intermediaries between the mortal world and the distant planes of the gods. As varied as the
+	gods they serve, clerics strive to embody the handiwork of their deities. No ordinary priest, a cleric is imbued with
+	divine magic.</description>
 </class>
 
 <class>
 	<classname>Druid</classname>
 	<proficiency>Intelligence, Wisdom</proficiency>
-	<description></description>
+	<description>Whether calling on the elemental forces of nature or emulating the creatures of the animal world, druids
+	are an embodiment of nature’s resilience, cunning, and fury. They claim no mastery over nature. Instead, they see
+	themselves as extensions of nature’s indomitable will.</description>
 </class>
 
 <class>
 	<classname>Fighter</classname>
 	<proficiency>Strength, Constitution</proficiency>
-	<description></description>
+	<description>Questing knights, conquering overlords, royal champions, elite foot soldiers, hardened mercenaries, and
+	bandit kings—as fighters, they all share an unparalleled mastery with weapons and armor, and a thorough knowledge of
+	the skills of combat. And they are well acquainted with death, both meting it out and staring it defiantly in the
+	face.</description>
 </class>
 
 <class>
 	<classname>Monk</classname>
 	<proficiency>Strength, Dexterity</proficiency>
-	<description></description>
+	<description>the tyrant prince, so vulnerable in the grip of sleep. Whatever their discipline, monks are united in
+	their ability to magically harness the energy that flows in their bodies. Whether channeled as a striking display of
+	combat prowess or a subtler focus of defensive ability and speed, this energy infuses all that a monk does.</description>
 </class>
 
 <class>
 	<classname>Paladin</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
-	<description></description>
+	<description>Whatever their origin and their mission, paladins are united by their oaths to stand against the forces of
+	evil. Whether sworn before a god’s altar and the witness of a priest, in a sacred glade before nature spirits and fey
+	beings, or in a moment of desperation and grief with the dead as the only witness, a paladin’s oath is a powerful
+	bond. It is a source of power that turns a devout warrior into a blessed champion.</description>
 </class>
 
 <class>
 	<classname>Ranger</classname>
 	<proficiency>Strength, Dexterity</proficiency>
-	<description></description>
+	<description>Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of
+	civilization—humanoid raiders, rampaging beasts and monstrosities, terrible giants, and deadly dragons. Though a ranger
+	might make a living as a hunter, a guide, or a tracker, a ranger’s true calling is to defend the outskirts of
+	civilization from the ravages of monsters and humanoid hordes that press in from the wild.</description>
 </class>
 
 <class>
 	<classname>Rogue</classname>
 	<proficiency>Dexterity, Intelligence</proficiency>
-	<description></description>
+	<description>Rogues rely on skill, stealth, and their foes’ vulnerabilities to get the upper hand in any situation.
+	They have a knack for finding the solution to just about any problem, demonstrating a resourcefulness and versatility
+	that is the cornerstone of any successful adventuring party.</description>
 </class>
 
 <class>
 	<classname>Sorcerer</classname>
 	<proficiency>Constitution, Charisma</proficiency>
-	<description></description>
+	<description>Sorcerers carry a magical birthright conferred upon them by an exotic bloodline, some otherworldly
+	influence, or exposure to unknown cosmic forces. One can’t study sorcery as one learns a language, any more than one
+	can learn to live a legendary life. No one chooses sorcery; the power chooses the sorcerer.</description>
 </class>
 
 <class>
 	<classname>Warlock</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
-	<description></description>
+	<description>Warlocks are seekers of the knowledge that lies hidden in the fabric of the multiverse. Through pacts
+	made with mysterious beings of supernatural power, warlocks unlock magical effects both subtle and spectacular. Drawing
+	on the ancient knowledge of beings such as fey nobles, demons, devils, hags, and alien entities of the Far Realm,
+	warlocks piece together arcane secrets to bolster their own power.</description>
 </class>
 
 <class>
 	<classname>Wizard</classname>
 	<proficiency>Intelligence, Wisdom</proficiency>
-	<description></description>
+	<description>Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the
+	subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle
+	deception, and brute-force mind control. Their magic conjures monsters from other planes of existence, glimpses the
+	future, or turns slain foes into zombies. Their mightiest spells change one substance into another, call meteors
+	down from the sky, or open portals to other worlds.</description>
 </class>
 </compendium>
