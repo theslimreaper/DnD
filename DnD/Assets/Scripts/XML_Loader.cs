@@ -6,6 +6,7 @@ using System.Net;
 
 public class XML_Loader : ScriptableObject {
 
+	//Load XML including tagName node
 	public List<string> LoadXml(string url, string tagName) {
 		XmlNodeList elemList = null;
 		var doc = new XmlDocument();
@@ -19,6 +20,22 @@ public class XML_Loader : ScriptableObject {
 
 		return strList;
 	}
+
+	//Load XML excluding tagName node
+	public List<string> LoadInnerXml(string url, string tagName) {
+		XmlNodeList elemList = null;
+		var doc = new XmlDocument();
+		List<string> strList = new List<string>();
+		
+		doc = GetXmlContent (url);
+		
+		elemList = GetXmlElems (doc, tagName);
+		
+		strList = ConvertInnerElemsToList (elemList);
+		
+		return strList;
+	}
+
 	//Loads specified XML file content
 	XmlDocument GetXmlContent (string url) {
 		var m_strFilePath = url;
@@ -48,7 +65,7 @@ public class XML_Loader : ScriptableObject {
 		return elemList;
 	}
 
-	//Convert the element list into a string list
+	//Convert the element list into a string list of outer XML content
 	List<string> ConvertElemsToList (XmlNodeList elemList) {
 		List<string> strList = new List<string>();
 
@@ -59,5 +76,17 @@ public class XML_Loader : ScriptableObject {
 
 		return strList;
 	}
-	
+	//Convert the element list into a string list of inner XML content
+	List<string> ConvertInnerElemsToList (XmlNodeList elemList) {
+		List<string> strList = new List<string>();
+		
+		for (int i=0; i < elemList.Count; i++)
+		{   
+			strList.Add(elemList[i].InnerXml);
+		}  
+		
+		return strList;
+	}
+
+
 }

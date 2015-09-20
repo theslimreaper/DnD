@@ -4,10 +4,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class Character_Creation : MonoBehaviour {
-
-	public List<string> classList = new List<string>();
+	
 	public GameObject[] classes;
-	public List<string> classNameList = new List<string> ();
+	public GameObject[] classNames;
 	public int transitionSpeed;
 	int moving;
 
@@ -15,14 +14,8 @@ public class Character_Creation : MonoBehaviour {
 	// Start and Update functions
 
 	void Start () {
-		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
-		
-		classList = XML.LoadXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml", "class");
-		classNameList = XML.LoadXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml", "classname");
-		foreach (var item in classNameList) {
-			print (item);
-		}
 		FormatStartLayout ();
+		GetClasses ();
 	}
 
 	void LateUpdate()
@@ -63,5 +56,19 @@ public class Character_Creation : MonoBehaviour {
 	public void ConfirmCharacter()
 	{
 		Application.LoadLevel ("Base");
+	}
+
+	void GetClasses()
+	{
+		List<string> classNameList = new List<string> ();
+		int i = 0;
+		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
+		var name = "";
+		classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml", "classname");
+		foreach( var item in classNameList)
+		{
+			classNames[i].GetComponent<Text>().text = item;
+			i++;
+		}
 	}
 }
