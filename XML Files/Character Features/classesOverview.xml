@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5" auto_indent="NO">
+
+<class>
+	<classname>Barbarian</classname>
+	<proficiency>Strength, Constitution</proficiency>
+</class>
+
+<class>
+	<classname>Bard</classname>
+	<proficiency>Dexterity, Charisma</proficiency>
+</class>
+
+<class>
+	<classname>Cleric</classname>
+	<proficiency>Wisdom, Charisma</proficiency>
+</class>
+
+<class>
+	<classname>Druid</classname>
+	<proficiency>Intelligence, Wisdom</proficiency>
+</class>
+
+<class>
+	<classname>Fighter</classname>
+	<proficiency>Strength, Constitution</proficiency>
+</class>
+
+<class>
+	<classname>Monk</classname>
+	<proficiency>Strength, Dexterity</proficiency>
+</class>
+
+<class>
+	<classname>Paladin</classname>
+	<proficiency>Wisdom, Charisma</proficiency>
+</class>
+
+<class>
+	<classname>Ranger</classname>
+	<proficiency>Strength, Dexterity</proficiency>
+</class>
+
+<class>
+	<classname>Rogue</classname>
+	<proficiency>Dexterity, Intelligence</proficiency>
+</class>
+
+<class>
+	<classname>Sorcerer</classname>
+	<proficiency>Constitution, Charisma</proficiency>
+</class>
+
+<class>
+	<classname>Warlock</classname>
+	<proficiency>Wisdom, Charisma</proficiency>
+</class>
+
+<class>
+	<classname>Wizard</classname>
+	<proficiency>Intelligence, Wisdom</proficiency>
+</class>
+</compendium>
