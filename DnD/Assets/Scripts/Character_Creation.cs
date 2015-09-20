@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class Character_Creation : MonoBehaviour {
 	public GameObject[] classes;
 	public GameObject[] classNames;
 	public int transitionSpeed;
+	public GameObject classDescription;
+	public CanvasGroup classDescrCanvasGroup;
+	List<string> classDescrList = new List<string>();
 	int moving;
 
 
@@ -63,12 +67,43 @@ public class Character_Creation : MonoBehaviour {
 		List<string> classNameList = new List<string> ();
 		int i = 0;
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
-		var name = "";
-		classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml", "classname");
+		classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classesOverview.xml", "classname");
 		foreach( var item in classNameList)
 		{
 			classNames[i].GetComponent<Text>().text = item;
 			i++;
 		}
+
+		classDescrList = classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classesOverview.xml", "description");
+	}
+
+	public void FillClassDescription(int position)
+	{
+		StartCoroutine (DescrFadeIn ());
+		classDescription.GetComponent<Text>().text = classDescrList[position];
+	}
+
+	public void ClearClassDescription ()
+	{
+		StartCoroutine(DescrFadeOut());
+		classDescription.GetComponent<Text> ().text = "";
+	}
+
+	IEnumerator DescrFadeIn()
+	{
+		while (classDescrCanvasGroup.alpha < 1) {
+			classDescrCanvasGroup.alpha += Time.deltaTime * transitionSpeed * 2;
+			yield return null;
+		}
+		yield return null;
+	}
+
+	IEnumerator DescrFadeOut()
+	{
+		while (classDescrCanvasGroup.alpha > 0) {
+			classDescrCanvasGroup.alpha -= Time.deltaTime * transitionSpeed * 2;
+			yield return null;
+		}
+		yield return null;
 	}
 }
