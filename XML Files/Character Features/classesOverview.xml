@@ -31,7 +31,7 @@
 	<proficiency>Intelligence, Wisdom</proficiency>
 	<description>Whether calling on the elemental forces of nature or emulating the creatures of the animal world, druids
 	are an embodiment of nature&#39;s resilience, cunning, and fury. They claim no mastery over nature. Instead, they see
-	themselves as extensions of nature&#34;s indomitable will.</description>
+	themselves as extensions of nature&#3;s indomitable will.</description>
 </class>
 
 <class>
@@ -55,8 +55,8 @@
 	<classname>Paladin</classname>
 	<proficiency>Wisdom, Charisma</proficiency>
 	<description>Whatever their origin and their mission, paladins are united by their oaths to stand against the forces of
-	evil. Whether sworn before a god&#34;s altar and the witness of a priest, in a sacred glade before nature spirits and fey
-	beings, or in a moment of desperation and grief with the dead as the only witness, a paladin&#34;s oath is a powerful
+	evil. Whether sworn before a god&#39;s altar and the witness of a priest, in a sacred glade before nature spirits and fey
+	beings, or in a moment of desperation and grief with the dead as the only witness, a paladin&#39;s oath is a powerful
 	bond. It is a source of power that turns a devout warrior into a blessed champion.</description>
 </class>
 
@@ -65,14 +65,14 @@
 	<proficiency>Strength, Dexterity</proficiency>
 	<description>Warriors of the wilderness, rangers specialize in hunting the monsters that threaten the edges of
 	civilization—humanoid raiders, rampaging beasts and monstrosities, terrible giants, and deadly dragons. Though a ranger
-	might make a living as a hunter, a guide, or a tracker, a ranger&#34;s true calling is to defend the outskirts of
+	might make a living as a hunter, a guide, or a tracker, a ranger&#39;s true calling is to defend the outskirts of
 	civilization from the ravages of monsters and humanoid hordes that press in from the wild.</description>
 </class>
 
 <class>
 	<classname>Rogue</classname>
 	<proficiency>Dexterity, Intelligence</proficiency>
-	<description>Rogues rely on skill, stealth, and their foes&#34; vulnerabilities to get the upper hand in any situation.
+	<description>Rogues rely on skill, stealth, and their foes&#39; vulnerabilities to get the upper hand in any situation.
 	They have a knack for finding the solution to just about any problem, demonstrating a resourcefulness and versatility
 	that is the cornerstone of any successful adventuring party.</description>
 </class>
@@ -81,7 +81,7 @@
 	<classname>Sorcerer</classname>
 	<proficiency>Constitution, Charisma</proficiency>
 	<description>Sorcerers carry a magical birthright conferred upon them by an exotic bloodline, some otherworldly
-	influence, or exposure to unknown cosmic forces. One can&#34;t study sorcery as one learns a language, any more than one
+	influence, or exposure to unknown cosmic forces. One can&#39;t study sorcery as one learns a language, any more than one
 	can learn to live a legendary life. No one chooses sorcery; the power chooses the sorcerer.</description>
 </class>
 
