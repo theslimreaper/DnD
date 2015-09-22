@@ -31,14 +31,14 @@
 	<proficiency>Intelligence, Wisdom</proficiency>
 	<description>Whether calling on the elemental forces of nature or emulating the creatures of the animal world, druids
 	are an embodiment of nature&#39;s resilience, cunning, and fury. They claim no mastery over nature. Instead, they see
-	themselves as extensions of nature&#3;s indomitable will.</description>
+	themselves as extensions of nature&#39;s indomitable will.</description>
 </class>
 
 <class>
 	<classname>Fighter</classname>
 	<proficiency>Strength, Constitution</proficiency>
 	<description>Questing knights, conquering overlords, royal champions, elite foot soldiers, hardened mercenaries, and
-	bandit kings—as fighters, they all share an unparalleled mastery with weapons and armor, and a thorough knowledge of
+	bandit kings&#8211;as fighters, they all share an unparalleled mastery with weapons and armor, and a thorough knowledge of
 	the skills of combat. And they are well acquainted with death, both meting it out and staring it defiantly in the
 	face.</description>
 </class>
@@ -97,9 +97,9 @@
 <class>
 	<classname>Wizard</classname>
 	<proficiency>Intelligence, Wisdom</proficiency>
-	<description>Wizards are supreme magic-users, defined and united as a class by the spells they cast. Drawing on the
+	<description>Wizards are supreme magic&#8211;users, defined and united as a class by the spells they cast. Drawing on the
 	subtle weave of magic that permeates the cosmos, wizards cast spells of explosive fire, arcing lightning, subtle
-	deception, and brute-force mind control. Their magic conjures monsters from other planes of existence, glimpses the
+	deception, and brute&#8211;force mind control. Their magic conjures monsters from other planes of existence, glimpses the
 	future, or turns slain foes into zombies. Their mightiest spells change one substance into another, call meteors
 	down from the sky, or open portals to other worlds.</description>
 </class>
