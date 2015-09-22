@@ -95,6 +95,7 @@ public class Character_Creation : MonoBehaviour {
 			classDescrCanvasGroup.alpha += Time.deltaTime * transitionSpeed * 2;
 			yield return null;
 		}
+		classDescrCanvasGroup.alpha = 1;
 		yield return null;
 	}
 
@@ -104,6 +105,7 @@ public class Character_Creation : MonoBehaviour {
 			classDescrCanvasGroup.alpha -= Time.deltaTime * transitionSpeed * 2;
 			yield return null;
 		}
+		classDescrCanvasGroup.alpha = 0;
 		yield return null;
 	}
 }
