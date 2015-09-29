@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Race_Selection : MonoBehaviour {
 	
-	public GameObject[] racees;
+	public GameObject[] races;
 	public GameObject[] raceNames;
 	public int transitionSpeed;
 	public GameObject raceDescription;
@@ -17,9 +17,8 @@ public class Race_Selection : MonoBehaviour {
 	// Start and Update functions
 
 	void Start () {
-		//FormatStartLayout ();
-		//Getraces ();
-		Application.LoadLevel ("Class Selection");
+		FormatStartLayout ();
+		GetRaces ();
 	}
 
 	void LateUpdate()
@@ -32,37 +31,32 @@ public class Race_Selection : MonoBehaviour {
 	//Set initial layout of content
 	void FormatStartLayout () 
 		{
-			for (int i=0; i<racees.Length; i++) {
+			for (int i=0; i<races.Length; i++) {
 				var x_pos = ((Screen.width / 2) + (500 * i));
-				racees [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
+				races [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
 			}
 		}
 	
 	//Update content position based on arrow key presses
 	void UpdateLayout()
 	{
-					if (Input.GetKey (KeyCode.LeftArrow) && racees[racees.Length - 1].transform.position.x >= (Screen.width / 2 )) {
+					if (Input.GetKey (KeyCode.LeftArrow) && races[races.Length - 1].transform.position.x >= (Screen.width / 2 )) {
 						moving = -1;
 					}
-					if (Input.GetKey (KeyCode.RightArrow) && racees[0].transform.position.x <= (Screen.width / 2 )) {
+					if (Input.GetKey (KeyCode.RightArrow) && races[0].transform.position.x <= (Screen.width / 2 )) {
 						moving = 1;
 					}
 					if (moving != 0) {
 					
-						for (int i=0; i<racees.Length; i++) {
-							var x_pos = (racees [i].transform.position.x + (moving * 500) * transitionSpeed * Time.deltaTime);
-							racees [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
+						for (int i=0; i<races.Length; i++) {
+							var x_pos = (races [i].transform.position.x + (moving * 500) * transitionSpeed * Time.deltaTime);
+							races [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
 						}
 						moving = 0;
 					}
 		}
 
-	public void ConfirmCharacter()
-	{
-		Application.LoadLevel ("Base");
-	}
-
-	void Getracees()
+	void GetRaces()
 	{
 		List<string> raceNameList = new List<string> ();
 		int i = 0;
@@ -77,18 +71,18 @@ public class Race_Selection : MonoBehaviour {
 		raceDescrList = raceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "description");
 	}
 
-	public void Selectrace(int position){
+	public void SelectRace(int position){
 		Character_Info.characterRace = raceNames [position].GetComponent<Text> ().text;
-		ConfirmCharacter ();
+		Application.LoadLevel ("Class Selection");
 	}
 
-	public void FillraceDescription(int position)
+	public void FillRaceDescription(int position)
 	{
 		StartCoroutine (DescrFadeIn ());
 		raceDescription.GetComponent<Text>().text = raceDescrList[position];
 	}
 
-	public void ClearraceDescription ()
+	public void ClearRaceDescription ()
 	{
 		StartCoroutine(DescrFadeOut());
 		raceDescription.GetComponent<Text> ().text = "";
