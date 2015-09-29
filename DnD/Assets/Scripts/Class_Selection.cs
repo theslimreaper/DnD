@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class Character_Creation : MonoBehaviour {
+public class Class_Selection : MonoBehaviour {
 	
 	public GameObject[] classes;
 	public GameObject[] classNames;
@@ -78,7 +78,6 @@ public class Character_Creation : MonoBehaviour {
 
 	public void SelectClass(int position){
 		Character_Info.characterClass = classNames [position].GetComponent<Text> ().text;
-		print (Character_Info.characterClass);
 		ConfirmCharacter ();
 	}
 

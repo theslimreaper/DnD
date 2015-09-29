@@ -15,7 +15,7 @@ public class MainMenuFunctions : MonoBehaviour {
 
 	public void createNewCharacter()
 	{
-		Application.LoadLevel ("CharacterCreation");
+		Application.LoadLevel ("Race Selection");
 		Data_Saver Save = ScriptableObject.CreateInstance<Data_Saver> ();
 		Save.SaveData ("test");
 		print ("Save successful!");
