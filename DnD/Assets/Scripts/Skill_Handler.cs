@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
 using System.Collections;
 
-public class Load_Character_Info : MonoBehaviour {
-    public GameObject Class;
+public class Skill_Handler : MonoBehaviour {
+
+    public bool[] trained = new bool[18];
+    public int[] values = new int[18];
+    public int[] bonuses = new int[18];
 	// Use this for initialization
 	void Start () {
-
-        Class.GetComponent<InputField>().text = Character_Info.characterClass;
+	
 	}
 	
 	// Update is called once per frame
