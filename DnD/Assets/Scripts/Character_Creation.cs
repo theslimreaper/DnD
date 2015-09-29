@@ -14,7 +14,6 @@ public class Character_Creation : MonoBehaviour {
 	List<string> classDescrList = new List<string>();
 	int moving;
 
-
 	// Start and Update functions
 
 	void Start () {
@@ -77,6 +76,12 @@ public class Character_Creation : MonoBehaviour {
 		classDescrList = classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classesOverview.xml", "description");
 	}
 
+	public void SelectClass(int position){
+		Character_Info.characterClass = classNames [position].GetComponent<Text> ().text;
+		print (Character_Info.characterClass);
+		ConfirmCharacter ();
+	}
+
 	public void FillClassDescription(int position)
 	{
 		StartCoroutine (DescrFadeIn ());
@@ -108,4 +113,5 @@ public class Character_Creation : MonoBehaviour {
 		classDescrCanvasGroup.alpha = 0;
 		yield return null;
 	}
+
 }
