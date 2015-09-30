@@ -2,18 +2,23 @@
 <compendium version="5" auto_indent="NO">
 <race>
 <racename>Dragonborn</racename>
+<racedescription></racedescription>
 </race>
 <race>
 <racename>Dwarf</racename>
+<racedescription></racedescription>
 </race>
 <race>
 <racename>Elf</racename>
+<racedescription></racedescription>
 </race>
 <race>
 <racename>Gnome</racename>
+<racedescription></racedescription>
 </race>
 <race>
 <racename>Halfling</racename>
+<racedescription></racedescription>
 </race>
 <race>
 	<racename>Half-Elf</racename>
