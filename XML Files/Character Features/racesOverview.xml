@@ -1,7 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?><compendium version="5" auto_indent="NO">
-<race>	<racename>Half-Elf</racename>	<size>Medium</size>	<speed>30</speed>	<ability>Cha 2</ability>	<proficiency></proficiency>	<trait>		<name>Ability Score Increase</name>		<text>Two different ability scores of your choice increase by 1.</text>	</trait>	<trait>		<name>Darkvision</name>		<text>Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>	</trait>	<trait>		<name>Fey Ancestry</name>		<text>You have advantage on saving throws against being charmed, and magic can't put you to sleep.</text>	</trait>	<trait>		<name>Skill Versatility</name>		<text>You gain proficiency in two skills of your choice.</text>	</trait>	<trait>		<languages>You can speak, read, and write Common, Elvish, and one extra language of your choice.</languages></race>
-<race>	<racename>Half-Orc</racename>	<size>Medium</size>	<speed>30</speed>	<ability>Str 2, Con 1</ability>	<proficiency>Intimidation</proficiency>	<trait>		<name>Darkvision</name>		<text>Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>	</trait>	<trait>		<name>Menacing</name>		<text>You gain proficiency in the Intimidation skill.</text>	</trait>	<trait>		<name>Relentless Endurance</name>		<text>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.</text>	</trait>	<trait>		<name>Savage Attacks</name>		<text>When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.</text>	</trait>	<trait>		<languages>You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants.</languages>	</trait></race>
-<race>	<racename>Human</racename>	<size>Medium</size>	<speed>30</speed>	<ability>Str 1, Dex 1, Con 1, Int 1, Wis 1, Cha 1</ability>	<proficiency></proficiency>	<trait>		<languages>You can speak, read, and write Common and one extra language of your choice.</languages>	</trait></race>
+<?xml version="1.0" encoding="UTF-8"?>
+<compendium version="5" auto_indent="NO">
+<race>
+<racename>Dragonborn</racename>
+</race>
+<race>
+<racename>Dwarf</racename>
+</race>
+<race>
+<racename>Elf</racename>
+</race>
+<race>
+<racename>Gnome</racename>
+</race>
+<race>
+<racename>Halfling</racename>
+</race>
+<race>
+	<racename>Half-Elf</racename>
+	<size>Medium</size>
+	<speed>30</speed>
+	<ability>Cha 2</ability>
+	<proficiency></proficiency>
+	<trait>
+		<name>Ability Score Increase</name>
+		<text>Two different ability scores of your choice increase by 1.</text>
+	</trait>
+	<trait>
+		<name>Darkvision</name>
+		<text>Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>
+	</trait>
+	<trait>
+		<name>Fey Ancestry</name>
+		<text>You have advantage on saving throws against being charmed, and magic can't put you to sleep.</text>
+	</trait>
+	<trait>
+		<name>Skill Versatility</name>
+		<text>You gain proficiency in two skills of your choice.</text>
+	</trait>
+	<trait>
+		<languages>You can speak, read, and write Common, Elvish, and one extra language of your choice.</languages>
+</race>
+<race>
+	<racename>Half-Orc</racename>
+	<size>Medium</size>
+	<speed>30</speed>
+	<ability>Str 2, Con 1</ability>
+	<proficiency>Intimidation</proficiency>
+	<trait>
+		<name>Darkvision</name>
+		<text>Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>
+	</trait>
+	<trait>
+		<name>Menacing</name>
+		<text>You gain proficiency in the Intimidation skill.</text>
+	</trait>
+	<trait>
+		<name>Relentless Endurance</name>
+		<text>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.</text>
+	</trait>
+	<trait>
+		<name>Savage Attacks</name>
+		<text>When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.</text>
+	</trait>
+	<trait>
+		<languages>You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants.</languages>
+	</trait>
+</race>
 
-<race>	<racename>Tiefling</racename>	<size>Medium</size>	<speed>30</speed>	<ability>Cha 2, Int 1</ability>	<proficiency></proficiency>	<trait>		<name>Darkvision</name>		<text>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>	</trait>	<trait>		<name>Hellish Resistance</name>		<text>You have resistance to fire damage.</text>	</trait>	<trait>		<name>Infernal Legacy</name>		<text>You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. You must finish a long rest to cast either of these spells again using this trait. Charisma is your spellcasting ability for these spells.</text>	</trait>	<trait>		<languages>You can speak, read, and write Common and Infernal.</languages>	</trait></race>
+<race>
+	<racename>Human</racename>
+	<size>Medium</size>
+	<speed>30</speed>
+	<ability>Str 1, Dex 1, Con 1, Int 1, Wis 1, Cha 1</ability>
+	<proficiency></proficiency>
+	<trait>
+		<languages>You can speak, read, and write Common and one extra language of your choice.</languages>
+	</trait>
+</race>
+
+<race>
+	<racename>Tiefling</racename>
+	<size>Medium</size>
+	<speed>30</speed>
+	<ability>Cha 2, Int 1</ability>
+	<proficiency></proficiency>
+	<trait>
+		<name>Darkvision</name>
+		<text>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>
+	</trait>
+	<trait>
+		<name>Hellish Resistance</name>
+		<text>You have resistance to fire damage.</text>
+	</trait>
+	<trait>
+		<name>Infernal Legacy</name>
+		<text>You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. You must finish a long rest to cast either of these spells again using this trait. Charisma is your spellcasting ability for these spells.</text>
+	</trait>
+	<trait>
+		<languages>You can speak, read, and write Common and Infernal.</languages>
+	</trait>
+</race>
 </compendium>
