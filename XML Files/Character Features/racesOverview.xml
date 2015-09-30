@@ -127,15 +127,15 @@
 
 <race>
 	<racename>Tiefling</racename>
-	<racedescription></racedescription>
+	<racedescription>To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust
+	and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a
+	pact struck generations ago infused the essence of Asmodeus—overlord of the Nine Hells—into their bloodline. Their
+	appearance and their nature are not their fault but the result of an ancient sin, for which they and their children
+	and their children’s children will always be held accountable.</racedescription>
 	<size>Medium</size>
 	<speed>30</speed>
 	<ability>Cha 2, Int 1</ability>
-	<proficiency>To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and
-	fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a
-	pact struck generations ago infused the essence of Asmodeus—overlord of the Nine Hells—into their bloodline. Their
-	appearance and their nature are not their fault but the result of an ancient sin, for which they and their children
-	and their children’s children will always be held accountable.</proficiency>
+	<proficiency></proficiency>
 	<trait>
 		<name>Darkvision</name>
 		<text>Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.</text>
