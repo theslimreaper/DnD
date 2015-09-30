@@ -68,7 +68,7 @@ public class Race_Selection : MonoBehaviour {
 			i++;
 		}
 
-		raceDescrList = raceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "description");
+		raceDescrList = raceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "racedescription");
 	}
 
 	public void SelectRace(int position){
