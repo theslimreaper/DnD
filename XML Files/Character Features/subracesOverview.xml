@@ -2,20 +2,15 @@
 <compendium version="5" auto_indent="NO">
 <race>
 	<Dragonborn>
-	<!--Need to determine how to handle draconic ancestries
-		<subrace>
-			<name></name>
-			<description></description>
-		</subrace>
-	-->
+	<!--Need to determine how to handle draconic ancestries-->
 	</Dragonborn>
 </race>
 
 <race>
 	<Dwarf>
 		<subrace>
-			<name>Hill Dwarf</name>
-			<description>As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.</description>
+			<Dwarfname>Hill Dwarf</Dwarfname>
+			<Dwarfdescr>As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.</Dwarfdescr>
 		</subrace>
 		<subrace>
 			<name>Mountain Dwarf</name>
