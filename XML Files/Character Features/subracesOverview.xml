@@ -13,9 +13,9 @@
 			<Dwarfdescr>As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.</Dwarfdescr>
 		</subrace>
 		<subrace>
-			<name>Mountain Dwarf</name>
-			<description>As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You’re
-			probably on the tall side (for a dwarf), and tend toward lighter coloration.</description>
+			<Dwarfname>Mountain Dwarf</Dwarfname>
+			<Dwarfdescr>As a mountain dwarf, you're strong and hardy, accustomed to a difficult life in rugged terrain. You’re
+			probably on the tall side (for a dwarf), and tend toward lighter coloration.</Dwarfdescr>
 		</subrace>
 	</Dwarf>
 </race>
@@ -23,22 +23,22 @@
 <race>
 	<Elf>
 		<subrace>
-			<name>High Elf</name>
-			<description>As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many of the worlds
+			<Elfname>High Elf</Elfname>
+			<Elfdescr>As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many of the worlds
 			of D and D, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be superior to
 			non-elves and even other elves. The other type are more common and more friendly, and often encountered among humans
-			and other races.</description>
+			and other races.</Elfdescr>
 		</subrace>
 			<subrace>
-			<name>Wood Elf</name>
-			<description>As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily
-			through your native forests.</description>
+			<Elfname>Wood Elf</Elfname>
+			<Elfdescr>As a wood elf, you have keen senses and intuition, and your fleet feet carry you quickly and stealthily
+			through your native forests.</Elfdescr>
 		</subrace>
 			<subrace>
-			<name>Dark Elf (Drow)</name>
-			<description>Descended from an earlier subrace of dark-skinned elves, the drow were banished from the surface world
+			<Elfname>Dark Elf (Drow)</Elfname>
+			<Elfdescr>Descended from an earlier subrace of dark-skinned elves, the drow were banished from the surface world
 			for following the goddess Lolth down the path to evil and corruption. Now they have built their own
-			civilization in the depths of the Underdark, patterned after the Way of Lolth.</description>
+			civilization in the depths of the Underdark, patterned after the Way of Lolth.</Elfdescr>
 		</subrace>
 	</Elf>
 </race>
@@ -46,16 +46,16 @@
 <race>
 	<Gnome>
 		<subrace>
-			<name>Forest Gnome</name>
-			<description>As a forest gnome, you have a natural knack for illusion and inherent quickness and stealth. They
+			<Gnomename>Forest Gnome</Gnomename>
+			<Gnomedescr>As a forest gnome, you have a natural knack for illusion and inherent quickness and stealth. They
 			gather in hidden communities in sylvan forests, using illusions and trickery to conceal themselves from
 			threats or to mask their escape should they be detected. Forest gnomes tend to be friendly with other
 			good-spirited woodland folk, and they regard elves and good fey as their most important allies. These gnomes
-			also befriend small forest animals and rely on them for information about threats that might prowl their lands.</description>
+			also befriend small forest animals and rely on them for information about threats that might prowl their lands.</Gnomedescr>
 		</subrace>
 		<subrace>
-			<name>Rock Gnome</name>
-			<description>As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.</description>
+			<Gnomename>Rock Gnome</Gnomename>
+			<Gnomedescr>As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.</Gnomedescr>
 		</subrace>
 	</Gnome>
 </race>
@@ -63,15 +63,15 @@
 <race>
 	<Halfling>
 		<subrace>
-			<name>Lightfoot</name>
-			<description>As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You’re
+			<Halflingname>Lightfoot</Halflingname>
+			<Halflingdescr>As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You’re
 			inclined to be affable and get along well with others. Lightfoots are more prone to wanderlust than other
-			halflings, and often dwell alongside other races or take up a nomadic life.</description>
+			halflings, and often dwell alongside other races or take up a nomadic life.</Halflingdescr>
 		</subrace>
 		<subrace>
-			<name>Stout</name>
-			<description>As a stout halfling, you’re hardier than average and have some resistance to poison. Some say that
-			stouts have dwarven blood.</description>
+			<Halflingname>Stout</Halflingname>
+			<Halflingdescr>As a stout halfling, you’re hardier than average and have some resistance to poison. Some say that
+			stouts have dwarven blood.</Halflingdescr>
 		</subrace>
 	</Halfling>
 </race>

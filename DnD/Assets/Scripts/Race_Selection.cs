@@ -73,7 +73,7 @@ public class Race_Selection : MonoBehaviour {
 
 	public void SelectRace(int position){
 		Character_Info.characterRace = raceNames [position].GetComponent<Text> ().text;
-		Application.LoadLevel ("Class Selection");
+		Application.LoadLevel ("Subrace Selection");
 	}
 
 	public void FillRaceDescription(int position)
