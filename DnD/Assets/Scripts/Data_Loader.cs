@@ -8,11 +8,11 @@ using System;
 using System.Text;
 using System.Security.Cryptography;
 
-public class Data_Saver : ScriptableObject {
-	public void SaveData(string filename)
+public class Data_Loader : ScriptableObject {
+	public void LoadData(string filename)
 	{
-		string output_file = filename + ".xml";
 		string keyvalue = "";
+		string input_file = filename;
 		List<string> keyList = new List<string>();
 		UnicodeEncoding encoding = new UnicodeEncoding ();
 		byte[] key = null;
@@ -27,17 +27,17 @@ public class Data_Saver : ScriptableObject {
 		}
 		key = encoding.GetBytes (keyvalue);
 		
-		FileStream encrypted_file = new FileStream (output_file, FileMode.Create);
-		CryptoStream cryptography_stream = new CryptoStream (encrypted_file, RMCrypto.CreateEncryptor (key, key), CryptoStreamMode.Write);
-		using (MemoryStream msEncrypt = new MemoryStream()) {
-			using (StreamWriter swEncrypt = new StreamWriter(cryptography_stream)) {
-				swEncrypt.Write ("AND HIS NAME IS JOHN CENA");
+		FileStream decrypted_file = new FileStream (input_file, FileMode.Open);
+		CryptoStream cryptography_stream = new CryptoStream (decrypted_file, RMCrypto.CreateDecryptor (key, key), CryptoStreamMode.Read);
+		using (MemoryStream msDecrypt = new MemoryStream()) {
+			using (StreamReader swDecrypt = new StreamReader(cryptography_stream)) {
+				Debug.Log (swDecrypt.ReadToEnd());
 			}
 		}
 
 
 		cryptography_stream.Close ();
-		encrypted_file.Close ();
+		decrypted_file.Close ();
 		
 	}
 	
