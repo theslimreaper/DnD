@@ -7,6 +7,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	public static bool is_paused = false;
 	public CanvasGroup CanvasGroup;
 	public GameObject PauseMenu;
+
 	// Use this for initialization
 	void Start () {
 		Character_Info.characterName = "test";
@@ -18,53 +19,45 @@ public class MainMenuFunctions : MonoBehaviour {
 			switch( is_paused )
 			{
 				case false:
-					DeselectObjects ();
-					is_paused = true;
-					CanvasGroup.alpha = 1;
-					CanvasGroup.interactable = true;
-					PauseMenu.SetActive(true);
+				ShowPauseMenu ();
 					break;
 				case true:
-					is_paused = false;
-				CanvasGroup.alpha = 0;
-				CanvasGroup.interactable = false;
-				PauseMenu.SetActive (false);
+				HidePauseMenu ();
 				break;
 			}
 		}
 	}
 
+	//Create new character
 	public void createNewCharacter()
 	{
-		is_paused = false;
-		CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		PauseMenu.SetActive (false);
+		HidePauseMenu ();
 		Application.LoadLevel ("Race Selection");
 	}
+
+	//Load character from file
 	public void loadExistingCharacter()
 	{
-		is_paused = false;
-		CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		PauseMenu.SetActive (false);
+		HidePauseMenu ();
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
 		Load.LoadData ("test.xml");
 		Application.LoadLevel ("Base");
 	}
+
+	//Leave the application
 	public void exitGame()
 	{
 		Application.Quit ();
 	}
+
+	//Shows about us screen
 	public void aboutUs()
 	{
-		is_paused = false;
-		CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		PauseMenu.SetActive (false);
+		HidePauseMenu ();
 		Application.LoadLevel ("Credits");
 	}
 
+	//Deselect selected game objects such as input fields
 	public void DeselectObjects(){
 			GameObject[] objs = Selection.gameObjects;
 			List<GameObject> parents = new List<GameObject>();
@@ -74,6 +67,23 @@ public class MainMenuFunctions : MonoBehaviour {
 				}
 			}
 			Selection.objects = parents.ToArray();
+	}
+
+	//Show all pause menu game objects
+	void ShowPauseMenu(){
+		DeselectObjects ();
+		is_paused = true;
+		CanvasGroup.alpha = 1;
+		CanvasGroup.interactable = true;
+		PauseMenu.SetActive(true);
+	}
+
+	//Hide all pause menu game objects
+	void HidePauseMenu(){
+		is_paused = false;
+		CanvasGroup.alpha = 0;
+		CanvasGroup.interactable = false;
+		PauseMenu.SetActive (false);
 	}
 
 }
