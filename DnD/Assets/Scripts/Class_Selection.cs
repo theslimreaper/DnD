@@ -40,11 +40,11 @@ public class Class_Selection : MonoBehaviour {
 	//Update content position based on arrow key presses
 	void UpdateLayout()
 	{
-					if (Input.GetKey (KeyCode.LeftArrow) && classes[classes.Length - 1].transform.position.x >= (Screen.width / 2 )) {
-						moving = -1;
-					}
-					if (Input.GetKey (KeyCode.RightArrow) && classes[0].transform.position.x <= (Screen.width / 2 )) {
+		if (Input.GetKey (KeyCode.LeftArrow) && classes[0].transform.position.x <= (Screen.width / 2 )) {
 						moving = 1;
+					}
+		if (Input.GetKey (KeyCode.RightArrow) && classes[classes.Length - 1].transform.position.x >= (Screen.width / 2 )) {
+						moving = -1;
 					}
 					if (moving != 0) {
 					

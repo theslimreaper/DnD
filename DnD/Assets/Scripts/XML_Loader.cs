@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
+using System.Xml.Linq;
+using System;
 using System.Net;
 
 public class XML_Loader : ScriptableObject {
@@ -34,6 +36,37 @@ public class XML_Loader : ScriptableObject {
 		strList = ConvertInnerElemsToList (elemList);
 		
 		return strList;
+	}
+
+
+	public List<string>LoadXmlFromFile( string filename, string tagName ){
+		XmlNodeList elemList = null;
+		var doc = new XmlDocument ();
+		XmlTextReader reader = new XmlTextReader(filename);
+		List<string> strList = new List<string>();
+		
+		doc.Load (reader);
+		
+		elemList = GetXmlElems (doc, tagName);
+		
+		strList = ConvertElemsToList (elemList);
+		
+		return strList;		
+	}
+
+	public List<string>LoadInnerXmlFromFile( string filename, string tagName ){
+		XmlNodeList elemList = null;
+		XmlTextReader reader = new XmlTextReader(filename);
+		var doc = new XmlDocument ();
+		List<string> strList = new List<string>();
+
+		doc.Load (reader);
+		
+		elemList = GetXmlElems (doc, tagName);
+		
+		strList = ConvertInnerElemsToList (elemList);
+		
+		return strList;		
 	}
 
 	//Loads specified XML file content

@@ -44,11 +44,11 @@ public class Subrace_Selection : MonoBehaviour {
 	//Update content position based on arrow key presses
 	void UpdateLayout()
 	{
-					if (Input.GetKey (KeyCode.LeftArrow) && subraces[num_of_subraces - 1].transform.position.x >= (Screen.width / 2 )) {
-						moving = -1;
-					}
-					if (Input.GetKey (KeyCode.RightArrow) && subraces[0].transform.position.x <= (Screen.width / 2 )) {
+		if (Input.GetKey (KeyCode.LeftArrow) && subraces[0].transform.position.x <= (Screen.width / 2 )) {
 						moving = 1;
+					}
+		if (Input.GetKey (KeyCode.RightArrow) && subraces[num_of_subraces - 1].transform.position.x >= (Screen.width / 2 )) {
+						moving = -1;
 					}
 					if (moving != 0) {
 					
