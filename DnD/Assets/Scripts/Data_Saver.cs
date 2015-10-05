@@ -53,6 +53,10 @@ public class Data_Saver : ScriptableObject {
 		contentList.Add (content);
 		content = "<savedcharacter>";
 		contentList.Add (content);
+
+		content = "<characterinfo>";
+		contentList.Add (content);
+
 		content = "<charactername>" + Character_Info.characterName + "</charactername>";
 		contentList.Add (content);
 		content = "<characterclass>" + Character_Info.characterClass + "</characterclass>";
@@ -61,6 +65,30 @@ public class Data_Saver : ScriptableObject {
 		contentList.Add (content);
 		content = "<charactersubrace>" + Character_Info.characterSubrace + "</charactersubrace>";
 		contentList.Add (content);
+		content = "<alignment>" + Character_Info.characterAlignment + "</alignment>";
+		contentList.Add (content);
+		content = "<age>" + Character_Info.characterAge + "</age>";
+		contentList.Add (content);
+		content = "<gender>" + Character_Info.characterGender + "</gender>";
+		contentList.Add (content);
+		content = "<characterlevel>" + Character_Info.characterLevel + "</characterlevel>";
+		contentList.Add (content);
+		content = "<health>" + Character_Info.characterHealth + "</health>";
+		contentList.Add (content);
+		content = "<height>" + Character_Info.characterHeight + "</height>";
+		contentList.Add (content);
+		content = "<weight>" + Character_Info.characterWeight + "</weight>";
+		contentList.Add (content);
+		content = "<carryweight>" + Character_Info.characterCarryWeight + "</carryweight>";
+		contentList.Add (content);
+		content = "<movespeed>" + Character_Info.characterMoveSpeed + "</movespeed>";
+		contentList.Add (content);
+		content = "<languages>" + Character_Info.characterLanguages + "</languages>";
+		contentList.Add (content);
+
+		content = "</characterinfo>";
+		contentList.Add (content);
+
 		content = "</savedcharacter>";
 		contentList.Add (content);
 

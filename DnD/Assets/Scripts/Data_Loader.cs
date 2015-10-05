@@ -16,9 +16,7 @@ public class Data_Loader : ScriptableObject {
 		string input_file = filename;
 		string output_file = "temp.xml";
 		List<string> keyList = new List<string>();
-		List<string> charClass = new List<string> ();
-		List<string> charRace = new List<string> ();
-		List<string> charSubrace = new List<string> ();
+		List<string> elemList = new List<string> ();
 		UnicodeEncoding encoding = new UnicodeEncoding ();
 		byte[] key = null;
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
@@ -48,19 +46,83 @@ public class Data_Loader : ScriptableObject {
 		decrypted_file.Close ();
 
 		//Call functions to load data from temporary xml file into specified game objects
-		charClass = XML.LoadInnerXmlFromFile (output_file, "characterclass");
-		charRace = XML.LoadInnerXmlFromFile (output_file, "characterrace");
-		charSubrace = XML.LoadInnerXmlFromFile (output_file, "charactersubrace");
-
-		foreach(var item in charClass){
+		elemList = XML.LoadInnerXmlFromFile (output_file, "characterclass");
+		foreach(var item in elemList){
 			Character_Info.characterClass = item;
 		}
-		foreach(var item in charRace){
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "characterrace");
+		foreach(var item in elemList){
 			Character_Info.characterRace = item;
 		}
-		foreach(var item in charSubrace){
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "charactersubrace");
+		foreach(var item in elemList){
 			Character_Info.characterSubrace = item;
 		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "alignment");
+		foreach(var item in elemList){
+			Character_Info.characterAlignment = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "age");
+		foreach(var item in elemList){
+			Character_Info.characterAge = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "gender");
+		foreach(var item in elemList){
+			Character_Info.characterGender = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "characterlevel");
+		foreach(var item in elemList){
+			Character_Info.characterLevel = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "health");
+		foreach(var item in elemList){
+			Character_Info.characterHealth = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "height");
+		foreach(var item in elemList){
+			Character_Info.characterHeight = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "weight");
+		foreach(var item in elemList){
+			Character_Info.characterWeight = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "carryweight");
+		foreach(var item in elemList){
+			Character_Info.characterCarryWeight = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "movespeed");
+		foreach(var item in elemList){
+			Character_Info.characterMoveSpeed = item;
+		}
+		elemList.Clear ();
+
+		elemList = XML.LoadInnerXmlFromFile (output_file, "languages");
+		foreach(var item in elemList){
+			Character_Info.characterLanguages = item;
+		}
+		elemList.Clear ();
 
 		//Delete the temporary xml file
 		File.Delete (output_file);
