@@ -17,23 +17,21 @@ public class Screen_Rotator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if(Input.GetKey(KeyCode.LeftArrow))
-		   {
-			moving=-1;
+		if (MainMenuFunctions.is_paused == false) {
+			if (Input.GetKey (KeyCode.LeftArrow)) {
+				moving = -1;
 			}
-		if(Input.GetKey(KeyCode.RightArrow))
-		{
-			moving=1;
-		}
-		if(moving!=0)
-			{
-				transform.Rotate(Vector3.up * transitionSpeed*moving);
+			if (Input.GetKey (KeyCode.RightArrow)) {
+				moving = 1;
+			}
+			if (moving != 0) {
+				transform.Rotate (Vector3.up * transitionSpeed * moving);
 
-				if(transform.rotation.eulerAngles.y%(360/arms.Length)<1)
-				{
-					moving=0;
+				if (transform.rotation.eulerAngles.y % (360 / arms.Length) < 1) {
+					moving = 0;
 				}
 			}
+		}
 	}
 
 }

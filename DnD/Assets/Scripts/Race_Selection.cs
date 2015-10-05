@@ -40,11 +40,11 @@ public class Race_Selection : MonoBehaviour {
 	//Update content position based on arrow key presses
 	void UpdateLayout()
 	{
-					if (Input.GetKey (KeyCode.LeftArrow) && races[races.Length - 1].transform.position.x >= (Screen.width / 2 )) {
-						moving = -1;
-					}
-					if (Input.GetKey (KeyCode.RightArrow) && races[0].transform.position.x <= (Screen.width / 2 )) {
+		if (Input.GetKey (KeyCode.LeftArrow) && races[0].transform.position.x <= (Screen.width / 2 )) {
 						moving = 1;
+					}
+		if (Input.GetKey (KeyCode.RightArrow) && races[races.Length - 1].transform.position.x >= (Screen.width / 2 )) {
+						moving = -1;
 					}
 					if (moving != 0) {
 					
