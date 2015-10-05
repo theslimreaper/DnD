@@ -19,13 +19,15 @@ public class Data_Saver : ScriptableObject {
 		byte[] key = null;
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
 
+		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
 		keyList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
 		foreach (var item in keyList) {
 			keyvalue = item;
 		}
 		key = encoding.GetBytes (keyvalue);
-		
+
+		//Collect data to be saved and write it to an encrypted xml file using the key retrieved earlier
 		FileStream encrypted_file = new FileStream (output_file, FileMode.Create);
 		CryptoStream cryptography_stream = new CryptoStream (encrypted_file, RMCrypto.CreateEncryptor (key, key), CryptoStreamMode.Write);
 		using (MemoryStream msEncrypt = new MemoryStream()) {
@@ -42,6 +44,7 @@ public class Data_Saver : ScriptableObject {
 		encrypted_file.Close ();
 	}
 
+	//Format data into xml format
 	List<string> CollectData (){
 		List<string> contentList = new List<string> ();
 		string content = "";

@@ -23,14 +23,15 @@ public class Data_Loader : ScriptableObject {
 		byte[] key = null;
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
 		
-		
+		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
 		keyList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
 		foreach (var item in keyList) {
 			keyvalue = item;
 		}
 		key = encoding.GetBytes (keyvalue);
-		
+
+		//Open / read the selected (encrypted) character file and decrypt it, then write the decrypted information to a temporary xml file
 		FileStream decrypted_file = new FileStream (input_file, FileMode.Open);
 		FileStream temp_file = new FileStream(output_file, FileMode.Create);
 		CryptoStream cryptography_stream = new CryptoStream (decrypted_file, RMCrypto.CreateDecryptor (key, key), CryptoStreamMode.Read);
@@ -43,10 +44,10 @@ public class Data_Loader : ScriptableObject {
 				}
 			}
 		}
-
 		cryptography_stream.Close ();
 		decrypted_file.Close ();
 
+		//Call functions to load data from temporary xml file into specified game objects
 		charClass = XML.LoadInnerXmlFromFile (output_file, "characterclass");
 		charRace = XML.LoadInnerXmlFromFile (output_file, "characterrace");
 		charSubrace = XML.LoadInnerXmlFromFile (output_file, "charactersubrace");
@@ -61,6 +62,7 @@ public class Data_Loader : ScriptableObject {
 			Character_Info.characterSubrace = item;
 		}
 
+		//Delete the temporary xml file
 		File.Delete (output_file);
 
 	}
