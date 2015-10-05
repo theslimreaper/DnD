@@ -50,6 +50,8 @@ public class XML_Loader : ScriptableObject {
 		elemList = GetXmlElems (doc, tagName);
 		
 		strList = ConvertElemsToList (elemList);
+
+		reader.Close ();
 		
 		return strList;		
 	}
@@ -65,6 +67,8 @@ public class XML_Loader : ScriptableObject {
 		elemList = GetXmlElems (doc, tagName);
 		
 		strList = ConvertInnerElemsToList (elemList);
+
+		reader.Close ();
 		
 		return strList;		
 	}

@@ -36,10 +36,18 @@ public class MainMenuFunctions : MonoBehaviour {
 
 	public void createNewCharacter()
 	{
+		is_paused = false;
+		CanvasGroup.alpha = 0;
+		CanvasGroup.interactable = false;
+		PauseMenu.SetActive (false);
 		Application.LoadLevel ("Race Selection");
 	}
 	public void loadExistingCharacter()
 	{
+		is_paused = false;
+		CanvasGroup.alpha = 0;
+		CanvasGroup.interactable = false;
+		PauseMenu.SetActive (false);
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
 		Load.LoadData ("test.xml");
 		Application.LoadLevel ("Base");
@@ -50,13 +58,13 @@ public class MainMenuFunctions : MonoBehaviour {
 	}
 	public void aboutUs()
 	{
+		is_paused = false;
+		CanvasGroup.alpha = 0;
+		CanvasGroup.interactable = false;
+		PauseMenu.SetActive (false);
 		Application.LoadLevel ("Credits");
 	}
-	public void SaveCharacter(){
-		Data_Saver Save = ScriptableObject.CreateInstance<Data_Saver> ();
-		Save.SaveData (Character_Info.characterName);
-		print ("Save successful!");
-	}
+
 	public void DeselectObjects(){
 			GameObject[] objs = Selection.gameObjects;
 			List<GameObject> parents = new List<GameObject>();

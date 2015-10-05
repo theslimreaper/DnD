@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class PointBuyTracker : MonoBehaviour {
-    public static int PointBuyTotal = 27;
+ /*   public static int PointBuyTotal = 27;
     public static int oldTotal = 27;
     public static int PointBuyLeft = 27;
     public InputField TotalPointsInput;
@@ -89,5 +89,5 @@ public class PointBuyTracker : MonoBehaviour {
         PointBuyLeft = PointBuyLeft + (PointBuyTotal - oldTotal);
         pointBuyRemaining.text = "You have " + PointBuyLeft + " points left to spend.";
     }
-
+*/
 }

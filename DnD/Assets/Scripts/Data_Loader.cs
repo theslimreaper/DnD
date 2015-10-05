@@ -47,9 +47,9 @@ public class Data_Loader : ScriptableObject {
 		cryptography_stream.Close ();
 		decrypted_file.Close ();
 
-		charClass = XML.LoadInnerXmlFromFile ("temp.xml", "characterclass");
-		charRace = XML.LoadInnerXmlFromFile ("temp.xml", "characterrace");
-		charSubrace = XML.LoadInnerXmlFromFile ("temp.xml", "charactersubrace");
+		charClass = XML.LoadInnerXmlFromFile (output_file, "characterclass");
+		charRace = XML.LoadInnerXmlFromFile (output_file, "characterrace");
+		charSubrace = XML.LoadInnerXmlFromFile (output_file, "charactersubrace");
 
 		foreach(var item in charClass){
 			Character_Info.characterClass = item;
@@ -60,5 +60,8 @@ public class Data_Loader : ScriptableObject {
 		foreach(var item in charSubrace){
 			Character_Info.characterSubrace = item;
 		}
+
+		File.Delete (output_file);
+
 	}
 }
