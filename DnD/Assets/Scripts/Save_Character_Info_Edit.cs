@@ -30,6 +30,8 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 	public GameObject displaySpeed;
 	public GameObject editLanguage;
 	public GameObject displayLanguage;
+	public GameObject editSubRace;
+	public GameObject displaySubRace;
 
 	// Use this for initialization
 	void Start () {
@@ -37,19 +39,20 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 	}
 
 	public void Edit(){
-		displayName.GetComponent<Text> = editName.GetComponent<InputField>;
-		displayClass.GetComponent<Text> = editClass.GetComponent<InputField>;
-		displayRace.GetComponent<Text> = editRace.GetComponent<InputField>;
-		displayAlignment.GetComponent<Text> = editAlignment.GetComponent<InputField>;
-		displayAge.GetComponent<Text> = editAge.GetComponent<InputField>;
-		displayGender.GetComponent<Text> = editGender.GetComponent<InputField>;
-		displayLevel.GetComponent<Text> = editLevel.GetComponent<InputField>;
-		displayHP.GetComponent<Text> = editHP.GetComponent<InputField>;
-		displayHeight.GetComponent<Text> = editHeight.GetComponent<InputField>;
-		displayWeight.GetComponent<Text> = editWeight.GetComponent<InputField>;
-		displayCarry.GetComponent<Text> = editCarry.GetComponent<InputField>;
-		displaySpeed.GetComponent<Text> = editSpeed.GetComponent<InputField>;
-		displayLanguage.GetComponent<Text> = editLanguage.GetComponent<InputField>;
+		displayName.GetComponent<Text>().text = editName.GetComponent<InputField>().text;
+		displayClass.GetComponent<Text>().text = editClass.GetComponent<InputField>().text;
+		displayRace.GetComponent<Text>().text = editRace.GetComponent<InputField>().text;
+		displaySubRace.GetComponent<Text>().text = editSubRace.GetComponent<InputField>().text;
+		displayAlignment.GetComponent<Text>().text = editAlignment.GetComponent<InputField>().text;
+		displayAge.GetComponent<Text>().text = editAge.GetComponent<InputField>().text;
+		displayGender.GetComponent<Text>().text = editGender.GetComponent<InputField>().text;
+		displayLevel.GetComponent<Text>().text = editLevel.GetComponent<InputField>().text;
+		displayHP.GetComponent<Text>().text = editHP.GetComponent<InputField>().text;
+		displayHeight.GetComponent<Text>().text = editHeight.GetComponent<InputField>().text;
+		displayWeight.GetComponent<Text>().text = editWeight.GetComponent<InputField>().text;
+		displayCarry.GetComponent<Text>().text = editCarry.GetComponent<InputField>().text;
+		displaySpeed.GetComponent<Text>().text = editSpeed.GetComponent<InputField>().text;
+		displayLanguage.GetComponent<Text>().text = editLanguage.GetComponent<InputField>().text;
 	}
 	
 	// Update is called once per frame
