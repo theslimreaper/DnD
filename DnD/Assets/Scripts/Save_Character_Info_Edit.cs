@@ -37,7 +37,19 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 	}
 
 	public void Edit(){
-		displayName = editName;
+		displayName.GetComponent<Text> = editName.GetComponent<InputField>;
+		displayClass.GetComponent<Text> = editClass.GetComponent<InputField>;
+		displayRace.GetComponent<Text> = editRace.GetComponent<InputField>;
+		displayAlignment.GetComponent<Text> = editAlignment.GetComponent<InputField>;
+		displayAge.GetComponent<Text> = editAge.GetComponent<InputField>;
+		displayGender.GetComponent<Text> = editGender.GetComponent<InputField>;
+		displayLevel.GetComponent<Text> = editLevel.GetComponent<InputField>;
+		displayHP.GetComponent<Text> = editHP.GetComponent<InputField>;
+		displayHeight.GetComponent<Text> = editHeight.GetComponent<InputField>;
+		displayWeight.GetComponent<Text> = editWeight.GetComponent<InputField>;
+		displayCarry.GetComponent<Text> = editCarry.GetComponent<InputField>;
+		displaySpeed.GetComponent<Text> = editSpeed.GetComponent<InputField>;
+		displayLanguage.GetComponent<Text> = editLanguage.GetComponent<InputField>;
 	}
 	
 	// Update is called once per frame
