@@ -10,7 +10,6 @@ public class MainMenuFunctions : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Character_Info.characterName = "test";
 	}
 	
 	// Update is called once per frame

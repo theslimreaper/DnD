@@ -35,7 +35,20 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		editName.GetComponent<InputField>().text = displayName.GetComponent<Text>().text;
+		editClass.GetComponent<InputField>().text = displayClass.GetComponent<Text>().text;
+		editRace.GetComponent<InputField>().text = displayRace.GetComponent<Text>().text;
+		editSubRace.GetComponent<InputField>().text = displaySubRace.GetComponent<Text>().text;
+		editAlignment.GetComponent<InputField>().text = displayAlignment.GetComponent<Text>().text;
+		editAge.GetComponent<InputField>().text = displayAge.GetComponent<Text>().text;
+		editGender.GetComponent<InputField>().text = displayGender.GetComponent<Text>().text;
+		editLevel.GetComponent<InputField>().text = displayLevel.GetComponent<Text>().text;
+		editHP.GetComponent<InputField>().text = displayHP.GetComponent<Text>().text;
+		editHeight.GetComponent<InputField>().text = displayHeight.GetComponent<Text>().text;
+		editWeight.GetComponent<InputField>().text = displayWeight.GetComponent<Text>().text;
+		editCarry.GetComponent<InputField>().text = displayCarry.GetComponent<Text>().text;
+		editSpeed.GetComponent<InputField>().text = displaySpeed.GetComponent<Text>().text;
+		editLanguage.GetComponent<InputField>().text = displayLanguage.GetComponent<Text>().text;
 	}
 
 	public void Edit(){

@@ -5,7 +5,7 @@ using System.Collections;
 public class Data_Handler : MonoBehaviour {
 	public GameObject Class;
 	public GameObject Race;
-	//public GameObject Subrace;
+	public GameObject Subrace;
 	public GameObject Name;
 	public GameObject Health;
 	public GameObject Gender;
@@ -33,8 +33,8 @@ public class Data_Handler : MonoBehaviour {
 	void CollectData(){
 		Character_Info.characterClass = Class.GetComponent<Text> ().text;
 		Character_Info.characterRace = Race.GetComponent<Text> ().text;
-		//Character_Info.characterSubrace = Subrace.GetComponent<Text> ().text;
-		//Character_Info.characterName = Name.GetComponent<Text> ().text ();
+		Character_Info.characterSubrace = Subrace.GetComponent<Text> ().text;
+		Character_Info.characterName = Name.GetComponent<Text> ().text;
 		Character_Info.characterHealth = Health.GetComponent<Text> ().text;
 		Character_Info.characterGender = Gender.GetComponent<Text> ().text;
 		Character_Info.characterAlignment = Alignment.GetComponent<Text> ().text;
@@ -51,12 +51,11 @@ public class Data_Handler : MonoBehaviour {
 	public void ImportData(){
 		Class.GetComponent<Text>().text = Character_Info.characterClass;
 		Race.GetComponent<Text>().text = Character_Info.characterRace;
-		//Subrace.GetComponent<Text>().text = Character_Info.characterSubrace;
+		Subrace.GetComponent<Text>().text = Character_Info.characterSubrace;
 		Name.GetComponent<Text> ().text = Character_Info.characterName;
 		Health.GetComponent<Text> ().text = Character_Info.characterHealth;
 		Gender.GetComponent<Text> ().text = Character_Info.characterGender;
 		Alignment.GetComponent<Text> ().text = Character_Info.characterAlignment;
-		Character_Info.characterAlignment = Alignment.GetComponent<Text> ().text;
 		Height.GetComponent<Text> ().text = Character_Info.characterHeight;
 		Weight.GetComponent<Text> ().text = Character_Info.characterWeight;
 		CarryWeight.GetComponent<Text> ().text = Character_Info.characterCarryWeight;

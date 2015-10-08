@@ -46,6 +46,12 @@ public class Data_Loader : ScriptableObject {
 		decrypted_file.Close ();
 
 		//Call functions to load data from temporary xml file into specified game objects
+		elemList = XML.LoadInnerXmlFromFile (output_file, "charactername");
+		foreach(var item in elemList){
+			Character_Info.characterName = item;
+		}
+		elemList.Clear ();
+
 		elemList = XML.LoadInnerXmlFromFile (output_file, "characterclass");
 		foreach(var item in elemList){
 			Character_Info.characterClass = item;
