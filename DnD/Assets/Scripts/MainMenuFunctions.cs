@@ -14,7 +14,8 @@ public class MainMenuFunctions : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Application.loadedLevelName == "Base" && Input.GetKeyDown( KeyCode.F1 )) {
+        if ((Application.loadedLevelName == "Base" || Application.loadedLevelName == "Screen Hub") && Input.GetKeyDown(KeyCode.F1))
+        {
 			switch( is_paused )
 			{
 				case false:
@@ -69,7 +70,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	}
 
 	//Show all pause menu game objects
-	void ShowPauseMenu(){
+	public void ShowPauseMenu(){
 		DeselectObjects ();
 		is_paused = true;
 		CanvasGroup.alpha = 1;
@@ -78,7 +79,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	}
 
 	//Hide all pause menu game objects
-	void HidePauseMenu(){
+	public void HidePauseMenu(){
 		is_paused = false;
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
