@@ -7,6 +7,8 @@ public class MainMenuFunctions : MonoBehaviour {
 	public static bool is_paused = false;
 	public CanvasGroup CanvasGroup;
 	public GameObject PauseMenu;
+    public GameObject SideMenuMain;
+    public float transition_speed;
 
 	// Use this for initialization
 	void Start () {
@@ -68,18 +70,20 @@ public class MainMenuFunctions : MonoBehaviour {
 	void ShowPauseMenu(){
 		DeselectObjects ();
 		is_paused = true;
-		CanvasGroup.alpha = 1;
+		/*CanvasGroup.alpha = 1;
 		CanvasGroup.interactable = true;
-		PauseMenu.SetActive(true);
+		PauseMenu.SetActive(true);*/
+        StartCoroutine(ScreenIn());
 	}
 
 	//Hide all pause menu game objects
 	void HidePauseMenu(){
 		is_paused = false;
-		CanvasGroup.alpha = 0;
+		/*CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
-		PauseMenu.SetActive (false);
-	}
+		PauseMenu.SetActive (false);*/
+        StartCoroutine(ScreenOut());
+    }
 
 	//Toggle show/hide pause menu
 	public void AlternatePauseMenu(){
@@ -93,5 +97,27 @@ public class MainMenuFunctions : MonoBehaviour {
 			break;
 		}
 	}
+
+    //Slide side menu out of view
+    IEnumerator ScreenOut()
+    {
+        while (SideMenuMain.transform.position.x >= -2000)
+        {
+            Vector3 new_position = new Vector3(100*transition_speed, SideMenuMain.transform.position.y, SideMenuMain.transform.position.z);
+            SideMenuMain.transform.position -= new_position;
+            yield return null;
+        }
+    }
+
+    //Slide side menu into view
+    IEnumerator ScreenIn()
+    {
+        while (SideMenuMain.transform.position.x < 0)
+        {
+            Vector3 new_position = new Vector3(100*transition_speed, SideMenuMain.transform.position.y, SideMenuMain.transform.position.z);
+            SideMenuMain.transform.position += new_position;
+            yield return null;
+        }
+    }
 
 }
