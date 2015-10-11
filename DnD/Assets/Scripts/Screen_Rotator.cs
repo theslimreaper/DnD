@@ -17,7 +17,7 @@ public class Screen_Rotator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		if (MainMenuFunctions.is_paused == false) {
+		if (Side_Menu.is_paused == false) {
 			if (Input.GetKey (KeyCode.LeftArrow)) {
 				moving = -1;
 			}

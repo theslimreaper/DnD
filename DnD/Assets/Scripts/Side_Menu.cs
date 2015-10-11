@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 
-public class MainMenuFunctions : MonoBehaviour {
+public class Side_Menu : MonoBehaviour {
 	public static bool is_paused = false;
 	public CanvasGroup CanvasGroup;
 	public GameObject PauseMenu;
@@ -19,7 +19,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if ((Application.loadedLevelName == "Base" || Application.loadedLevelName == "Screen Hub") && Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
 			AlternatePauseMenu ();
 		}
@@ -70,18 +70,14 @@ public class MainMenuFunctions : MonoBehaviour {
 	void ShowPauseMenu(){
 		DeselectObjects ();
 		is_paused = true;
-		/*CanvasGroup.alpha = 1;
-		CanvasGroup.interactable = true;
-		PauseMenu.SetActive(true);*/
+		//PauseMenu.SetActive(true);
         StartCoroutine(ScreenIn());
 	}
 
 	//Hide all pause menu game objects
 	void HidePauseMenu(){
 		is_paused = false;
-		/*CanvasGroup.alpha = 0;
-		CanvasGroup.interactable = false;
-		PauseMenu.SetActive (false);*/
+		//PauseMenu.SetActive (false);
         StartCoroutine(ScreenOut());
     }
 
