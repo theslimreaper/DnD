@@ -10,21 +10,17 @@ public class MainMenuFunctions : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (Application.loadedLevelName == "Screen Hub") {
+			HidePauseMenu ();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if ((Application.loadedLevelName == "Base" || Application.loadedLevelName == "Screen Hub") && Input.GetKeyDown(KeyCode.F1))
         {
-			switch( is_paused )
-			{
-				case false:
-				ShowPauseMenu ();
-					break;
-				case true:
-				HidePauseMenu ();
-				break;
-			}
+			print (is_paused);
+			AlternatePauseMenu ();
 		}
 	}
 
@@ -70,7 +66,7 @@ public class MainMenuFunctions : MonoBehaviour {
 	}
 
 	//Show all pause menu game objects
-	public void ShowPauseMenu(){
+	void ShowPauseMenu(){
 		DeselectObjects ();
 		is_paused = true;
 		CanvasGroup.alpha = 1;
@@ -79,11 +75,24 @@ public class MainMenuFunctions : MonoBehaviour {
 	}
 
 	//Hide all pause menu game objects
-	public void HidePauseMenu(){
+	void HidePauseMenu(){
 		is_paused = false;
 		CanvasGroup.alpha = 0;
 		CanvasGroup.interactable = false;
 		PauseMenu.SetActive (false);
+	}
+
+	//Toggle show/hide pause menu
+	public void AlternatePauseMenu(){
+		switch( is_paused )
+		{
+		case false:
+			ShowPauseMenu ();
+			break;
+		case true:
+			HidePauseMenu ();
+			break;
+		}
 	}
 
 }
