@@ -19,7 +19,6 @@ public class MainMenuFunctions : MonoBehaviour {
 	void Update () {
         if ((Application.loadedLevelName == "Base" || Application.loadedLevelName == "Screen Hub") && Input.GetKeyDown(KeyCode.F1))
         {
-			print (is_paused);
 			AlternatePauseMenu ();
 		}
 	}
@@ -37,7 +36,7 @@ public class MainMenuFunctions : MonoBehaviour {
 		HidePauseMenu ();
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
 		Load.LoadData ("test.xml");
-		Application.LoadLevel ("Base");
+		Application.LoadLevel ("Screen Hub");
 	}
 
 	//Leave the application

@@ -58,7 +58,7 @@ public class Class_Selection : MonoBehaviour {
 
 	public void ConfirmCharacter()
 	{
-		Application.LoadLevel ("Base");
+		Application.LoadLevel ("Screen Hub");
 	}
 
 	void GetClasses()
