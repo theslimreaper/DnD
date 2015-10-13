@@ -25,8 +25,7 @@ public class Data_Handler : MonoBehaviour {
 	public void SaveData(){
 		CollectData ();
 		Data_Saver Save = ScriptableObject.CreateInstance<Data_Saver> ();
-		//Save.SaveData (Character_Info.characterName);
-		Save.SaveData ("test");
+		Save.SaveData (Character_Info.characterName);
 		print ("Save successful!");
 	}
 
