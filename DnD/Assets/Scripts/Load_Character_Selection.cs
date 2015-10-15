@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
-using System.Collections.Generic;
+using System.Net;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System;
+using System.Text;
+using System.Security.Cryptography;
 
 public class Load_Character_Selection : MonoBehaviour {
     public GameObject Select_Character_Button;
@@ -17,9 +21,11 @@ public class Load_Character_Selection : MonoBehaviour {
     static float ParentRectHeight;
     RectTransform ParentRect;
     float screenRatio = (float)Screen.height / (float)1080;
+    string keyvalue = "";
 
 	// Use this for initialization
 	void Start () {
+        getKey();
         ParentButtonDefault = ParentButton;
         ParentRectDefault = ParentButtonDefault.GetComponent<RectTransform>();
         ParentRectHeight = ParentRectDefault.rect.height;
@@ -51,18 +57,15 @@ public class Load_Character_Selection : MonoBehaviour {
                 GameObject characterButton = (GameObject)Instantiate(Select_Character_Button);
                 GameObject characterText = characterButton.gameObject.transform.GetChild(0).gameObject;
                 characterButton.transform.SetParent(ParentButton, false);
-                //characterText.transform.SetParent(ParentText, false);
                 characterButton.transform.localScale = new Vector3(0.4760417f, 0.4760417f, 0.4760417f);
                 characterText.transform.localScale = new Vector3(4.760417f * 0.5f, 4.760417f * 0.5f, 4.760417f * 0.5f);
-                characterText.GetComponent<Text>().text = Path.GetFileNameWithoutExtension(characters[i]);
+                characterText.GetComponent<Text>().text = PeekAtCharacher(characters[i]);
                 if (i == 0)
                 {
                     characterButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y, -212);
                 }
                 else
                 {
-                    print(Screen.height);
-                    print(screenRatio);
                     characterButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y - (150 * i * screenRatio), -212);
                 }
 
@@ -89,4 +92,96 @@ public class Load_Character_Selection : MonoBehaviour {
         Load.LoadData(selected_file);
         Application.LoadLevel("Screen Hub");
     }
+
+    void getKey()
+    {
+        List<string> keyList = new List<string>();
+
+        //Get encryption / decryption key from url
+        XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
+        keyList = XML.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
+        foreach (var item in keyList)
+        {
+            keyvalue = item;
+        }
+    }
+
+    string PeekAtCharacher(string filename)
+    {
+        string line = "";
+        string input_file = filename;
+        string output_file = "temp.xml";
+        List<string> keyList = new List<string>();
+        List<string> elemList = new List<string>();
+        UnicodeEncoding encoding = new UnicodeEncoding();
+        byte[] key = null;
+        RijndaelManaged RMCrypto = new RijndaelManaged();
+        string characterInfo = "";
+
+        XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
+
+        key = encoding.GetBytes(keyvalue);
+
+        //Open / read the selected (encrypted) character file and decrypt it, then write the decrypted information to a temporary xml file
+        FileStream decrypted_file = new FileStream(input_file, FileMode.Open);
+        FileStream temp_file = new FileStream(output_file, FileMode.Create);
+        CryptoStream cryptography_stream = new CryptoStream(decrypted_file, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
+        using (MemoryStream msDecrypt = new MemoryStream())
+        {
+            using (StreamReader srDecrypt = new StreamReader(cryptography_stream))
+            {
+                using (StreamWriter swTemp = new StreamWriter(temp_file))
+                {
+                    while ((line = srDecrypt.ReadLine()) != null)
+                    {
+                        swTemp.WriteLine(line);
+                    }
+                }
+            }
+        }
+        cryptography_stream.Close();
+        decrypted_file.Close();
+
+        //Call functions to load data from temporary xml file into specified game objects
+        elemList = XML.LoadInnerXmlFromFile(output_file, "charactername");
+        foreach (var item in elemList)
+        {
+            characterInfo = item + " -";
+        }
+        elemList.Clear();
+
+        elemList = XML.LoadInnerXmlFromFile(output_file, "characterlevel");
+        foreach (var item in elemList)
+        {
+            characterInfo = characterInfo + " Lv. " + item;
+        }
+        elemList.Clear();
+
+        elemList = XML.LoadInnerXmlFromFile(output_file, "charactersubrace");
+        foreach (var item in elemList)
+        {
+            characterInfo = characterInfo +  " " + item;
+        }
+        elemList.Clear();
+
+        elemList = XML.LoadInnerXmlFromFile(output_file, "characterrace");
+        foreach (var item in elemList)
+        {
+            characterInfo = characterInfo + " " + item;
+        }
+        elemList.Clear();
+
+        elemList = XML.LoadInnerXmlFromFile(output_file, "characterclass");
+        foreach (var item in elemList)
+        {
+            characterInfo = characterInfo + " " + item;
+        }
+        elemList.Clear();
+
+        //Delete the temporary xml file
+        File.Delete(output_file);
+
+        return characterInfo;
+    }
+    
 }
