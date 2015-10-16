@@ -13,7 +13,7 @@ public class Load_Character_Selection : MonoBehaviour {
     public GameObject Select_Character_Text;
     string[] characters = null;
     public GameObject ScrollView;
-    List<GameObject> dynamicObjects = new List<GameObject>();
+    public static List<GameObject> dynamicObjects = new List<GameObject>();
     public RectTransform ParentButton;
     static RectTransform ParentButtonDefault;
     public RectTransform ParentText;
@@ -34,21 +34,12 @@ public class Load_Character_Selection : MonoBehaviour {
 
     public void GetCharacters()
     {
-        characters  = Directory.GetFiles(".","*.xml");
-        foreach( var item in dynamicObjects )
-        {
-            Destroy(item);
-        }
-
-        dynamicObjects.Clear();
+        characters  = Directory.GetFiles("./Saved Characters","*.xml");
+        DeleteLoadedCharacters();
 
         if(characters.Length > 0)
         {
             ScrollView.transform.position = new Vector3(ScrollView.transform.position.x, ScrollView.transform.position.y, 0);
-        }
-        else
-        {
-            ScrollView.transform.position = new Vector3(ScrollView.transform.position.x, ScrollView.transform.position.y, -10000);
         }
 
 
@@ -182,6 +173,18 @@ public class Load_Character_Selection : MonoBehaviour {
         File.Delete(output_file);
 
         return characterInfo;
+    }
+
+    public void DeleteLoadedCharacters()
+    {
+        foreach (var item in dynamicObjects)
+        {
+            Destroy(item);
+        }
+
+        dynamicObjects.Clear();
+
+        ScrollView.transform.position = new Vector3(ScrollView.transform.position.x, ScrollView.transform.position.y, -10000);
     }
     
 }

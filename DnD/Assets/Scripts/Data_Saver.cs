@@ -12,12 +12,20 @@ public class Data_Saver : ScriptableObject {
 	public void SaveData(string filename)
 	{
 		string output_file = filename + ".xml";
+        string character_directory = "Saved Characters";
 		string keyvalue = "";
 		List<string> keyList = new List<string>();
 		List<string> contentList = new List<string> ();
 		UnicodeEncoding encoding = new UnicodeEncoding ();
 		byte[] key = null;
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
+        string currentPath = Directory.GetCurrentDirectory();
+
+        if (!Directory.Exists(Path.Combine(currentPath, character_directory)))
+            Directory.CreateDirectory(Path.Combine(currentPath, character_directory));
+
+        character_directory = Path.Combine(currentPath, character_directory);
+        output_file = Path.Combine(character_directory, output_file);
 
 		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
