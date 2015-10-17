@@ -17,6 +17,7 @@ public class Data_Handler_Key : MonoBehaviour {
         getKey();
 	}
 
+	//Grab the encryption / decryption key from the specified url
     void getKey()
     {
         List<string> keyList = new List<string>();

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
+using System;
+using System.Text;
 
 public class Message_Handler : MonoBehaviour {
     public GameObject MessageText;
@@ -16,6 +19,7 @@ public class Message_Handler : MonoBehaviour {
 	
 	}
 
+	//Hide message box from user view
     public void HideBox()
     {
         MessageText.GetComponent<Text>().text = "";
@@ -24,11 +28,17 @@ public class Message_Handler : MonoBehaviour {
         MessageCanvasGroup.interactable = false;
     }
 
+	//Show message box in user view
     public void ShowBox(string message)
     {
         MessageText.GetComponent<Text>().text = message;
         MessagePanel.SetActive(true);
         MessageCanvasGroup.alpha = 1;
         MessageCanvasGroup.interactable = true;
-    }
+	}
+
+	//Remove all non-persistent events which have been attached to the selected button
+	public void RemoveListeners( Button button ){
+		button.onClick.RemoveAllListeners ();
+	}
 }

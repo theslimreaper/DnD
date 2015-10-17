@@ -13,6 +13,8 @@ public class Load_Character_Selection : MonoBehaviour {
     public GameObject Select_Character_Text;
     string[] characters = null;
     public GameObject ScrollView;
+	public Message_Handler MessageBoxYN;
+	public Message_Handler MessageBoxOK;
     public static List<GameObject> dynamicObjects = new List<GameObject>();
     public RectTransform ParentButton;
     static RectTransform ParentButtonDefault;
@@ -30,40 +32,53 @@ public class Load_Character_Selection : MonoBehaviour {
         ParentRect = ParentRectDefault;
 	}
 
+	//Get a list of loadable characters from the xml files in the "Saved Characters" subfolder
     public void GetCharacters()
     {
+		//If the saved characters folder does not exist, output a message stating no saved characters were found
+		if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Saved Characters"))){
+			MessageBoxOK.ShowBox ("No saved characters were found!");
+		}
+		else{
+		//Otherwise, get all saved characters and empty out the list of saved characters
         characters  = Directory.GetFiles("./Saved Characters","*.xml");
         DeleteLoadedCharacters();
+		
+		//If no saved characters are found, output a message to the user
+		if (!(characters.Length > 0)) {
+			MessageBoxOK.ShowBox ("No saved characters were found!");
+		} else {
+			//Otherwise, dynamically add buttons, one for each character, and place these buttons in a vertical list format inside a scroll view
+			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 0);
 
-        if(characters.Length > 0)
-        {
-            ScrollView.transform.position = new Vector3(ScrollView.transform.position.x, ScrollView.transform.position.y, 0);
-        }
+			for (int i = 0; i < characters.Length; i++) {
+				GameObject characterButton = (GameObject)Instantiate (Select_Character_Button);
+				GameObject characterText = characterButton.gameObject.transform.GetChild (0).gameObject;
+				characterButton.transform.SetParent (ParentButton, false);
+				characterButton.transform.localScale = new Vector3 (0.4760417f, 0.4760417f, 0.4760417f);
+				characterText.transform.localScale = new Vector3 (4.760417f * 0.5f, 4.760417f * 0.5f, 4.760417f * 0.5f);
+				characterText.GetComponent<Text> ().text = PeekAtCharacher (characters [i]);
+				if (i == 0) {
+					characterButton.transform.position = new Vector3 (ParentText.transform.position.x, ParentText.transform.position.y, -212);
+				} else {
+					characterButton.transform.position = new Vector3 (ParentText.transform.position.x, ParentText.transform.position.y - (150 * i * screenRatio), -212);
+				}
 
-
-            for (int i = 0; i < characters.Length; i++)
-            {
-                GameObject characterButton = (GameObject)Instantiate(Select_Character_Button);
-                GameObject characterText = characterButton.gameObject.transform.GetChild(0).gameObject;
-                characterButton.transform.SetParent(ParentButton, false);
-                characterButton.transform.localScale = new Vector3(0.4760417f, 0.4760417f, 0.4760417f);
-                characterText.transform.localScale = new Vector3(4.760417f * 0.5f, 4.760417f * 0.5f, 4.760417f * 0.5f);
-                characterText.GetComponent<Text>().text = PeekAtCharacher(characters[i]);
-                if (i == 0)
-                {
-                    characterButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y, -212);
-                }
-                else
-                {
-                    characterButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y - (150 * i * screenRatio), -212);
-                }
-
-                dynamicObjects.Add( characterButton );
-                Button tempButton = characterButton.gameObject.GetComponent<Button>();
-                int position = i;
-
-                tempButton.onClick.AddListener(() => SelectCharacter(position));
-            }
+				dynamicObjects.Add (characterButton);
+				Button tempButton = characterButton.gameObject.GetComponent<Button> ();
+				int position = i;
+				
+				//If the user is in the main screen, then add an event to choose the character to load to the selected button
+				if (Application.loadedLevelName == "Start Screen") {
+					tempButton.onClick.AddListener (() => SelectCharacter (position));
+				} else {
+				//Otherwise, bring up a message stating unsaved data will be lost, and have the character be chosen when the user specifies to continue
+					tempButton.onClick.AddListener (() => MessageBoxYN.ShowBox ("WARNING: Loading another character will result in the loss of unsaved changes for the current character! Continue?"));
+					tempButton.onClick.AddListener (() => (MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button> ().onClick.AddListener (() => SelectCharacter (position))));
+				}
+			}
+		}
+		}
 
         if( dynamicObjects.Count > 0)
         {
@@ -74,6 +89,7 @@ public class Load_Character_Selection : MonoBehaviour {
 
     }
 
+	//Load the selected character
     void SelectCharacter(int position)
     {
         Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
@@ -82,6 +98,7 @@ public class Load_Character_Selection : MonoBehaviour {
         Application.LoadLevel("Screen Hub");
     }
 
+	//Peek inside the saved character file so specific information can be displayed about the character in the list of loadable characters
     string PeekAtCharacher(string filename)
     {
         string line = "";
@@ -160,6 +177,7 @@ public class Load_Character_Selection : MonoBehaviour {
         return characterInfo;
     }
 
+	//Destroy all dynamically created objects for the list of characters
     public void DeleteLoadedCharacters()
     {
         foreach (var item in dynamicObjects)

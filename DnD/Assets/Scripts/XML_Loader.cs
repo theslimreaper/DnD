@@ -38,7 +38,7 @@ public class XML_Loader : ScriptableObject {
 		return strList;
 	}
 
-
+	//Load XML including tag name node from local file
 	public List<string>LoadXmlFromFile( string filename, string tagName ){
 		XmlNodeList elemList = null;
 		var doc = new XmlDocument ();
@@ -56,6 +56,7 @@ public class XML_Loader : ScriptableObject {
 		return strList;		
 	}
 
+	//Load XML excluding tag name node from local file
 	public List<string>LoadInnerXmlFromFile( string filename, string tagName ){
 		XmlNodeList elemList = null;
 		XmlTextReader reader = new XmlTextReader(filename);

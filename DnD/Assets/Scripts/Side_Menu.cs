@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
+using UnityEngine.UI;
+using System;
+using System.Text;
 
 public class Side_Menu : MonoBehaviour {
 	public static bool is_paused = false;
@@ -9,6 +12,8 @@ public class Side_Menu : MonoBehaviour {
 	public GameObject PauseMenu;
     public GameObject SideMenuMain;
     public float transition_speed;
+	public Message_Handler MessageBoxOK;
+	public Message_Handler MessageBoxYN;
 
 	// Use this for initialization
 	void Start () {
@@ -26,10 +31,17 @@ public class Side_Menu : MonoBehaviour {
 	}
 
 	//Create new character
-	public void createNewCharacter()
+	void createNewCharacter()
 	{
 		HidePauseMenu ();
 		Application.LoadLevel ("Race Selection");
+	}
+
+	//Prompt user that unsaved changes will be lost when creating a new character
+	public void createCharacterPrompt()
+	{
+		MessageBoxYN.ShowBox ("WARNING: Creating a new character will result in the loss of unsaved changes for the current character! Continue?");
+		MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button>().onClick.AddListener ( () => createNewCharacter ());
 	}
 
 	//Load character from file
@@ -42,12 +54,19 @@ public class Side_Menu : MonoBehaviour {
 	}
 
 	//Leave the application
-	public void exitGame()
+	void exitGame()
 	{
 		Application.Quit ();
 	}
 
-	//Shows about us screen
+	//Prompt user that unsaved changes will be lost when exiting the application
+	public void exitGamePrompt()
+	{
+		MessageBoxYN.ShowBox ("WARNING: Exiting the application will result in the loss of unsaved changes for the current character! Continue?");
+		MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button>().onClick.AddListener ( () => exitGame ());
+	}
+
+	//Shows about us (credits) screen
 	public void aboutUs()
 	{
 		HidePauseMenu ();

@@ -13,6 +13,7 @@ public class Race_Selection : MonoBehaviour {
 	public CanvasGroup raceDescrCanvasGroup;
 	List<string> raceDescrList = new List<string>();
 	int moving;
+	float screenRatioW = (float)Screen.width / (float)1920;
 
 	// Start and Update functions
 
@@ -32,7 +33,7 @@ public class Race_Selection : MonoBehaviour {
 	void FormatStartLayout () 
 		{
 			for (int i=0; i<races.Length; i++) {
-				var x_pos = ((Screen.width / 2) + (500 * i));
+				var x_pos = ((Screen.width / 2) + (500 * i * screenRatioW));
 				races [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
 			}
 		}
@@ -49,13 +50,14 @@ public class Race_Selection : MonoBehaviour {
 					if (moving != 0) {
 					
 						for (int i=0; i<races.Length; i++) {
-							var x_pos = (races [i].transform.position.x + (moving * 500) * transitionSpeed * Time.deltaTime);
+							var x_pos = (races [i].transform.position.x + (moving * 500 * screenRatioW) * transitionSpeed * Time.deltaTime);
 							races [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
 						}
 						moving = 0;
 					}
 		}
 
+	//Get the names and decriptions of the races from the xml files
 	void GetRaces()
 	{
 		List<string> raceNameList = new List<string> ();
@@ -71,23 +73,27 @@ public class Race_Selection : MonoBehaviour {
 		raceDescrList = raceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "racedescription");
 	}
 
+	//Set the character's race and move to the sub race scene
 	public void SelectRace(int position){
 		Character_Info.characterRace = raceNames [position].GetComponent<Text> ().text;
 		Application.LoadLevel ("Subrace Selection");
 	}
 
+	//Fill the race description based on the highlighted race
 	public void FillRaceDescription(int position)
 	{
 		StartCoroutine (DescrFadeIn ());
 		raceDescription.GetComponent<Text>().text = raceDescrList[position];
 	}
 
+	//Clear the race description
 	public void ClearRaceDescription ()
 	{
 		StartCoroutine(DescrFadeOut());
 		raceDescription.GetComponent<Text> ().text = "";
 	}
 
+	//Bring the race description into view
 	IEnumerator DescrFadeIn()
 	{
 		while (raceDescrCanvasGroup.alpha < 1) {
@@ -98,6 +104,7 @@ public class Race_Selection : MonoBehaviour {
 		yield return null;
 	}
 
+	//Take the race decription out of view
 	IEnumerator DescrFadeOut()
 	{
 		while (raceDescrCanvasGroup.alpha > 0) {

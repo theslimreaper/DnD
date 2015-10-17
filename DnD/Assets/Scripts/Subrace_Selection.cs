@@ -14,6 +14,7 @@ public class Subrace_Selection : MonoBehaviour {
 	List<string> subraceDescrList = new List<string>();
 	int moving;
 	int num_of_subraces = 0;
+	float screenRatioW = (float)Screen.width / (float)1920;
 
 	// Start and Update functions
 
@@ -32,8 +33,9 @@ public class Subrace_Selection : MonoBehaviour {
 	//Set initial layout of content
 	void FormatStartLayout () 
 		{
+			
 			for (int i=0; i<subraceNames.Length; i++) {
-				var x_pos = ((Screen.width / 2) + (500 * i));
+				var x_pos = ((Screen.width / 2) + (500 * i * screenRatioW));
 				subraces [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
 			}
 			for (int i=num_of_subraces; i<subraces.Length; i++) {
@@ -53,13 +55,14 @@ public class Subrace_Selection : MonoBehaviour {
 					if (moving != 0) {
 					
 						for (int i=0; i<num_of_subraces; i++) {
-							var x_pos = (subraces [i].transform.position.x + (moving * 500) * transitionSpeed * Time.deltaTime);
+							var x_pos = (subraces [i].transform.position.x + (moving * 500 * screenRatioW) * transitionSpeed * Time.deltaTime);
 							subraces [i].transform.position = new Vector3 (x_pos, transform.position.y, transform.position.z);
 						}
 						moving = 0;
 					}
 		}
 
+	//Get subrace names and descriptions from specified xml file
 	void GetSubraces()
 	{
 		List<string> subraceNameList = new List<string> ();
@@ -76,30 +79,34 @@ public class Subrace_Selection : MonoBehaviour {
 		num_of_subraces = i;
 		//If there are no subraces then skip to class selection
 		if (i == 0) {
-			Character_Info.characterSubrace = "N / A";
+			Character_Info.characterSubrace = "";
 			Application.LoadLevel ("Class Selection");
 		}
 
 		subraceDescrList = subraceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/subracesOverview.xml", subrace_descr_tag);
 	}
 
+	//Set character subrace and move to class selection scene
 	public void SelectSubrace(int position){
 		Character_Info.characterSubrace = subraceNames [position].GetComponent<Text> ().text;
 		Application.LoadLevel ("Class Selection");
 	}
 
+	//Fill sub race description based on highlighted subrace
 	public void FillSubraceDescription(int position)
 	{
 		StartCoroutine (DescrFadeIn ());
 		subraceDescription.GetComponent<Text>().text = subraceDescrList[position];
 	}
 
+	//Clear subrace description
 	public void ClearSubraceDescription ()
 	{
 		StartCoroutine(DescrFadeOut());
 		subraceDescription.GetComponent<Text> ().text = "";
 	}
 
+	//Bring subrace description into view
 	IEnumerator DescrFadeIn()
 	{
 		while (subraceDescrCanvasGroup.alpha < 1) {
@@ -110,6 +117,7 @@ public class Subrace_Selection : MonoBehaviour {
 		yield return null;
 	}
 
+	//Take subrace description out of view
 	IEnumerator DescrFadeOut()
 	{
 		while (subraceDescrCanvasGroup.alpha > 0) {

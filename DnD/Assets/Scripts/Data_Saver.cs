@@ -9,6 +9,7 @@ using System.Text;
 using System.Security.Cryptography;
 
 public class Data_Saver : ScriptableObject {
+	//Save character data to an encrypted xml file named after the character
 	public void SaveData(string filename)
 	{
 		string output_file = filename + ".xml";
@@ -26,7 +27,7 @@ public class Data_Saver : ScriptableObject {
         character_directory = Path.Combine(currentPath, character_directory);
         output_file = Path.Combine(character_directory, output_file);
 
-		//Get encryption / decryption key from url
+		//Get key in byte form
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
 
         key = encoding.GetBytes(Data_Handler_Key.keyvalue);
