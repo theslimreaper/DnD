@@ -21,11 +21,9 @@ public class Load_Character_Selection : MonoBehaviour {
     static float ParentRectHeight;
     RectTransform ParentRect;
     float screenRatio = (float)Screen.height / (float)1080;
-    string keyvalue = "";
 
 	// Use this for initialization
 	void Start () {
-        getKey();
         ParentButtonDefault = ParentButton;
         ParentRectDefault = ParentButtonDefault.GetComponent<RectTransform>();
         ParentRectHeight = ParentRectDefault.rect.height;
@@ -84,19 +82,6 @@ public class Load_Character_Selection : MonoBehaviour {
         Application.LoadLevel("Screen Hub");
     }
 
-    void getKey()
-    {
-        List<string> keyList = new List<string>();
-
-        //Get encryption / decryption key from url
-        XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
-        keyList = XML.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
-        foreach (var item in keyList)
-        {
-            keyvalue = item;
-        }
-    }
-
     string PeekAtCharacher(string filename)
     {
         string line = "";
@@ -111,7 +96,7 @@ public class Load_Character_Selection : MonoBehaviour {
 
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
 
-        key = encoding.GetBytes(keyvalue);
+        key = encoding.GetBytes(Data_Handler_Key.keyvalue);
 
         //Open / read the selected (encrypted) character file and decrypt it, then write the decrypted information to a temporary xml file
         FileStream decrypted_file = new FileStream(input_file, FileMode.Open);

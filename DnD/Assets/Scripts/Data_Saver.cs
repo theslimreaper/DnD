@@ -13,7 +13,6 @@ public class Data_Saver : ScriptableObject {
 	{
 		string output_file = filename + ".xml";
         string character_directory = "Saved Characters";
-		string keyvalue = "";
 		List<string> keyList = new List<string>();
 		List<string> contentList = new List<string> ();
 		UnicodeEncoding encoding = new UnicodeEncoding ();
@@ -29,11 +28,8 @@ public class Data_Saver : ScriptableObject {
 
 		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
-		keyList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
-		foreach (var item in keyList) {
-			keyvalue = item;
-		}
-		key = encoding.GetBytes (keyvalue);
+
+        key = encoding.GetBytes(Data_Handler_Key.keyvalue);
 
 		//Collect data to be saved and write it to an encrypted xml file using the key retrieved earlier
 		FileStream encrypted_file = new FileStream (output_file, FileMode.Create);
@@ -43,7 +39,6 @@ public class Data_Saver : ScriptableObject {
 				contentList = CollectData ();
 				foreach( var content in contentList ){
 				swEncrypt.WriteLine (content);
-					Debug.Log (content);
 				}
 			}
 		}

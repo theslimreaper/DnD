@@ -11,7 +11,6 @@ using System.Security.Cryptography;
 public class Data_Loader : ScriptableObject {
 	public void LoadData(string filename)
 	{
-		string keyvalue = "";
 		string line = "";
 		string input_file = filename;
 		string output_file = "temp.xml";
@@ -23,11 +22,7 @@ public class Data_Loader : ScriptableObject {
 		
 		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
-		keyList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
-		foreach (var item in keyList) {
-			keyvalue = item;
-		}
-		key = encoding.GetBytes (keyvalue);
+		key = encoding.GetBytes (Data_Handler_Key.keyvalue);
 
 		//Open / read the selected (encrypted) character file and decrypt it, then write the decrypted information to a temporary xml file
 		FileStream decrypted_file = new FileStream (input_file, FileMode.Open);
