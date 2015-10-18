@@ -53,6 +53,24 @@ public class Side_Menu : MonoBehaviour {
 		Application.LoadLevel ("Screen Hub");
 	}
 
+    //Prompt user to confirm to delete current character
+    public void deleteCharacterPrompt()
+    {
+        MessageBoxYN.ShowBox("WARNING: Are you sure you want to delete this character? If you do, there will be no way to recover its data!");
+        MessageBoxYN.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(() => confirmDeleteCharacter());
+    }
+
+    //Delete character after user confirmation and prompt that the user will return to the main menu
+    public void confirmDeleteCharacter()
+    {
+        Data_Deleter Delete = ScriptableObject.CreateInstance<Data_Deleter>();
+
+        Delete.DeleteFile(Character_Info.characterName);
+        MessageBoxOK.ShowBox("The current character has been successfully deleted! Please click OK to return to the main menu.");
+        MessageBoxOK.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(() => Application.LoadLevel("Start Screen"));
+
+    }
+
 	//Leave the application
 	void exitGame()
 	{
