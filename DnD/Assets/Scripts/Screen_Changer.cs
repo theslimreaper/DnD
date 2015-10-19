@@ -9,9 +9,12 @@ public class Screen_Changer : MonoBehaviour {
     public Button[] headerButtons;
 	// Use this for initialization
 	void Start () {
-		//Set current screen to Character Overview screen
-        currentScreen = 0;
-        SelectCurrentScreen(currentScreen);
+		//Set current screen to Character Overview screen if we are in the screen hub
+        if (Application.loadedLevelName == "Screen Hub")
+        {
+            currentScreen = 0;
+            SelectCurrentScreen(currentScreen);
+        }
 	}
 
 	//Specifies which screen to show and which ones to hide
