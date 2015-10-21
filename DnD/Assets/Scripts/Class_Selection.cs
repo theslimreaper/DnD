@@ -68,14 +68,28 @@ public class Class_Selection : MonoBehaviour {
 		List<string> classNameList = new List<string> ();
 		int i = 0;
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
+        if(Settings_Screen.is_online == true)
+        {
 		classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classesOverview.xml", "classname");
+        }
+        else
+        {
+            classNameList = XML.LoadInnerXmlFromFile("..\\XML Files/Character Features/classesOverview.xml", "classname");
+        }
 		foreach( var item in classNameList)
 		{
 			classNames[i].GetComponent<Text>().text = item;
 			i++;
 		}
 
-		classDescrList = classNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classesOverview.xml", "description");
+        if(Settings_Screen.is_online == true)
+        {
+		classDescrList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classesOverview.xml", "description");
+        }
+        else
+        {
+            classDescrList = XML.LoadInnerXmlFromFile("..\\XML Files/Character Features/classesOverview.xml", "description");
+        }
 	}
 
 	//Choose character class and confirm selections

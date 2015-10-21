@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!DO NOT ADD ANYTHING TO THIS SCRIPT OTHER THAN CODE TO RETRIEVE THE ENCRYPTION/DECRYPTION KEY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 public class Data_Handler_Key : MonoBehaviour {
     public static string keyvalue = "";
+    public GameObject key_text;
 	// Use this for initialization
 	void Start () {
         getKey();
@@ -20,7 +21,7 @@ public class Data_Handler_Key : MonoBehaviour {
 	//Grab the encryption / decryption key from the specified url
     void getKey()
     {
-        List<string> keyList = new List<string>();
+       /* List<string> keyList = new List<string>();
 
         //Get encryption / decryption key from url
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
@@ -28,6 +29,7 @@ public class Data_Handler_Key : MonoBehaviour {
         foreach (var item in keyList)
         {
             keyvalue = item;
-        }
+        }*/
+        keyvalue = key_text.GetComponent<Text>().text;
     }
 }

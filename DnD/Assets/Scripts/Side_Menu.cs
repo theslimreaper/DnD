@@ -49,7 +49,7 @@ public class Side_Menu : MonoBehaviour {
 	{
 		HidePauseMenu ();
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
-		Load.LoadData ("test.xml");
+		Load.LoadCharacterData ("test.xml");
 		Application.LoadLevel ("Screen Hub");
 	}
 

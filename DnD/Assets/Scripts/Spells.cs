@@ -8,8 +8,15 @@ public class Spells : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
-
+        
+        if(Settings_Screen.is_online == true)
+        {
 		spells = XML.LoadXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml", "spell");
+        }
+        else
+        {
+            spells = XML.LoadInnerXmlFromFile("..\\XML Files/Spells/spells.xml", "spell");
+        }
 	}
 	
 	// Update is called once per frame

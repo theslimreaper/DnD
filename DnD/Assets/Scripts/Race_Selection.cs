@@ -63,14 +63,28 @@ public class Race_Selection : MonoBehaviour {
 		List<string> raceNameList = new List<string> ();
 		int i = 0;
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
+        if(Settings_Screen.is_online == true)
+        {
 		raceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "racename");
+        }
+        else
+        {
+            raceNameList = XML.LoadInnerXmlFromFile("..\\XML Files/Character Features/racesOverview.xml", "racename");
+        }
 		foreach( var item in raceNameList)
 		{
 			raceNames[i].GetComponent<Text>().text = item;
 			i++;
 		}
 
-		raceDescrList = raceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "racedescription");
+        if(Settings_Screen.is_online == true)
+        {
+		raceDescrList  = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/racesOverview.xml", "racedescription");
+        }
+        else
+        {
+            raceDescrList = XML.LoadInnerXmlFromFile("..\\XML Files/Character Features/racesOverview.xml", "racedescription");
+        }
 	}
 
 	//Set the character's race and move to the sub race scene

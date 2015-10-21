@@ -10,7 +10,7 @@ using System.Security.Cryptography;
 
 public class Data_Saver : ScriptableObject {
 	//Save character data to an encrypted xml file named after the character
-	public void SaveData(string filename)
+	public void SaveCharacterData(string filename)
 	{
 		string output_file = filename + ".xml";
         string character_directory = "Saved Characters";
@@ -37,7 +37,7 @@ public class Data_Saver : ScriptableObject {
 		CryptoStream cryptography_stream = new CryptoStream (encrypted_file, RMCrypto.CreateEncryptor (key, key), CryptoStreamMode.Write);
 		using (MemoryStream msEncrypt = new MemoryStream()) {
 			using (StreamWriter swEncrypt = new StreamWriter(cryptography_stream)) {
-				contentList = CollectData ();
+				contentList = CollectCharacterData ();
 				foreach( var content in contentList ){
 				swEncrypt.WriteLine (content);
 				}
@@ -49,7 +49,7 @@ public class Data_Saver : ScriptableObject {
 	}
 
 	//Format data into xml format
-	List<string> CollectData (){
+	List<string> CollectCharacterData (){
 		List<string> contentList = new List<string> ();
 		string content = "";
 
@@ -99,5 +99,66 @@ public class Data_Saver : ScriptableObject {
 		return contentList;
 	}
 	
-	
+	public void SaveSettingsData()
+    {
+        string output_file = "settings.xml";
+        string settings_directory = "Settings";
+        List<string> keyList = new List<string>();
+        List<string> contentList = new List<string>();
+        UnicodeEncoding encoding = new UnicodeEncoding();
+        byte[] key = null;
+        RijndaelManaged RMCrypto = new RijndaelManaged();
+        string currentPath = Directory.GetCurrentDirectory();
+
+        if (!Directory.Exists(Path.Combine(currentPath, settings_directory)))
+            Directory.CreateDirectory(Path.Combine(currentPath, settings_directory));
+
+        settings_directory = Path.Combine(currentPath, settings_directory);
+        output_file = Path.Combine(settings_directory, output_file);
+
+        //Get key in byte form
+        XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
+
+        key = encoding.GetBytes(Data_Handler_Key.keyvalue);
+
+        //Collect data to be saved and write it to an encrypted xml file using the key retrieved earlier
+        FileStream encrypted_file = new FileStream(output_file, FileMode.Create);
+        CryptoStream cryptography_stream = new CryptoStream(encrypted_file, RMCrypto.CreateEncryptor(key, key), CryptoStreamMode.Write);
+        using (MemoryStream msEncrypt = new MemoryStream())
+        {
+            using (StreamWriter swEncrypt = new StreamWriter(cryptography_stream))
+            {
+                contentList = CollectSettingsData();
+                foreach (var content in contentList)
+                {
+                    swEncrypt.WriteLine(content);
+                }
+            }
+        }
+    }
+
+    List<string> CollectSettingsData()
+    {
+        List<string> contentList = new List<string>();
+        string content = "";
+
+        content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
+        contentList.Add(content);
+        content = "<settings>";
+        contentList.Add(content);
+        switch(Settings_Screen.is_online)
+        {
+            case true:
+                content = "<mode>" + "true" + "</mode>";
+                break;
+            case false:
+                content = "<mode>" + "false" + "</mode>";
+                break;
+        }
+        contentList.Add(content);
+        content = "</settings>";
+        contentList.Add(content);
+
+        return contentList;
+    }
 }

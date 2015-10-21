@@ -28,7 +28,7 @@ public class Main_Menu : MonoBehaviour {
 	public void loadExistingCharacter()
 	{
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
-		Load.LoadData ("test.xml");
+		Load.LoadCharacterData ("test.xml");
 		Application.LoadLevel ("Screen Hub");
 	}
 

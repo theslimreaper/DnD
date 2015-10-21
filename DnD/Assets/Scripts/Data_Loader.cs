@@ -9,7 +9,7 @@ using System.Text;
 using System.Security.Cryptography;
 
 public class Data_Loader : ScriptableObject {
-	public void LoadData(string filename)
+	public void LoadCharacterData(string filename)
 	{
 		string line = "";
 		string input_file = filename;
@@ -129,4 +129,59 @@ public class Data_Loader : ScriptableObject {
 		File.Delete (output_file);
 
 	}
+
+    public void LoadSettingsData()
+    {
+        string line = "";
+        string input_file = "./Settings/settings.xml";
+        string output_file = "temp.xml";
+        List<string> keyList = new List<string>();
+        List<string> elemList = new List<string>();
+        UnicodeEncoding encoding = new UnicodeEncoding();
+        byte[] key = null;
+        RijndaelManaged RMCrypto = new RijndaelManaged();
+
+        //Get encryption / decryption key from url
+        XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
+        key = encoding.GetBytes(Data_Handler_Key.keyvalue);
+
+        //Open / read the selected (encrypted) character file and decrypt it, then write the decrypted information to a temporary xml file
+        FileStream decrypted_file = new FileStream(input_file, FileMode.Open);
+        FileStream temp_file = new FileStream(output_file, FileMode.Create);
+        CryptoStream cryptography_stream = new CryptoStream(decrypted_file, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
+        using (MemoryStream msDecrypt = new MemoryStream())
+        {
+            using (StreamReader srDecrypt = new StreamReader(cryptography_stream))
+            {
+                using (StreamWriter swTemp = new StreamWriter(temp_file))
+                {
+                    while ((line = srDecrypt.ReadLine()) != null)
+                    {
+                        swTemp.WriteLine(line);
+                    }
+                }
+            }
+        }
+        cryptography_stream.Close();
+        decrypted_file.Close();
+
+        //Call functions to load data from temporary xml file into specified game objects
+        elemList = XML.LoadInnerXmlFromFile(output_file, "mode");
+        foreach (var item in elemList)
+        {
+            switch(item)
+            {
+                case "true":
+                    Settings_Screen.is_online = true;
+                    break;
+                case "false":
+                    Settings_Screen.is_online = false;
+                    break;
+            }
+        }
+        elemList.Clear();
+
+        //Delete the temporary xml file
+        File.Delete(output_file);
+    }
 }

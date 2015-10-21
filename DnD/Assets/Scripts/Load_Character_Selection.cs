@@ -94,7 +94,7 @@ public class Load_Character_Selection : MonoBehaviour {
     {
         Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
         string selected_file = characters[position];
-        Load.LoadData(selected_file);
+        Load.LoadCharacterData(selected_file);
         Application.LoadLevel("Screen Hub");
     }
 

@@ -70,7 +70,14 @@ public class Subrace_Selection : MonoBehaviour {
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
 		string subrace_name_tag = Character_Info.characterRace + "name";
 		string subrace_descr_tag = Character_Info.characterRace + "descr";
-		subraceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/subracesOverview.xml", subrace_name_tag);
+        if (Settings_Screen.is_online == true)
+        {
+            subraceNameList = XML.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/subracesOverview.xml", subrace_name_tag);
+        }
+        else
+        {
+            subraceNameList = XML.LoadInnerXmlFromFile("..\\XML Files/Character Features/subracesOverview.xml", subrace_name_tag);
+        }
 		foreach( var item in subraceNameList)
 		{
 			subraceNames[i].GetComponent<Text>().text = item;
@@ -83,7 +90,15 @@ public class Subrace_Selection : MonoBehaviour {
 			Application.LoadLevel ("Class Selection");
 		}
 
-		subraceDescrList = subraceNameList = XML.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/subracesOverview.xml", subrace_descr_tag);
+        if (Settings_Screen.is_online == true)
+        {
+
+            subraceDescrList = XML.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/subracesOverview.xml", subrace_descr_tag);
+        }
+        else
+        {
+            subraceDescrList = XML.LoadInnerXmlFromFile("..\\XML Files/Character Features/subracesOverview.xml", subrace_descr_tag);
+        }
 	}
 
 	//Set character subrace and move to class selection scene
