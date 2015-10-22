@@ -8,7 +8,7 @@ public class PointBuyTracker : MonoBehaviour {
     public static int PointBuyLeft = 27;
     public InputField TotalPointsInput;
     public Text pointBuyRemaining;
-    //public Dropdown baseInput;
+    public Dropdown baseInput;
     public InputField RaceInput;
     public InputField FinalScore;
     public InputField Modifier;
@@ -17,7 +17,7 @@ public class PointBuyTracker : MonoBehaviour {
     public int AbilityNumber;
     public void onBaseUpdate(string newValue)
     {
-      /*  print("Updated base");
+        print("Updated base");
        
         if (baseInput.value+8 <= 13)//calculate points used by choice
         {
@@ -58,12 +58,12 @@ public class PointBuyTracker : MonoBehaviour {
         {
             Modifier.text= (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) - 11) / 2).ToString();
         }
-*/
+
         
     }
     public void onRacialUpdate(string newValue)
     {
-        /*print("Updated racial");
+        print("Updated racial");
         if (System.Convert.ToInt32(RaceInput.text) <0 && RaceInput.text[0]!='-')
         {
             RaceInput.text = "-" + RaceInput.text;
@@ -76,18 +76,18 @@ public class PointBuyTracker : MonoBehaviour {
 
         //update results inputfield
         FinalScore.text = (System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8).ToString();
-        Modifier.text = (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) -10)/2).ToString();*/
+        Modifier.text = (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) -10)/2).ToString();
     }
 
     public void updateTotalPoints()
     {
-        /*//capture old number
+        //capture old number
         oldTotal = PointBuyTotal;
         //use new value
         PointBuyTotal = System.Convert.ToInt32(TotalPointsInput.text);
         //correct current points
         PointBuyLeft = PointBuyLeft + (PointBuyTotal - oldTotal);
-        pointBuyRemaining.text = "You have " + PointBuyLeft + " points left to spend.";*/
+        pointBuyRemaining.text = "You have " + PointBuyLeft + " points left to spend.";
    }
 
 }

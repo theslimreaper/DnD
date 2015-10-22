@@ -7,17 +7,9 @@ public class Dice_Rolling : MonoBehaviour {
 	int[] results;
 	int total=0;
 	string finalResults;
+	public static int uses;
 	public GameObject FinalResultsText;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
 	public void RollDice()
 	{
 		diceAmount =System.Convert.ToInt32(GameObject.Find ("Amount of Dice").GetComponent<InputField> ().text);
@@ -47,5 +39,30 @@ public class Dice_Rolling : MonoBehaviour {
 
 
 	}
+	public void RollD6SetText(int amount)
+	{
+		uses++;
 
+		total = 0;
+		string resultString="";
+		results=new int[amount];
+		Random.seed=(int)(Time.time*100+uses);
+
+		for(int i=0;i<amount;i++)
+		{
+			
+			results[i]=Random.Range (1,6+1);
+			total+=results[i];
+			resultString+=results[i]+"+ ";
+			print (results[i]);
+		}
+		resultString = resultString.Substring (0, resultString.Length - 2);
+		resultString += " = " + total.ToString();
+		
+		print (finalResults);
+		this.gameObject.GetComponent<Text> ().text = resultString;
+		
+		
+		
+	}
 }

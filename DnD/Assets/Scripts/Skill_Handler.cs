@@ -10,13 +10,32 @@ public class Skill_Handler : MonoBehaviour {
     public bool[] trained = new bool[18];
     public static int[] values = new int[18];
     public int[] bonuses = new int[18];
-	// Use this for initialization
-	void Start () {
-	
+	public int skillPointsToSpend=6;
+	public int[] Changes = new int[18];
+	public GameObject[] TextDisplay= new GameObject[18];
+	public void addSkill(int skillNumber)
+	{
+		print ("Up Pressed");
+		if (skillPointsToSpend>0)
+		{
+			values[skillNumber]++;
+			Changes[skillNumber]++;
+			skillPointsToSpend--;
+			TextDisplay[skillNumber].GetComponent<Text>().text=values[skillNumber].ToString();
+			print ("points updated");
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void subtractSkill(int skillNumber)
+	{
+		print ("Down Pressed");
+		if(Changes[skillNumber]>0)
+		{
+			values[skillNumber]--;
+			Changes[skillNumber]--;
+			skillPointsToSpend++;
+			print ("points updated");
+			TextDisplay[skillNumber].GetComponent<Text>().text=values[skillNumber].ToString();
+		}
 	}
 }
