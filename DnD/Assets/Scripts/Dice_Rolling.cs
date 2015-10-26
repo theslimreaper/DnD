@@ -8,6 +8,8 @@ public class Dice_Rolling : MonoBehaviour {
 	int total=0;
 	string finalResults;
 	public static int uses;
+	public static int[] lastResults=new int[6];
+	public static int lastSlotUsed=0;
 	public GameObject FinalResultsText;
 	// Use this for initialization
 	public void RollDice()
@@ -39,24 +41,39 @@ public class Dice_Rolling : MonoBehaviour {
 
 
 	}
+
+	//used by the ability scores page. takes 4 roles and gets rid of the lowest
 	public void RollD6SetText(int amount)
 	{
 		uses++;
-
 		total = 0;
 		string resultString="";
+		int lowestValue = 6;
 		results=new int[amount];
 		Random.seed=(int)(Time.time*100+uses);
 
 		for(int i=0;i<amount;i++)
 		{
 			
-			results[i]=Random.Range (1,6+1);
+			results[i]=Random.Range (1,7);
 			total+=results[i];
-			resultString+=results[i]+"+ ";
+			resultString+=results[i]+" + ";
 			print (results[i]);
+			if(lowestValue>results[i])
+			{
+				lowestValue=results[i];
+			}
 		}
-		resultString = resultString.Substring (0, resultString.Length - 2);
+		resultString = resultString.Substring (0, resultString.Length-2);
+		resultString += (" - " + lowestValue.ToString()+" (lowest)");
+		total -= lowestValue;
+		lastResults[lastSlotUsed] = total;
+		lastSlotUsed ++;
+		if(lastSlotUsed==6)
+		{
+			lastSlotUsed=0;
+		}
+
 		resultString += " = " + total.ToString();
 		
 		print (finalResults);

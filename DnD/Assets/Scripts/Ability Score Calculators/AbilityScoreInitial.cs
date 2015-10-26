@@ -4,7 +4,7 @@ using System.Collections;
 public class AbilityScoreInitial : MonoBehaviour {
     public GameObject RollPage;
     public GameObject pointBuyPage;
-
+	public static int[] AbilityScores=new int[6];
     public void onRollforStats()
     {
         pointBuyPage.SetActive(false);
