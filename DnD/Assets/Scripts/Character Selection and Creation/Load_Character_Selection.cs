@@ -23,6 +23,7 @@ public class Load_Character_Selection : MonoBehaviour {
     static float ParentRectHeight;
     RectTransform ParentRect;
     float screenRatio = (float)Screen.height / (float)1080;
+	Scrollbar ScrollBar;
 
 	// Use this for initialization
 	void Start () {
@@ -30,11 +31,14 @@ public class Load_Character_Selection : MonoBehaviour {
         ParentRectDefault = ParentButtonDefault.GetComponent<RectTransform>();
         ParentRectHeight = ParentRectDefault.rect.height;
         ParentRect = ParentRectDefault;
+		ScrollBar = ScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
 	}
 
 	//Get a list of loadable characters from the xml files in the "Saved Characters" subfolder
     public void GetCharacters()
-    {
+	{
+		ScrollBar.value = 0;
+		ParentRect.sizeDelta = new Vector2( ParentRectDefault.rect.width, 0);
 		//If the saved characters folder does not exist, output a message stating no saved characters were found
 		if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Saved Characters"))){
 			MessageBoxOK.ShowBox ("No saved characters were found!");
@@ -43,7 +47,6 @@ public class Load_Character_Selection : MonoBehaviour {
 		//Otherwise, get all saved characters and empty out the list of saved characters
         characters  = Directory.GetFiles("./Saved Characters","*.xml");
         DeleteLoadedCharacters();
-		
 		//If no saved characters are found, output a message to the user
 		if (!(characters.Length > 0)) {
 			MessageBoxOK.ShowBox ("No saved characters were found!");
@@ -83,7 +86,6 @@ public class Load_Character_Selection : MonoBehaviour {
         if( dynamicObjects.Count > 0)
         {
             ParentRect.sizeDelta = new Vector2( ParentRectDefault.rect.width, (ParentRectHeight - ( dynamicObjects[characters.Length - 1].transform.position.y - ( 1.7f*dynamicObjects[characters.Length - 1].GetComponent<RectTransform>().rect.height )) ));
-            Scrollbar ScrollBar = ScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
             ScrollBar.value = 1;
         }
 
