@@ -38,7 +38,7 @@ public class Note_List : MonoBehaviour {
 		ScrollBar.value = 0;
 		ParentRect.sizeDelta = new Vector2 (ParentRectDefault.rect.width, 0);
 		if (num_of_notes > 0) {
-			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 0);
+			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 300);
 				
 			for (int i = 0; i < num_of_notes; i++) {
 				GameObject noteButton = (GameObject)Instantiate (Select_Note_Button);
