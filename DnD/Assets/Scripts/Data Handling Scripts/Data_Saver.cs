@@ -90,6 +90,22 @@ public class Data_Saver : ScriptableObject {
 		content = "<languages>" + Character_Info.characterLanguages + "</languages>";
 		contentList.Add (content);
 
+		content = "<notes>";
+		contentList.Add (content);
+		int i = 0;
+		foreach (var item in Primary_Note_Functions.noteTitles) {
+			content = "<title>" + Primary_Note_Functions.noteTitles[i] + "</title>";
+			contentList.Add (content);
+			content = "<date>" + Primary_Note_Functions.noteDates[i] + "</date>";
+			contentList.Add (content);
+			content = "<subject>" + Primary_Note_Functions.noteSubjects[i] + "</subject>";
+			Debug.Log(content);
+			contentList.Add (content);
+			i++;
+		}
+		content = "</notes>";
+		contentList.Add (content);
+
 		content = "</characterinfo>";
 		contentList.Add (content);
 
