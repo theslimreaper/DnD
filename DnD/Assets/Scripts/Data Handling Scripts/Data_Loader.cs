@@ -125,24 +125,24 @@ public class Data_Loader : ScriptableObject {
 		}
 		elemList.Clear ();
 
-		Primary_Note_Functions.noteTitles.Clear ();
+		Note_List_Info.noteTitles.Clear ();
 		elemList = XML.LoadInnerXmlFromFile (output_file, "title");
 		foreach(var item in elemList){
-			Primary_Note_Functions.noteTitles.Add (item);
+			Note_List_Info.noteTitles.Add (item);
 		}
 		elemList.Clear ();
 
-		Primary_Note_Functions.noteDates.Clear ();
+		Note_List_Info.noteDates.Clear ();
 		elemList = XML.LoadInnerXmlFromFile (output_file, "date");
 		foreach(var item in elemList){
-			Primary_Note_Functions.noteDates.Add (item);
+			Note_List_Info.noteDates.Add (item);
 		}
 		elemList.Clear ();
 
-		Primary_Note_Functions.noteSubjects.Clear ();
+		Note_List_Info.noteSubjects.Clear ();
 		elemList = XML.LoadInnerXmlFromFile (output_file, "subject");
 		foreach(var item in elemList){
-			Primary_Note_Functions.noteSubjects.Add(item);
+			Note_List_Info.noteSubjects.Add(item);
 		}
 		elemList.Clear ();
 

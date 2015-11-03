@@ -8,12 +8,12 @@ using System.Text;
 
 public class Primary_Note_Functions : MonoBehaviour {
 	GameObject[] noteList;
-	public static List<string> noteTitles = new List<string>();
-	public static List<string> noteDates = new List<string>();
-	public static List<string> noteSubjects = new List<string>();
 	public GameObject listView;
 	public GameObject editView;
 	public Note_List NoteList;
+    public Note_Editor NoteEditor;
+    public GameObject saveButton;
+    public GameObject deleteButton;
 	// Use this for initialization
 	void Start () {
 		SetListView ();
@@ -32,6 +32,8 @@ public class Primary_Note_Functions : MonoBehaviour {
 		editView.GetComponent<CanvasGroup>().interactable = false;
 		editView.SetActive (false);
 		NoteList.SetLayout ();
+        deleteButton.GetComponent<Button>().onClick.RemoveAllListeners();
+        saveButton.GetComponent<Button>().onClick.RemoveAllListeners();
 	}
 
 	public void SetEditView(){
@@ -41,5 +43,20 @@ public class Primary_Note_Functions : MonoBehaviour {
 		editView.GetComponent<CanvasGroup>().alpha = 1;
 		editView.GetComponent<CanvasGroup>().interactable = true;
 		editView.SetActive (true);
+        int i = Note_List_Info.note;
+        if (Note_List_Info.note == -1)
+        {
+            deleteButton.GetComponent<CanvasGroup>().alpha = 0;
+            deleteButton.GetComponent<CanvasGroup>().interactable = false;
+            deleteButton.SetActive(false);
+        }
+        else
+        {
+            deleteButton.GetComponent<CanvasGroup>().alpha = 1;
+            deleteButton.GetComponent<CanvasGroup>().interactable = true;
+            deleteButton.SetActive(true);
+            deleteButton.GetComponent<Button>().onClick.AddListener(() => NoteEditor.DeleteNote(i));
+        }
+       saveButton.GetComponent<Button>().onClick.AddListener(() => NoteEditor.SaveNote(i));
 	}
 }

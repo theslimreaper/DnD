@@ -18,6 +18,8 @@ public class Note_List : MonoBehaviour {
 	RectTransform ParentRect;
 	float screenRatio = (float)Screen.height / (float)1080;
 	Scrollbar ScrollBar;
+    public Primary_Note_Functions Note_Functions;
+    public Note_Editor NoteEditor;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,25 +34,28 @@ public class Note_List : MonoBehaviour {
 	{
 		int num_of_notes = 0;
 		DeleteList ();
-		foreach (var item in Primary_Note_Functions.noteTitles) {
+		foreach (var item in Note_List_Info.noteTitles) {
 			num_of_notes++;
 		}
+        ScrollBar = ScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
 		ScrollBar.value = 0;
 		ParentRect.sizeDelta = new Vector2 (ParentRectDefault.rect.width, 0);
 		if (num_of_notes > 0) {
-			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 300);
+			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 250);
 				
 			for (int i = 0; i < num_of_notes; i++) {
 				GameObject noteButton = (GameObject)Instantiate (Select_Note_Button);
-				GameObject noteText = noteButton.gameObject.transform.GetChild (0).gameObject;
+				GameObject titleText = noteButton.gameObject.transform.GetChild (0).gameObject;
+                GameObject dateText = noteButton.gameObject.transform.GetChild(1).gameObject;
 				noteButton.transform.SetParent (ParentButton, false);
-				noteButton.transform.localScale = new Vector3 (0.1798507f, 0.1948383f, 0.02338059f);
-				noteText.transform.localScale = new Vector3 (1.798507f * 0.5f, 1.948383f * 0.5f, 2.338059f * 0.5f);
-				noteText.GetComponent<Text> ().text = PeekAtNote (i);
+                noteButton.transform.localScale = new Vector3(0.18f, 0.1f, 0);
+				titleText.transform.localScale = new Vector3 (1, 1, 1);
+				titleText.GetComponent<Text> ().text = PeekAtTitle (i);
+                dateText.GetComponent<Text>().text = PeekAtDate(i);
 				if (i == 0) {
-					noteButton.transform.position = new Vector3 (ParentText.transform.position.x, ParentText.transform.position.y, 0);
+                    noteButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y, 250);
 				} else {
-					noteButton.transform.position = new Vector3 (ParentText.transform.position.x, ParentText.transform.position.y - (150 * i * screenRatio), 0);
+                    noteButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y - (40 * i * screenRatio), 250);
 				}
 					
 				dynamicObjects.Add (noteButton);
@@ -62,7 +67,7 @@ public class Note_List : MonoBehaviour {
 		}
 		
 		if (dynamicObjects.Count > 0) {
-			ParentRect.sizeDelta = new Vector2 (ParentRectDefault.rect.width, (ParentRectHeight - (dynamicObjects [num_of_notes - 1].transform.position.y - (1.7f * dynamicObjects [num_of_notes - 1].GetComponent<RectTransform> ().rect.height))));
+			ParentRect.sizeDelta = new Vector2 (ParentRectDefault.rect.width, screenRatio * (ParentRectHeight - (dynamicObjects [num_of_notes - 1].transform.position.y - (dynamicObjects [num_of_notes - 1].GetComponent<RectTransform> ().rect.height))));
 			ScrollBar.value = 1;
 		}
 	}
@@ -70,12 +75,23 @@ public class Note_List : MonoBehaviour {
 
 	void SelectNote(int position)
 	{
+        NoteEditor.title.GetComponent<InputField>().text = Note_List_Info.noteTitles[position];
+        NoteEditor.date.GetComponent<InputField>().text = Note_List_Info.noteDates[position];
+        NoteEditor.subject.GetComponent<InputField>().text = Note_List_Info.noteSubjects[position];
+        Note_List_Info.note = position;
+        Note_Functions.SetEditView();
 	}
 
-	string PeekAtNote(int i){
-		string text = "Title: " + Primary_Note_Functions.noteTitles[i] + " Date: " + Primary_Note_Functions.noteDates[i];
+	string PeekAtTitle(int i){
+		string text = "Title: " + Note_List_Info.noteTitles[i];
 		return text;
 	}
+
+    string PeekAtDate(int i)
+    {
+        string text = "Date: " + Note_List_Info.noteDates[i];
+        return text;
+    }
 	
 	//Destroy all dynamically created objects for the list
 	public void DeleteList()
