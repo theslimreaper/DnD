@@ -17,6 +17,7 @@ public class Data_Handler : MonoBehaviour {
 	public GameObject Level;
 	public GameObject MoveSpeed;
 	public GameObject Languages;
+    public GameObject avatar;
 
 	void Start(){
 		ImportData ();
@@ -43,6 +44,7 @@ public class Data_Handler : MonoBehaviour {
 		Character_Info.characterLevel = Level.GetComponent<Text> ().text;
 		Character_Info.characterMoveSpeed = MoveSpeed.GetComponent<Text> ().text;
 		Character_Info.characterLanguages = Languages.GetComponent<Text> ().text;
+        Character_Info.characterAvatar = avatar.GetComponent<Image>().sprite;
 
 	}
 
@@ -61,5 +63,6 @@ public class Data_Handler : MonoBehaviour {
 		Level.GetComponent<Text> ().text = Character_Info.characterLevel;
 		MoveSpeed.GetComponent<Text> ().text = Character_Info.characterMoveSpeed;
 		Languages.GetComponent<Text> ().text = Character_Info.characterLanguages;
+        avatar.GetComponent<Image>().sprite = Character_Info.characterAvatar;
 	}
 }

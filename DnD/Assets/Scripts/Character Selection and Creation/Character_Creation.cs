@@ -42,7 +42,7 @@ public class Character_Creation : MonoBehaviour {
     void confirmCharacter()
     {
         Character_Info.characterName = characterName.GetComponent<InputField>().text;
-        Character_Info.characterAvatar = characterAvatar;
+        Character_Info.characterAvatar = characterAvatar.GetComponent<Image>().sprite;
         Application.LoadLevel("Screen Hub");
     }
 }

@@ -22,5 +22,5 @@ public class Character_Info : ScriptableObject {
 	public static string characterCarryWeight = "";
 	public static string characterMoveSpeed = "";
 	public static string characterLanguages = "";
-    public static GameObject characterAvatar;
+    public static Sprite characterAvatar;
 }
