@@ -23,6 +23,7 @@ public class Class_Selection_Dropdown : MonoBehaviour
         }
         classDropdown.value = 1;
         classDropdown.value = 0;
+        SelectClass();
     }
 
     void LateUpdate()

@@ -32,10 +32,11 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 	public GameObject displayLanguage;
 	public GameObject editSubRace;
 	public GameObject displaySubRace;
+    public GameObject displayAvatar;
+    public GameObject editAvatar;
 
 	// Use this for initialization
 	void Start () {
-        DisplayMode();
 	}
 
 	public void DisplayMode(){
@@ -53,6 +54,8 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 		displayCarry.GetComponent<Text>().text = editCarry.GetComponent<InputField>().text;
 		displaySpeed.GetComponent<Text>().text = editSpeed.GetComponent<InputField>().text;
 		displayLanguage.GetComponent<Text>().text = editLanguage.GetComponent<InputField>().text;
+        displayAvatar = editAvatar;
+
 	}
 
     public void EditMode()
@@ -71,6 +74,7 @@ public class Save_Character_Info_Edit : MonoBehaviour {
         editCarry.GetComponent<InputField>().text = displayCarry.GetComponent<Text>().text;
         editSpeed.GetComponent<InputField>().text = displaySpeed.GetComponent<Text>().text;
         editLanguage.GetComponent<InputField>().text = displayLanguage.GetComponent<Text>().text;
+        editAvatar = displayAvatar;
     }
 	
 	// Update is called once per frame
