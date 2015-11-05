@@ -54,7 +54,7 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 		displayCarry.GetComponent<Text>().text = editCarry.GetComponent<InputField>().text;
 		displaySpeed.GetComponent<Text>().text = editSpeed.GetComponent<InputField>().text;
 		displayLanguage.GetComponent<Text>().text = editLanguage.GetComponent<InputField>().text;
-        displayAvatar = editAvatar;
+        displayAvatar.GetComponent<Image>().sprite = editAvatar.GetComponent<Image>().sprite;
 
 	}
 
@@ -74,7 +74,7 @@ public class Save_Character_Info_Edit : MonoBehaviour {
         editCarry.GetComponent<InputField>().text = displayCarry.GetComponent<Text>().text;
         editSpeed.GetComponent<InputField>().text = displaySpeed.GetComponent<Text>().text;
         editLanguage.GetComponent<InputField>().text = displayLanguage.GetComponent<Text>().text;
-        editAvatar = displayAvatar;
+        editAvatar.GetComponent<Image>().sprite = displayAvatar.GetComponent<Image>().sprite;
     }
 	
 	// Update is called once per frame
