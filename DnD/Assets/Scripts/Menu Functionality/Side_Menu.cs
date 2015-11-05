@@ -34,7 +34,7 @@ public class Side_Menu : MonoBehaviour {
 	void createNewCharacter()
 	{
 		HidePauseMenu ();
-		Application.LoadLevel ("Race Selection");
+		Application.LoadLevel ("Character Creation");
 	}
 
 	//Prompt user that unsaved changes will be lost when creating a new character

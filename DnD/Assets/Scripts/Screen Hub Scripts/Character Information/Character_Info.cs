@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine.UI;
+using System;
+using System.Text;
 
 public class Character_Info : ScriptableObject {
 
@@ -17,4 +22,5 @@ public class Character_Info : ScriptableObject {
 	public static string characterCarryWeight = "";
 	public static string characterMoveSpeed = "";
 	public static string characterLanguages = "";
+    public static GameObject characterAvatar;
 }

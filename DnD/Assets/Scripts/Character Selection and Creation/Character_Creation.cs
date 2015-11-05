@@ -9,6 +9,8 @@ using System.Text;
 public class Character_Creation : MonoBehaviour {
     public Message_Handler MessageBoxOK;
     public Message_Handler MessageBoxYN;
+    public GameObject characterName;
+    public GameObject characterAvatar;
 
 	// Use this for initialization
 	void Start () {
@@ -39,6 +41,8 @@ public class Character_Creation : MonoBehaviour {
 
     void confirmCharacter()
     {
+        Character_Info.characterName = characterName.GetComponent<InputField>().text;
+        Character_Info.characterAvatar = characterAvatar;
         Application.LoadLevel("Screen Hub");
     }
 }

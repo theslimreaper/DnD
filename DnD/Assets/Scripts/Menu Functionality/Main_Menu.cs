@@ -21,7 +21,7 @@ public class Main_Menu : MonoBehaviour {
 	//Create new character
 	public void createNewCharacter()
 	{
-		Application.LoadLevel ("Race Selection");
+		Application.LoadLevel ("Character Creation");
 	}
 
 	//Load character from file
