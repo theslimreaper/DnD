@@ -22,8 +22,8 @@ public class Race_Selection_Dropdown : MonoBehaviour
         {
             raceDropdown.options.Add(new Dropdown.OptionData(item));
         }
+        raceDropdown.value = 1;
         raceDropdown.value = 0;
-        //raceDropdown.onValueChanged.AddListener(() => SelectRace());
     }
 
     void LateUpdate()

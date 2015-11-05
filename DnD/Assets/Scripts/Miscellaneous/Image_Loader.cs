@@ -82,7 +82,7 @@ public class Image_Loader : MonoBehaviour {
         yield return tempSprite;
     }
 
-    void HideBox()
+    public void HideBox()
     {
         url.GetComponent<InputField>().text = "";
         filename.GetComponent<InputField>().text = "";

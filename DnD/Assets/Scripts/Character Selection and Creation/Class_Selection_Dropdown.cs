@@ -21,6 +21,8 @@ public class Class_Selection_Dropdown : MonoBehaviour
         {
             classDropdown.options.Add(new Dropdown.OptionData(item));
         }
+        classDropdown.value = 1;
+        classDropdown.value = 0;
     }
 
     void LateUpdate()
@@ -53,9 +55,10 @@ public class Class_Selection_Dropdown : MonoBehaviour
     }
 
     //Choose character class and confirm selections
-    public void SelectClass(int position)
+    public void SelectClass()
     {
-      //  Character_Info.characterClass = classDropdown.options.
+        Character_Info.characterClass = classNameList[classDropdown.value];
+        FillClassDescription(classDropdown.value);
     }
 
     //Show the description of the highlighted class
