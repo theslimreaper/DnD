@@ -15,7 +15,7 @@ public class Image_Converter : ScriptableObject
         string base64 = "";
 
             byte[] bytes;
-            bytes = sprite.texture.EncodeToPNG();
+            bytes = sprite.texture.EncodeToJPG();
 
             base64 = Convert.ToBase64String(bytes);
      return base64;

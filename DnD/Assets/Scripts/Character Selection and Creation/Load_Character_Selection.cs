@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 public class Load_Character_Selection : MonoBehaviour {
     public GameObject Select_Character_Button;
     public GameObject Select_Character_Text;
-    string[] characters = null;
+    List<string> characters = new List<string>();
     public GameObject ScrollView;
 	public Message_Handler MessageBoxYN;
 	public Message_Handler MessageBoxOK;
@@ -40,37 +40,37 @@ public class Load_Character_Selection : MonoBehaviour {
 		ScrollBar.value = 0;
 		ParentRect.sizeDelta = new Vector2( ParentRectDefault.rect.width, 0);
 		//If the saved characters folder does not exist, output a message stating no saved characters were found
-		if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Saved Characters"))){
+		if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "Saved Data")) || (!File.Exists((Path.Combine(Directory.GetCurrentDirectory(), "Saved Data/characters.xml"))))){
 			MessageBoxOK.ShowBox ("No saved characters were found!");
 		}
 		else{
 		//Otherwise, get all saved characters and empty out the list of saved characters
-        characters  = Directory.GetFiles("./Saved Characters","*.xml");
+            characters.Clear();
+            Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
+            characters = Load.LoadCharacterIDs();
         DeleteLoadedCharacters();
 		//If no saved characters are found, output a message to the user
-		if (!(characters.Length > 0)) {
+		if (!(characters.Count > 0)) {
 			MessageBoxOK.ShowBox ("No saved characters were found!");
 		} else {
 			//Otherwise, dynamically add buttons, one for each character, and place these buttons in a vertical list format inside a scroll view
 			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 0);
-
-			for (int i = 0; i < characters.Length; i++) {
+            int i = 0;
+			foreach(var item in characters) {
 				GameObject characterButton = (GameObject)Instantiate (Select_Character_Button);
 				GameObject characterText = characterButton.gameObject.transform.GetChild (0).gameObject;
 				characterButton.transform.SetParent (ParentButton, false);
 				characterButton.transform.localScale = new Vector3 (0.4760417f, 0.4760417f, 0.4760417f);
 				characterText.transform.localScale = new Vector3 (4.760417f * 0.5f, 4.760417f * 0.5f, 4.760417f * 0.5f);
-				characterText.GetComponent<Text> ().text = PeekAtCharacher (characters [i]);
+				characterText.GetComponent<Text> ().text = PeekAtCharacher (Convert.ToInt32(characters [i]));
 				if (i == 0) {
 					characterButton.transform.position = new Vector3 (ParentText.transform.position.x, ParentText.transform.position.y, -212);
 				} else {
 					characterButton.transform.position = new Vector3 (ParentText.transform.position.x, ParentText.transform.position.y - (150 * i * screenRatio), -212);
 				}
-
 				dynamicObjects.Add (characterButton);
 				Button tempButton = characterButton.gameObject.GetComponent<Button> ();
-				int position = i;
-				
+                int position = Convert.ToInt32(characters[i]);
 				//If the user is in the main screen, then add an event to choose the character to load to the selected button
 				if (Application.loadedLevelName == "Start Screen") {
 					tempButton.onClick.AddListener (() => SelectCharacter (position));
@@ -79,13 +79,14 @@ public class Load_Character_Selection : MonoBehaviour {
 					tempButton.onClick.AddListener (() => MessageBoxYN.ShowBox ("WARNING: Loading another character will result in the loss of unsaved changes for the current character! Continue?"));
 					tempButton.onClick.AddListener (() => (MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button> ().onClick.AddListener (() => SelectCharacter (position))));
 				}
+                i++;
 			}
 		}
 		}
 
         if( dynamicObjects.Count > 0)
         {
-            ParentRect.sizeDelta = new Vector2( ParentRectDefault.rect.width, (ParentRectHeight - ( dynamicObjects[characters.Length - 1].transform.position.y - ( 1.7f*dynamicObjects[characters.Length - 1].GetComponent<RectTransform>().rect.height )) ));
+            ParentRect.sizeDelta = new Vector2( ParentRectDefault.rect.width, (ParentRectHeight - ( dynamicObjects[characters.Count - 1].transform.position.y - ( 1.7f*dynamicObjects[characters.Count - 1].GetComponent<RectTransform>().rect.height )) ));
             ScrollBar.value = 1;
         }
 
@@ -95,16 +96,15 @@ public class Load_Character_Selection : MonoBehaviour {
     void SelectCharacter(int position)
     {
         Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
-        string selected_file = characters[position];
-        Load.LoadCharacterData(selected_file);
+        Load.LoadCharacterData(position);
         Application.LoadLevel("Screen Hub");
     }
 
 	//Peek inside the saved character file so specific information can be displayed about the character in the list of loadable characters
-    string PeekAtCharacher(string filename)
+    string PeekAtCharacher(int position)
     {
         string line = "";
-        string input_file = filename;
+        string input_file = "./Saved Data/characters.xml";
         string output_file = "temp.xml";
         List<string> keyList = new List<string>();
         List<string> elemList = new List<string>();
@@ -112,6 +112,7 @@ public class Load_Character_Selection : MonoBehaviour {
         byte[] key = null;
         RijndaelManaged RMCrypto = new RijndaelManaged();
         string characterInfo = "";
+        string tagName = "";
 
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
 
@@ -136,37 +137,41 @@ public class Load_Character_Selection : MonoBehaviour {
         }
         cryptography_stream.Close();
         decrypted_file.Close();
-
         //Call functions to load data from temporary xml file into specified game objects
-        elemList = XML.LoadInnerXmlFromFile(output_file, "charactername");
+        tagName = "charactername" + position;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         foreach (var item in elemList)
         {
             characterInfo = item + " -";
         }
         elemList.Clear();
 
-        elemList = XML.LoadInnerXmlFromFile(output_file, "characterlevel");
+        tagName = "characterlevel" + position;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         foreach (var item in elemList)
         {
             characterInfo = characterInfo + " Lv. " + item;
         }
         elemList.Clear();
 
-        elemList = XML.LoadInnerXmlFromFile(output_file, "charactersubrace");
+        tagName = "charactersubrace" + position;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         foreach (var item in elemList)
         {
             characterInfo = characterInfo +  " " + item;
         }
         elemList.Clear();
 
-        elemList = XML.LoadInnerXmlFromFile(output_file, "characterrace");
+        tagName = "characterrace" + position;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         foreach (var item in elemList)
         {
             characterInfo = characterInfo + " " + item;
         }
         elemList.Clear();
 
-        elemList = XML.LoadInnerXmlFromFile(output_file, "characterclass");
+        tagName = "characterclass" + position;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         foreach (var item in elemList)
         {
             characterInfo = characterInfo + " " + item;

@@ -9,20 +9,43 @@ using System.Text;
 using System.Security.Cryptography;
 
 public class Data_Saver : ScriptableObject {
+    bool newfile = false;
 	//Save character data to an encrypted xml file named after the character
-	public void SaveCharacterData(string filename)
+	public void SaveCharacterData()
 	{
-		string output_file = filename + ".xml";
-        string character_directory = "Saved Characters";
+		string output_file = "characters.xml";
+        string character_directory = "Saved Data";
 		List<string> keyList = new List<string>();
 		List<string> contentList = new List<string> ();
 		UnicodeEncoding encoding = new UnicodeEncoding ();
 		byte[] key = null;
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
         string currentPath = Directory.GetCurrentDirectory();
+        Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
+        List<string> tempList = new List<string>();
 
-        if (!Directory.Exists(Path.Combine(currentPath, character_directory)))
+        if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), character_directory)) || (!File.Exists((Path.Combine(Directory.GetCurrentDirectory(), Path.Combine(character_directory, output_file))))))
+        {
+            newfile = true;
             Directory.CreateDirectory(Path.Combine(currentPath, character_directory));
+        }
+        else
+        {
+            tempList = Load.LoadCharacterIDs();
+            if(!(tempList.Count > 0))
+            {
+                newfile = true;
+            }
+            else
+            {
+                newfile = false;
+            }
+        }
+
+        if(newfile == false)
+        {
+            contentList = GetAllData();
+        }
 
         character_directory = Path.Combine(currentPath, character_directory);
         output_file = Path.Combine(character_directory, output_file);
@@ -37,15 +60,29 @@ public class Data_Saver : ScriptableObject {
 		CryptoStream cryptography_stream = new CryptoStream (encrypted_file, RMCrypto.CreateEncryptor (key, key), CryptoStreamMode.Write);
 		using (MemoryStream msEncrypt = new MemoryStream()) {
 			using (StreamWriter swEncrypt = new StreamWriter(cryptography_stream)) {
-				contentList = CollectCharacterData ();
-				foreach( var content in contentList ){
-				swEncrypt.WriteLine (content);
-				}
+                swEncrypt.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+                swEncrypt.WriteLine("<savedcharacters>");
+                if (newfile == false)
+                {
+                    foreach (var content in contentList)
+                    {
+                        swEncrypt.WriteLine(content);
+                    }
+                }
+                contentList.Clear();
+                contentList = CollectCharacterData();
+                foreach (var content in contentList)
+                {
+                    swEncrypt.WriteLine(content);
+                }
+                swEncrypt.WriteLine("</savedcharacters>");
 			}
 		}
 
 		cryptography_stream.Close ();
 		encrypted_file.Close ();
+
+        tempList = Load.LoadCharacterIDs();
 	}
 
 	//Format data into xml format
@@ -54,57 +91,54 @@ public class Data_Saver : ScriptableObject {
 		string content = "";
         Image_Converter ImageConverter = ScriptableObject.CreateInstance<Image_Converter>();
 
-		content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
-		contentList.Add (content);
-		content = "<savedcharacter>";
-		contentList.Add (content);
-
+        content = "<id>" + Character_Info.id + "</id>";
+        contentList.Add(content);
 		content = "<characterinfo>";
 		contentList.Add (content);
 
         content = ImageConverter.ConvertImageToString(Character_Info.characterAvatar);
 
-        content = "<avatar>" + content + "</avatar>";
+        content = "<avatar" + Character_Info.id + ">" + content + "</avatar" + Character_Info.id + ">";
         contentList.Add(content);
 
-		content = "<charactername>" + Character_Info.characterName + "</charactername>";
+        content = "<charactername" + Character_Info.id + ">" + Character_Info.characterName + "</charactername" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<characterclass>" + Character_Info.characterClass + "</characterclass>";
+        content = "<characterclass" + Character_Info.id + ">" + Character_Info.characterClass + "</characterclass" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<characterrace>" + Character_Info.characterRace + "</characterrace>";
+        content = "<characterrace" + Character_Info.id + ">" + Character_Info.characterRace + "</characterrace" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<charactersubrace>" + Character_Info.characterSubrace + "</charactersubrace>";
+        content = "<charactersubrace" + Character_Info.id + ">" + Character_Info.characterSubrace + "</charactersubrace" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<alignment>" + Character_Info.characterAlignment + "</alignment>";
+        content = "<alignment" + Character_Info.id + ">" + Character_Info.characterAlignment + "</alignment" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<age>" + Character_Info.characterAge + "</age>";
+        content = "<age" + Character_Info.id + ">" + Character_Info.characterAge + "</age" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<gender>" + Character_Info.characterGender + "</gender>";
+        content = "<gender" + Character_Info.id + ">" + Character_Info.characterGender + "</gender" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<characterlevel>" + Character_Info.characterLevel + "</characterlevel>";
+        content = "<characterlevel" + Character_Info.id + ">" + Character_Info.characterLevel + "</characterlevel" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<health>" + Character_Info.characterHealth + "</health>";
+        content = "<health" + Character_Info.id + ">" + Character_Info.characterHealth + "</health" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<height>" + Character_Info.characterHeight + "</height>";
+        content = "<height" + Character_Info.id + ">" + Character_Info.characterHeight + "</height" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<weight>" + Character_Info.characterWeight + "</weight>";
+        content = "<weight" + Character_Info.id + ">" + Character_Info.characterWeight + "</weight" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<carryweight>" + Character_Info.characterCarryWeight + "</carryweight>";
+        content = "<carryweight" + Character_Info.id + ">" + Character_Info.characterCarryWeight + "</carryweight" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<movespeed>" + Character_Info.characterMoveSpeed + "</movespeed>";
+        content = "<movespeed" + Character_Info.id + ">" + Character_Info.characterMoveSpeed + "</movespeed" + Character_Info.id + ">";
 		contentList.Add (content);
-		content = "<languages>" + Character_Info.characterLanguages + "</languages>";
+        content = "<languages" + Character_Info.id + ">" + Character_Info.characterLanguages + "</languages" + Character_Info.id + ">";
 		contentList.Add (content);
 
 		content = "<notes>";
 		contentList.Add (content);
 		int i = 0;
 		foreach (var item in Note_List_Info.noteTitles) {
-			content = "<title>" + Note_List_Info.noteTitles[i] + "</title>";
+            content = "<title" + Character_Info.id + ">" + Note_List_Info.noteTitles[i] + "</title" + Character_Info.id + ">";
 			contentList.Add (content);
-			content = "<date>" + Note_List_Info.noteDates[i] + "</date>";
+            content = "<date" + Character_Info.id + ">" + Note_List_Info.noteDates[i] + "</date" + Character_Info.id + ">";
 			contentList.Add (content);
-			content = "<subject>" + Note_List_Info.noteSubjects[i] + "</subject>";
+            content = "<subject" + Character_Info.id + ">" + Note_List_Info.noteSubjects[i] + "</subject" + Character_Info.id + ">";
 			Debug.Log(content);
 			contentList.Add (content);
 			i++;
@@ -112,11 +146,11 @@ public class Data_Saver : ScriptableObject {
 		content = "</notes>";
 		contentList.Add (content);
 
-		content = "</characterinfo>";
-		contentList.Add (content);
+        content = "</characterinfo>";
+        contentList.Add(content);
 
-		content = "</savedcharacter>";
-		contentList.Add (content);
+        content = "<idend>" + Character_Info.id + "</idend>";
+        contentList.Add(content);
 
 		return contentList;
 	}
@@ -124,7 +158,7 @@ public class Data_Saver : ScriptableObject {
 	public void SaveSettingsData()
     {
         string output_file = "settings.xml";
-        string settings_directory = "Settings";
+        string settings_directory = "Saved Data";
         List<string> keyList = new List<string>();
         List<string> contentList = new List<string>();
         UnicodeEncoding encoding = new UnicodeEncoding();
@@ -182,5 +216,60 @@ public class Data_Saver : ScriptableObject {
         contentList.Add(content);
 
         return contentList;
+    }
+
+    public List<string> GetAllData()
+    {
+        string line = "";
+        string input_file = "./Saved Data/characters.xml";
+        List<string> keyList = new List<string>();
+        List<string> elemList = new List<string>();
+        UnicodeEncoding encoding = new UnicodeEncoding();
+        byte[] key = null;
+        RijndaelManaged RMCrypto = new RijndaelManaged();
+        string tagID;
+        string tagIDend;
+        int indexStart = 0;
+        int indexEnd = 0;
+
+        key = encoding.GetBytes(Data_Handler_Key.keyvalue);
+        FileStream decrypted_file = new FileStream(input_file, FileMode.Open);
+        CryptoStream cryptography_stream = new CryptoStream(decrypted_file, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
+        using (MemoryStream msDecrypt = new MemoryStream())
+        {
+            using (StreamReader srDecrypt = new StreamReader(cryptography_stream))
+            {
+                    while ((line = srDecrypt.ReadLine()) != null)
+                    {
+                        elemList.Add(line);
+                    }
+            }
+        }
+        cryptography_stream.Close();
+        decrypted_file.Close();
+        tagID = "<id>" + Character_Info.id + "</id>";
+        tagIDend = "<idend>" + Character_Info.id + "</idend>";
+        int i = 0;
+        foreach(var content in elemList)
+        {
+            if(content == tagID)
+            {
+                indexStart = i;
+            }
+
+            if(content == tagIDend)
+            {
+                indexEnd = i;
+            }
+            i++;
+        }
+        if (indexStart != indexEnd)
+        {
+            elemList.RemoveRange(indexStart, indexEnd - indexStart);
+        }
+        elemList.Remove("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        elemList.Remove("<savedcharacters>");
+        elemList.Remove("</savedcharacters>");
+        return elemList;
     }
 }

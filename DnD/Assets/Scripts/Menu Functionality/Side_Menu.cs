@@ -33,7 +33,11 @@ public class Side_Menu : MonoBehaviour {
 	//Create new character
 	void createNewCharacter()
 	{
+        Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
+        List<string> tempList = new List<string>();
+        tempList = Load.LoadCharacterIDs();
 		HidePauseMenu ();
+        Character_Info.id = Character_Info.maxid;
 		Application.LoadLevel ("Character Creation");
 	}
 
@@ -49,7 +53,6 @@ public class Side_Menu : MonoBehaviour {
 	{
 		HidePauseMenu ();
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
-		Load.LoadCharacterData ("test.xml");
 		Application.LoadLevel ("Screen Hub");
 	}
 
@@ -65,7 +68,7 @@ public class Side_Menu : MonoBehaviour {
     {
         Data_Deleter Delete = ScriptableObject.CreateInstance<Data_Deleter>();
 
-        Delete.DeleteFile(Character_Info.characterName);
+        Delete.DeleteFile();
         MessageBoxOK.ShowBox("The current character has been successfully deleted! Please click OK to return to the main menu.");
         MessageBoxOK.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(() => Application.LoadLevel("Start Screen"));
 

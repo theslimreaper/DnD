@@ -20,7 +20,11 @@ public class Main_Menu : MonoBehaviour {
 
 	//Create new character
 	public void createNewCharacter()
-	{
+    {
+        Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
+        List<string> tempList = new List<string>();
+        tempList = Load.LoadCharacterIDs();
+        Character_Info.id = Character_Info.maxid;
 		Application.LoadLevel ("Character Creation");
 	}
 
@@ -28,7 +32,6 @@ public class Main_Menu : MonoBehaviour {
 	public void loadExistingCharacter()
 	{
 		Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader> ();
-		Load.LoadCharacterData ("test.xml");
 		Application.LoadLevel ("Screen Hub");
 	}
 

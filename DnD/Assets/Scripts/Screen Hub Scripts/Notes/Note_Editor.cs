@@ -45,7 +45,7 @@ public class Note_Editor : MonoBehaviour {
             Note_List_Info.noteDates[position] = date.GetComponent<InputField>().text;
             Note_List_Info.noteSubjects[position] = subject.GetComponent<InputField>().text;
         }
-        MessageBoxYN.ShowBox("Save successful!");
+        MessageBoxOK.ShowBox("Save successful!");
 		ClearFields ();
 		Note_Functions.SetListView ();
 	}
