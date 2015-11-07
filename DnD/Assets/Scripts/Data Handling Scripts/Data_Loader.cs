@@ -19,6 +19,7 @@ public class Data_Loader : ScriptableObject {
 		UnicodeEncoding encoding = new UnicodeEncoding ();
 		byte[] key = null;
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
+        Image_Converter ImageConverter = ScriptableObject.CreateInstance<Image_Converter>();
 		
 		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
@@ -41,6 +42,13 @@ public class Data_Loader : ScriptableObject {
 		decrypted_file.Close ();
 
 		//Call functions to load data from temporary xml file into specified game objects
+        elemList = XML.LoadInnerXmlFromFile(output_file, "avatar");
+        foreach (var item in elemList)
+        {
+            Character_Info.characterAvatar = ImageConverter.ConvertStringToImage(item);
+        }
+        elemList.Clear();
+
 		elemList = XML.LoadInnerXmlFromFile (output_file, "charactername");
 		foreach(var item in elemList){
 			Character_Info.characterName = item;

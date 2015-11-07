@@ -52,6 +52,7 @@ public class Data_Saver : ScriptableObject {
 	List<string> CollectCharacterData (){
 		List<string> contentList = new List<string> ();
 		string content = "";
+        Image_Converter ImageConverter = ScriptableObject.CreateInstance<Image_Converter>();
 
 		content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
 		contentList.Add (content);
@@ -60,6 +61,11 @@ public class Data_Saver : ScriptableObject {
 
 		content = "<characterinfo>";
 		contentList.Add (content);
+
+        content = ImageConverter.ConvertImageToString(Character_Info.characterAvatar);
+
+        content = "<avatar>" + content + "</avatar>";
+        contentList.Add(content);
 
 		content = "<charactername>" + Character_Info.characterName + "</charactername>";
 		contentList.Add (content);

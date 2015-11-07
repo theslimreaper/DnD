@@ -15,6 +15,7 @@ public class Image_Loader : MonoBehaviour {
     public CanvasGroup uploadCanvasGroup;
 	// Use this for initialization
 	void Start () {
+        Character_Info.characterAvatar = avatarImage.GetComponent<Image>().sprite;
         filename.GetComponent<InputField>().interactable = false;
         HideBox();
 	}
@@ -47,7 +48,7 @@ public class Image_Loader : MonoBehaviour {
             public void LoadImageFromFile(string image)
             {
                 string pathPrefix = @"file://";
-                Texture2D avatar = new Texture2D(1024, 1024, TextureFormat.DXT1, false);
+                Texture2D avatar = new Texture2D(1024, 1024, TextureFormat.Alpha8, false);
                 string fullFilename = pathPrefix + image;
                 WWW www = new WWW(fullFilename);
                 //LoadImageIntoTexture compresses JPGs by DXT1 and PNGs by DXT5     
@@ -68,7 +69,7 @@ public class Image_Loader : MonoBehaviour {
     IEnumerator<Sprite> DownloadImage(string image)
     {
         string pathPrefix = @"";
-        Texture2D avatar = new Texture2D(1024, 1024, TextureFormat.DXT1, false);
+        Texture2D avatar = new Texture2D(1024, 1024, TextureFormat.Alpha8, false);
         string fullFilename = pathPrefix + image;
         WWW www = new WWW(fullFilename);
         while( !www.isDone )
