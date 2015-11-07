@@ -265,6 +265,20 @@ public class Data_Loader : ScriptableObject {
             }
             elemList.Clear();
 
+            elemList = XML.LoadInnerXmlFromFile(output_file, "bgmusicvol");
+            foreach (var item in elemList)
+            {
+                Settings_Screen.BGMusicVol = float.Parse(item);
+            }
+            elemList.Clear();
+
+            elemList = XML.LoadInnerXmlFromFile(output_file, "sfxvol");
+            foreach (var item in elemList)
+            {
+                Settings_Screen.SFXVol = float.Parse(item);
+            }
+            elemList.Clear();
+
             //Delete the temporary xml file
             File.Delete(output_file);
         }

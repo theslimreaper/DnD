@@ -15,11 +15,19 @@ public class Settings_Screen : MonoBehaviour {
     public Button onlineButton;
     public Button offlineButton;
     public static bool is_online;
+    public static float BGMusicVol = 1;
+    public static float SFXVol = 1;
     public Message_Handler MessageBoxYN;
     public Message_Handler MessageBoxOK;
+    public Slider BGMusicSlider;
+    public Slider SFXSlider;
 	// Use this for initialization
 	void Start () {
+        BGMusicSlider.onValueChanged.AddListener(delegate { Background_Music.Instance.VolumeChange(BGMusicSlider); });
+        SFXSlider.onValueChanged.AddListener(delegate { Sound_Effects.Instance.VolumeChange(SFXSlider);  });
         HideSettings();
+        LoadSettings();
+        defineSettings();
 	}
 
     public void ShowSettings()
@@ -38,6 +46,13 @@ public class Settings_Screen : MonoBehaviour {
         screen.SetActive(false);
     }
 
+    public void CancelSettings()
+    {
+        HideSettings();
+        LoadSettings();
+        defineSettings();
+    }
+
     public void SaveSettings()
     {
         Data_Saver Save = ScriptableObject.CreateInstance<Data_Saver>();
@@ -46,7 +61,7 @@ public class Settings_Screen : MonoBehaviour {
         MessageBoxOK.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(() => HideSettings());
     }
 
-    void defineSettings()
+    public void defineSettings()
     {
         switch (is_online)
         {
@@ -59,6 +74,9 @@ public class Settings_Screen : MonoBehaviour {
                 offlineButton.interactable = false;
                 break;
         }
+
+        BGMusicSlider.value = BGMusicVol;
+        SFXSlider.value = SFXVol;
     }
 
     public void promptModeChange()
@@ -90,9 +108,11 @@ public class Settings_Screen : MonoBehaviour {
         defineSettings();
     }
 
-    void LoadSettings()
+    public void LoadSettings()
     {
         Data_Loader Load = ScriptableObject.CreateInstance<Data_Loader>();
         Load.LoadSettingsData();
     }
+
+    
 }

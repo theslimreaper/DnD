@@ -15,21 +15,16 @@ public class Data_Handler_Key : MonoBehaviour {
     public GameObject key_text;
 	// Use this for initialization
 	void Start () {
-        getKey();
 	}
+
+    void Awake()
+    {
+        getKey();
+    }
 
 	//Grab the encryption / decryption key from the specified url
     void getKey()
     {
-       /* List<string> keyList = new List<string>();
-
-        //Get encryption / decryption key from url
-        XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
-        keyList = XML.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Key/encryptionKey.xml", "key");
-        foreach (var item in keyList)
-        {
-            keyvalue = item;
-        }*/
-        keyvalue = key_text.GetComponent<Text>().text;
+        keyvalue = gameObject.GetComponent<Text>().text;
     }
 }

@@ -140,7 +140,6 @@ public class Data_Saver : ScriptableObject {
             content = "<date" + Character_Info.id + ">" + Note_List_Info.noteDates[i] + "</date" + Character_Info.id + ">";
 			contentList.Add (content);
             content = "<subject" + Character_Info.id + ">" + Note_List_Info.noteSubjects[i] + "</subject" + Character_Info.id + ">";
-			Debug.Log(content);
 			contentList.Add (content);
 			i++;
 		}
@@ -213,6 +212,10 @@ public class Data_Saver : ScriptableObject {
                 content = "<mode>" + "false" + "</mode>";
                 break;
         }
+        contentList.Add(content);
+        content = "<bgmusicvol>" + Settings_Screen.BGMusicVol + "</bgmusicvol>";
+        contentList.Add(content);
+        content = "<sfxvol>" + Settings_Screen.SFXVol + "</sfxvol>";
         contentList.Add(content);
         content = "</settings>";
         contentList.Add(content);
