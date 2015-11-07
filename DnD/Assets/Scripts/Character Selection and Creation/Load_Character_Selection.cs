@@ -124,10 +124,13 @@ public class Load_Character_Selection : MonoBehaviour {
         CryptoStream cryptography_stream = new CryptoStream(decrypted_file, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
         using (MemoryStream msDecrypt = new MemoryStream())
         {
-            using (StreamReader srDecrypt = new StreamReader(cryptography_stream))
+            using (BufferedStream readBuffer = new BufferedStream(cryptography_stream))
+            using (StreamReader srDecrypt = new StreamReader(readBuffer))
             {
-                using (StreamWriter swTemp = new StreamWriter(temp_file))
+                using (BufferedStream writeBuffer = new BufferedStream(temp_file))
+                using (StreamWriter swTemp = new StreamWriter(writeBuffer))
                 {
+
                     while ((line = srDecrypt.ReadLine()) != null)
                     {
                         swTemp.WriteLine(line);

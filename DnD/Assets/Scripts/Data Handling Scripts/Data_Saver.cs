@@ -59,7 +59,8 @@ public class Data_Saver : ScriptableObject {
 		FileStream encrypted_file = new FileStream (output_file, FileMode.Create);
 		CryptoStream cryptography_stream = new CryptoStream (encrypted_file, RMCrypto.CreateEncryptor (key, key), CryptoStreamMode.Write);
 		using (MemoryStream msEncrypt = new MemoryStream()) {
-			using (StreamWriter swEncrypt = new StreamWriter(cryptography_stream)) {
+            using (BufferedStream writeBuffer = new BufferedStream(cryptography_stream))
+			using (StreamWriter swEncrypt = new StreamWriter(writeBuffer)) {
                 swEncrypt.WriteLine("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
                 swEncrypt.WriteLine("<savedcharacters>");
                 if (newfile == false)
@@ -182,7 +183,8 @@ public class Data_Saver : ScriptableObject {
         CryptoStream cryptography_stream = new CryptoStream(encrypted_file, RMCrypto.CreateEncryptor(key, key), CryptoStreamMode.Write);
         using (MemoryStream msEncrypt = new MemoryStream())
         {
-            using (StreamWriter swEncrypt = new StreamWriter(cryptography_stream))
+            using (BufferedStream writeBuffer = new BufferedStream(cryptography_stream))
+            using (StreamWriter swEncrypt = new StreamWriter(writeBuffer))
             {
                 contentList = CollectSettingsData();
                 foreach (var content in contentList)
@@ -237,7 +239,8 @@ public class Data_Saver : ScriptableObject {
         CryptoStream cryptography_stream = new CryptoStream(decrypted_file, RMCrypto.CreateDecryptor(key, key), CryptoStreamMode.Read);
         using (MemoryStream msDecrypt = new MemoryStream())
         {
-            using (StreamReader srDecrypt = new StreamReader(cryptography_stream))
+            using (BufferedStream readBuffer = new BufferedStream(cryptography_stream))
+            using (StreamReader srDecrypt = new StreamReader(readBuffer))
             {
                     while ((line = srDecrypt.ReadLine()) != null)
                     {
