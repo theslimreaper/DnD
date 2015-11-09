@@ -12,6 +12,8 @@ public class Race_Selection_Dropdown : MonoBehaviour
     List<string> raceDescrList = new List<string>();
     List<string> raceNameList = new List<string>();
     public Dropdown raceDropdown;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     // Start and Update functions
 
@@ -25,6 +27,7 @@ public class Race_Selection_Dropdown : MonoBehaviour
         raceDropdown.value = 1;
         raceDropdown.value = 0;
         SelectRace();
+        raceDropdown.onValueChanged.AddListener(delegate { audioSource.PlayOneShot(audioClip); });
     }
 
     void LateUpdate()

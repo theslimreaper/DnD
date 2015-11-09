@@ -11,6 +11,8 @@ public class Class_Selection_Dropdown : MonoBehaviour
     List<string> classDescrList = new List<string>();
     List<string> classNameList = new List<string>();
     public Dropdown classDropdown;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     // Start and Update functions
 
@@ -24,6 +26,7 @@ public class Class_Selection_Dropdown : MonoBehaviour
         classDropdown.value = 1;
         classDropdown.value = 0;
         SelectClass();
+        classDropdown.onValueChanged.AddListener(delegate { audioSource.PlayOneShot(audioClip); });
     }
 
     void LateUpdate()
