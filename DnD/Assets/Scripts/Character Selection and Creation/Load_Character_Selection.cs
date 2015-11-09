@@ -24,6 +24,9 @@ public class Load_Character_Selection : MonoBehaviour {
     RectTransform ParentRect;
     float screenRatio = (float)Screen.height / (float)1080;
 	Scrollbar ScrollBar;
+    public AudioSource audioSource;
+    public AudioClip audioClipNext;
+    public AudioClip audioClipAlert;
 
 	// Use this for initialization
 	void Start () {
@@ -73,12 +76,14 @@ public class Load_Character_Selection : MonoBehaviour {
                 int position = Convert.ToInt32(characters[i]);
 				//If the user is in the main screen, then add an event to choose the character to load to the selected button
 				if (Application.loadedLevelName == "Start Screen") {
+                    tempButton.onClick.AddListener(delegate { audioSource.PlayOneShot(audioClipNext); });
 					tempButton.onClick.AddListener (() => SelectCharacter (position));
 				} else {
 				//Otherwise, bring up a message stating unsaved data will be lost, and have the character be chosen when the user specifies to continue
+                    tempButton.onClick.AddListener(delegate { audioSource.PlayOneShot(audioClipAlert); });
 					tempButton.onClick.AddListener (() => MessageBoxYN.ShowBox ("WARNING: Loading another character will result in the loss of unsaved changes for the current character! Continue?"));
 					tempButton.onClick.AddListener (() => (MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button> ().onClick.AddListener (() => SelectCharacter (position))));
-				}
+                }
                 i++;
 			}
 		}

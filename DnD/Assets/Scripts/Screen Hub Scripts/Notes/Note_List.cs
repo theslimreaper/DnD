@@ -39,37 +39,46 @@ public class Note_List : MonoBehaviour {
 		}
         ScrollBar = ScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
 		ScrollBar.value = 0;
-		ParentRect.sizeDelta = new Vector2 (ParentRectDefault.rect.width, 0);
-		if (num_of_notes > 0) {
-			ScrollView.transform.position = new Vector3 (ScrollView.transform.position.x, ScrollView.transform.position.y, 250);
-				
-			for (int i = 0; i < num_of_notes; i++) {
-				GameObject noteButton = (GameObject)Instantiate (Select_Note_Button);
-				GameObject titleText = noteButton.gameObject.transform.GetChild (0).gameObject;
-                GameObject dateText = noteButton.gameObject.transform.GetChild(1).gameObject;
-				noteButton.transform.SetParent (ParentButton, false);
-                noteButton.transform.localScale = new Vector3(0.18f, 0.1f, 0);
-				titleText.transform.localScale = new Vector3 (1, 1, 1);
-				titleText.GetComponent<Text> ().text = PeekAtTitle (i);
-                dateText.GetComponent<Text>().text = PeekAtDate(i);
-				if (i == 0) {
-                    noteButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y, 250);
-				} else {
-                    noteButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y - (40 * i * screenRatio), 250);
-				}
-					
-				dynamicObjects.Add (noteButton);
-				Button tempButton = noteButton.gameObject.GetComponent<Button> ();
-				int position = i;
-					
-				tempButton.onClick.AddListener (() => SelectNote (position));
-			}
-		}
-		
-		if (dynamicObjects.Count > 0) {
-			ParentRect.sizeDelta = new Vector2 (ParentRectDefault.rect.width, screenRatio * (ParentRectHeight - (dynamicObjects [num_of_notes - 1].transform.position.y - (dynamicObjects [num_of_notes - 1].GetComponent<RectTransform> ().rect.height))));
-			ScrollBar.value = 1;
-		}
+        if (ParentRectDefault != null)
+        {
+            ParentRect.sizeDelta = new Vector2(ParentRectDefault.rect.width, 0);
+            if (num_of_notes > 0)
+            {
+                ScrollView.transform.position = new Vector3(ScrollView.transform.position.x, ScrollView.transform.position.y, 250);
+
+                for (int i = 0; i < num_of_notes; i++)
+                {
+                    GameObject noteButton = (GameObject)Instantiate(Select_Note_Button);
+                    GameObject titleText = noteButton.gameObject.transform.GetChild(0).gameObject;
+                    GameObject dateText = noteButton.gameObject.transform.GetChild(1).gameObject;
+                    noteButton.transform.SetParent(ParentButton, false);
+                    noteButton.transform.localScale = new Vector3(0.18f, 0.1f, 0);
+                    titleText.transform.localScale = new Vector3(1, 1, 1);
+                    titleText.GetComponent<Text>().text = PeekAtTitle(i);
+                    dateText.GetComponent<Text>().text = PeekAtDate(i);
+                    if (i == 0)
+                    {
+                        noteButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y, 250);
+                    }
+                    else
+                    {
+                        noteButton.transform.position = new Vector3(ParentText.transform.position.x, ParentText.transform.position.y - (40 * i * screenRatio), 250);
+                    }
+
+                    dynamicObjects.Add(noteButton);
+                    Button tempButton = noteButton.gameObject.GetComponent<Button>();
+                    int position = i;
+
+                    tempButton.onClick.AddListener(() => SelectNote(position));
+                }
+            }
+
+            if (dynamicObjects.Count > 0)
+            {
+                ParentRect.sizeDelta = new Vector2(ParentRectDefault.rect.width, screenRatio * (ParentRectHeight - (dynamicObjects[num_of_notes - 1].transform.position.y - (dynamicObjects[num_of_notes - 1].GetComponent<RectTransform>().rect.height))));
+                ScrollBar.value = 1;
+            }
+        }
 	}
 	
 
