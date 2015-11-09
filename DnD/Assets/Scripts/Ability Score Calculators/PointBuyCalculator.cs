@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PointBuyTracker : MonoBehaviour {
+public class PointBuyCalculator : MonoBehaviour {
     public static int PointBuyTotal = 27;
     public static int oldTotal = 27;
     public static int PointBuyLeft = 27;
@@ -15,6 +15,7 @@ public class PointBuyTracker : MonoBehaviour {
     public Text ProblemText;
     public static int[] PointCostPerStat= new int[6];
     public int AbilityNumber;
+
     public void onBaseUpdate(string newValue)
     {
         print("Updated base");
@@ -59,8 +60,9 @@ public class PointBuyTracker : MonoBehaviour {
             Modifier.text= (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) - 11) / 2).ToString();
         }
 
-        
+		AbilityScoreInitial.AbilityScores [AbilityNumber - 1] = (System.Convert.ToInt32 (RaceInput.text) + baseInput.value + 8);
     }
+
     public void onRacialUpdate(string newValue)
     {
         print("Updated racial");
@@ -76,7 +78,15 @@ public class PointBuyTracker : MonoBehaviour {
 
         //update results inputfield
         FinalScore.text = (System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8).ToString();
-        Modifier.text = (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) -10)/2).ToString();
+		if (System.Convert.ToInt32(FinalScore.text) >= 10)
+		{
+			Modifier.text = (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) - 10) / 2).ToString();
+		}
+		else
+		{
+			Modifier.text= (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) - 11) / 2).ToString();
+		}
+		AbilityScoreInitial.AbilityScores [AbilityNumber - 1] = (System.Convert.ToInt32 (RaceInput.text) + baseInput.value + 8);
     }
 
     public void updateTotalPoints()
@@ -89,5 +99,18 @@ public class PointBuyTracker : MonoBehaviour {
         PointBuyLeft = PointBuyLeft + (PointBuyTotal - oldTotal);
         pointBuyRemaining.text = "You have " + PointBuyLeft + " points left to spend.";
    }
+	public void onLoadUpdateFinal()
+	{
+		FinalScore.text = (System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8).ToString();
+		if (System.Convert.ToInt32(FinalScore.text) >= 10)
+		{
+			Modifier.text = (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) - 10) / 2).ToString();
+		}
+		else
+		{
+			Modifier.text= (((System.Convert.ToInt32(RaceInput.text) + baseInput.value + 8) - 11) / 2).ToString();
+		}
+		AbilityScoreInitial.AbilityScores [AbilityNumber - 1] = (System.Convert.ToInt32 (RaceInput.text) + baseInput.value + 8);
+	}
 
 }
