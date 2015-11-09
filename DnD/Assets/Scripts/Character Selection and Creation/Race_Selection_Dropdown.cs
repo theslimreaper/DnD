@@ -8,7 +8,6 @@ public class Race_Selection_Dropdown : MonoBehaviour
 {
 
     public GameObject raceDescription;
-    public CanvasGroup raceDescrCanvasGroup;
     List<string> raceDescrList = new List<string>();
     List<string> raceNameList = new List<string>();
     public Dropdown raceDropdown;
@@ -64,12 +63,13 @@ public class Race_Selection_Dropdown : MonoBehaviour
     public void SelectRace()
     {
         Character_Info.characterRace = raceDropdown.options[raceDropdown.value].text;
+        FillRaceDescription();
     }
 
     //Fill the race description based on the highlighted race
-    public void FillRaceDescription(int position)
+    public void FillRaceDescription()
     {
-        raceDescription.GetComponent<Text>().text = raceDescrList[position];
+        raceDescription.GetComponent<Text>().text = raceDescrList[raceDropdown.value];
     }
 
     //Clear the race description

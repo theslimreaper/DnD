@@ -62,13 +62,13 @@ public class Class_Selection_Dropdown : MonoBehaviour
     public void SelectClass()
     {
         Character_Info.characterClass = classNameList[classDropdown.value];
-        FillClassDescription(classDropdown.value);
+        FillClassDescription();
     }
 
     //Show the description of the highlighted class
-    public void FillClassDescription(int position)
+    public void FillClassDescription()
     {
-        classDescription.GetComponent<Text>().text = classDescrList[position];
+        classDescription.GetComponent<Text>().text = classDescrList[classDropdown.value];
     }
 
     //Clear the class description
