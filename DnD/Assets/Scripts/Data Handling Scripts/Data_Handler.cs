@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using System.IO;
+using System.Net;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System;
+using System.Text;
 
 public class Data_Handler : MonoBehaviour {
 	public GameObject Class;
@@ -18,6 +23,11 @@ public class Data_Handler : MonoBehaviour {
 	public GameObject MoveSpeed;
 	public GameObject Languages;
     public GameObject avatar;
+    public GameObject copper;
+    public GameObject silver;
+    public GameObject electrum;
+    public GameObject gold;
+    public GameObject platinum;
 
 	void Start(){
 		ImportData ();
@@ -45,6 +55,11 @@ public class Data_Handler : MonoBehaviour {
 		Character_Info.characterMoveSpeed = MoveSpeed.GetComponent<Text> ().text;
 		Character_Info.characterLanguages = Languages.GetComponent<Text> ().text;
         Character_Info.characterAvatar = avatar.GetComponent<Image>().sprite;
+        Character_Info.copper = Convert.ToInt32(copper.GetComponent<InputField>().text);
+        Character_Info.silver = Convert.ToInt32(silver.GetComponent<InputField>().text);
+        Character_Info.electrum = Convert.ToInt32(electrum.GetComponent<InputField>().text);
+        Character_Info.gold = Convert.ToInt32(gold.GetComponent<InputField>().text);
+        Character_Info.platinum = Convert.ToInt32(platinum.GetComponent<InputField>().text);
 
 	}
 
@@ -64,5 +79,10 @@ public class Data_Handler : MonoBehaviour {
 		MoveSpeed.GetComponent<Text> ().text = Character_Info.characterMoveSpeed;
 		Languages.GetComponent<Text> ().text = Character_Info.characterLanguages;
         avatar.GetComponent<Image>().sprite = Character_Info.characterAvatar;
+        copper.GetComponent<InputField>().text = Convert.ToString(Character_Info.copper);
+        silver.GetComponent<InputField>().text = Convert.ToString(Character_Info.silver);
+        electrum.GetComponent<InputField>().text = Convert.ToString(Character_Info.electrum);
+        gold.GetComponent<InputField>().text = Convert.ToString(Character_Info.gold);
+        platinum.GetComponent<InputField>().text = Convert.ToString(Character_Info.platinum);
 	}
 }

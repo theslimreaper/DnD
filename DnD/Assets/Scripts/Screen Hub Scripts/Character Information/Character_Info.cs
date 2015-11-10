@@ -25,4 +25,9 @@ public class Character_Info : ScriptableObject {
     public static Sprite characterAvatar;
     public static int id = 0;
     public static int maxid = 0;
+    public static int copper = 0;
+    public static int silver = 0;
+    public static int electrum = 0;
+    public static int gold = 0;
+    public static int platinum = 0;
 }

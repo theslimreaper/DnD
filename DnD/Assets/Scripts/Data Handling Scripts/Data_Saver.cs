@@ -146,6 +146,27 @@ public class Data_Saver : ScriptableObject {
 		content = "</notes>";
 		contentList.Add (content);
 
+        content = "<inventory>";
+        contentList.Add(content);
+
+        content = "<coinage>";
+        contentList.Add(content);
+        content = "<copper" + Character_Info.id + ">" + Character_Info.copper + "</copper" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<silver" + Character_Info.id + ">" + Character_Info.silver + "</silver" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<electrum" + Character_Info.id + ">" + Character_Info.electrum + "</electrum" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<gold" + Character_Info.id + ">" + Character_Info.gold + "</gold" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<platinum" + Character_Info.id + ">" + Character_Info.platinum + "</platinum" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "</coinage>";
+        contentList.Add(content);
+
+        content = "</inventory>";
+        contentList.Add(content);
+
         content = "</characterinfo>";
         contentList.Add(content);
 

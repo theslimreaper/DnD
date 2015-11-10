@@ -104,6 +104,8 @@ public class Data_Loader : ScriptableObject {
 		decrypted_file.Close ();
 
 		//Call functions to load data from temporary xml file into specified game objects
+
+        //Get character overview info
         tagName = "avatar" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         Character_Info.characterAvatar = ImageConverter.ConvertStringToImage(elemList[0]);
@@ -179,6 +181,7 @@ public class Data_Loader : ScriptableObject {
 		Character_Info.characterLanguages = elemList[0];
 		elemList.Clear ();
 
+        //Get notes related to the character
 		Note_List_Info.noteTitles.Clear ();
         tagName = "title" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
@@ -202,6 +205,52 @@ public class Data_Loader : ScriptableObject {
 			Note_List_Info.noteSubjects.Add(item);
 		}
 		elemList.Clear ();
+
+        //Get the character's coin
+        Character_Info.copper = 0;
+        tagName = "copper" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        foreach (var item in elemList)
+        {
+            Character_Info.copper = Convert.ToInt32(item);
+        }
+        elemList.Clear();
+
+        Character_Info.silver = 0;
+        tagName = "silver" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        foreach (var item in elemList)
+        {
+            Character_Info.silver = Convert.ToInt32(item);
+        }
+        elemList.Clear();
+
+        Character_Info.electrum = 0;
+        tagName = "electrum" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        foreach (var item in elemList)
+        {
+            Character_Info.electrum = Convert.ToInt32(item);
+        }
+        elemList.Clear();
+
+        Character_Info.gold = 0;
+        tagName = "gold" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        foreach (var item in elemList)
+        {
+            Character_Info.gold = Convert.ToInt32(item);
+        }
+        elemList.Clear();
+
+        Character_Info.platinum = 0;
+        tagName = "platinum" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        foreach (var item in elemList)
+        {
+            Character_Info.platinum = Convert.ToInt32(item);
+        }
+        elemList.Clear();
 
         Character_Info.id = id;
 
