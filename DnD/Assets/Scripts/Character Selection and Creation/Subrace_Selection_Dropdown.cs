@@ -72,8 +72,14 @@ public class Subrace_Selection_Dropdown : MonoBehaviour {
 	//Fill sub race description based on highlighted subrace
 	public void FillSubraceDescription()
 	{
-        if(Character_Info.characterSubrace != "")
-		subraceDescription.GetComponent<Text>().text = subraceDescrList[subraceDropdown.value];
+        if (Character_Info.characterSubrace != "")
+        {
+            subraceDescription.GetComponent<Text>().text = subraceDescrList[subraceDropdown.value];
+        }
+        else
+        {
+            subraceDescription.GetComponent<Text>().text = "";
+        }
 	}
 
 	//Clear subrace description
@@ -104,5 +110,6 @@ public class Subrace_Selection_Dropdown : MonoBehaviour {
         subraceDropdown.value = 0;
         SelectSubrace();
         subraceDropdown.onValueChanged.AddListener(delegate { audioSource.PlayOneShot(audioClip); });
+        subraceDropdown.onValueChanged.AddListener(delegate { SelectSubrace(); });
     }
 }
