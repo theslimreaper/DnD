@@ -12,8 +12,15 @@ public class Inventory_Handler : MonoBehaviour {
     public GameObject editMode;
     public CanvasGroup displayModeCanvas;
     public CanvasGroup editModeCanvas;
+    public GameObject addItem;
+    public CanvasGroup addItemCanvas;
+    public GameObject universalItems;
+    public CanvasGroup universalItemsCanvas;
+    public Item_Editor itemEditor;
+
 	// Use this for initialization
 	void Start () {
+        HideItemEditor();
         DisplayMode();
 	}
 	
@@ -59,5 +66,32 @@ public class Inventory_Handler : MonoBehaviour {
         currencies[2].text = Convert.ToString(Character_Info.electrum);
         currencies[3].text = Convert.ToString(Character_Info.gold);
         currencies[4].text = Convert.ToString(Character_Info.platinum);
+    }
+
+    public void HideItemEditor()
+    {
+        addItem.SetActive(false);
+        addItemCanvas.alpha = 0;
+        addItemCanvas.interactable = false;
+        editMode.SetActive(true);
+        editModeCanvas.alpha = 1;
+        editModeCanvas.interactable = true;
+        universalItems.SetActive(true);
+        universalItemsCanvas.alpha = 1;
+        universalItemsCanvas.interactable = true;
+        itemEditor.ClearAllFields();
+    }
+
+    public void ShowItemEditor()
+    {
+        addItem.SetActive(true);
+        addItemCanvas.alpha = 1;
+        addItemCanvas.interactable = true;
+        editMode.SetActive(false);
+        editModeCanvas.alpha = 0;
+        editModeCanvas.interactable = false;
+        universalItems.SetActive(false);
+        universalItemsCanvas.alpha = 0;
+        universalItemsCanvas.interactable = false;
     }
 }
