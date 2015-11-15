@@ -35,7 +35,6 @@ public class Item_Editor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ClearAllFields();
 	}
 	
 	// Update is called once per frame
@@ -177,7 +176,6 @@ public class Item_Editor : MonoBehaviour {
     {
         PPOFortDC.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].PPOFortDC;
         itemPPO.transform.GetChild(0).GetComponent<Dropdown>().value = Character_Info.characterItems[position].itemPPO;
-        craftHardness.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].craftHardness;
         wpnDmg.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].wpnDmg;
         wpnCritRange.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].wpnCritRange;
         wpnType.transform.GetChild(0).GetComponent<Dropdown>().value = Character_Info.characterItems[position].wpnType;
@@ -197,6 +195,7 @@ public class Item_Editor : MonoBehaviour {
         poisonFrequency.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].poisonFrequency;
         potionType.transform.GetChild(0).GetComponent<Dropdown>().value = Character_Info.characterItems[position].potionType;
         oilType.transform.GetChild(0).GetComponent<Dropdown>().value = Character_Info.characterItems[position].oilType;
+        craftHardness.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].craftHardness;
         newItem = position;
     }
 }

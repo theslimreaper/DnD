@@ -135,8 +135,8 @@ public class Inventory_Handler : MonoBehaviour {
 
     public void ViewItemDetails(int position)
     {
-        itemEditor.SetItemInfo(position);
         ShowItemEditor();
-        itemEditor.newItem = position;
+        int i = position;
+        itemEditor.SetItemInfo(i);
     }
 }

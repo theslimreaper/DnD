@@ -210,6 +210,8 @@ public class Data_Saver : ScriptableObject {
             contentList.Add(content);
             content = "<itemVehiclePassengers" + Character_Info.id + ">" + item.vehiclePassengers + "</itemVehiclePassengers" + Character_Info.id + ">";
             contentList.Add(content);
+            content = "<itemCraftHardness" + Character_Info.id + ">" + item.craftHardness + "</itemCraftHardness" + Character_Info.id + ">";
+            contentList.Add(content);
         }
         content = "</items>";
         contentList.Add(content);

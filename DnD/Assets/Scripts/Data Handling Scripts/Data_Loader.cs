@@ -473,6 +473,16 @@ public class Data_Loader : ScriptableObject {
         }
         elemList.Clear();
 
+        tagName = "itemCraftHardness" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].craftHardness = item;
+            i++;
+        }
+        elemList.Clear();
+
         Character_Info.id = id;
 
 		//Delete the temporary xml file
