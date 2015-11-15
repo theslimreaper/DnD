@@ -20,6 +20,12 @@ public class Inventory_Handler : MonoBehaviour {
     public Dropdown itemCategory;
     public Item_Categorizer categorizer;
     static char mode = 'e';
+    public GameObject saveButton;
+    public GameObject deleteButton;
+    public CanvasGroup saveButtonCanvas;
+    public CanvasGroup deleteButtonCanvas;
+    public Message_Handler MessageBoxYN;
+    public Message_Handler MessageBoxOK;
 
 	// Use this for initialization
 	void Start () {
@@ -80,33 +86,56 @@ public class Inventory_Handler : MonoBehaviour {
         addItem.SetActive(false);
         addItemCanvas.alpha = 0;
         addItemCanvas.interactable = false;
-        if (mode == 'e')
-        {
-            editMode.SetActive(true);
-            editModeCanvas.alpha = 1;
-            editModeCanvas.interactable = true;
-        }
-        else if(mode == 'd')
+        if(mode == 'd')
         {
             displayMode.SetActive(true);
             displayModeCanvas.alpha = 1;
             displayModeCanvas.interactable = true;
         }
+        else if (mode == 'e')
+        {
+            editMode.SetActive(true);
+            editModeCanvas.alpha = 1;
+            editModeCanvas.interactable = true;
+        }
         universalItems.SetActive(true);
         universalItemsCanvas.alpha = 1;
         universalItemsCanvas.interactable = true;
         itemEditor.ClearAllFields();
+        itemEditor.newItem = -1;
     }
 
     public void ShowItemEditor()
     {
+
         if (mode == 'd')
         {
             itemEditor.ViewMode();
+            saveButton.SetActive(false);
+            saveButtonCanvas.alpha = 0;
+            saveButtonCanvas.interactable = false;
+            deleteButton.SetActive(false);
+            deleteButtonCanvas.alpha = 0;
+            deleteButtonCanvas.interactable = false;
         }
         else if (mode == 'e')
         {
             itemEditor.EditMode();
+            saveButton.SetActive(true);
+            saveButtonCanvas.alpha = 1;
+            saveButtonCanvas.interactable = true;
+            if (itemEditor.newItem == -1)
+            {
+                deleteButton.SetActive(false);
+                deleteButtonCanvas.alpha = 0;
+                deleteButtonCanvas.interactable = false;
+            }
+            else
+            {
+                deleteButton.SetActive(true);
+                deleteButtonCanvas.alpha = 1;
+                deleteButtonCanvas.interactable = true;
+            }
         }
         addItem.SetActive(true);
         addItemCanvas.alpha = 1;
@@ -124,9 +153,16 @@ public class Inventory_Handler : MonoBehaviour {
         itemEditor.SaveItemInfo();
         HideItemEditor();
         categorizer.CategorizeItems(itemCategory.value);
+        MessageBoxOK.ShowBox("Save successful!");
     }
 
     public void DeleteItem()
+    {
+        MessageBoxYN.ShowBox("Are you sure you want to delete this item?");
+        MessageBoxYN.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(() => DeleteItemConfirm());
+    }
+
+    void DeleteItemConfirm()
     {
         itemEditor.DeleteItem();
         HideItemEditor();
@@ -135,8 +171,8 @@ public class Inventory_Handler : MonoBehaviour {
 
     public void ViewItemDetails(int position)
     {
-        ShowItemEditor();
         int i = position;
         itemEditor.SetItemInfo(i);
+        ShowItemEditor();
     }
 }
