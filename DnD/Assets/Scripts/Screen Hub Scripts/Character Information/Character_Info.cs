@@ -30,5 +30,5 @@ public class Character_Info : ScriptableObject {
     public static int electrum = 0;
     public static int gold = 0;
     public static int platinum = 0;
-    public static List<Item_Types> characterItems;
+    public static List<Item_Types> characterItems = new List<Item_Types>();
 }

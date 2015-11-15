@@ -252,6 +252,227 @@ public class Data_Loader : ScriptableObject {
         }
         elemList.Clear();
 
+        //Load items character has in their inventory
+        Character_Info.characterItems.Clear();
+        tagName = "itemName" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        foreach (var item in elemList)
+        {
+            Item_Types itemTemp = new Item_Types();
+            Character_Info.characterItems.Add(itemTemp);
+        }
+        elemList.Clear();
+
+        tagName = "itemName" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        int i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemName = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemCat" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemCategory = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemDescr" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemDescr = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemWeight" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemWeight = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemCost" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemCost = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemPPO" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemPPO = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemProperties" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].itemProperties = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemArmorAC" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].armorAC = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemArmorDexPen" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].armorDexPenalty = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemArmorType" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].armorType = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemOilType" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].oilType = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemPotionType" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].potionType = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemPoisonType" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].poisonType = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemPoisonOnset" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].poisonOnset = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemPoisonFreq" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].poisonFrequency = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemPPOFortDC" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].PPOFortDC = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemWpnDmg" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].wpnDmg = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemWpnCrit" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].wpnCritRange = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemWpnType" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].wpnType = Convert.ToInt32(item);
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemVehicleMaxSpeed" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].vehicleMaxSpeed = item;
+            i++;
+        }
+        elemList.Clear();
+
+        tagName = "itemVehiclePassengers" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].vehiclePassengers = item;
+            i++;
+        }
+        elemList.Clear();
+
         Character_Info.id = id;
 
 		//Delete the temporary xml file

@@ -164,6 +164,56 @@ public class Data_Saver : ScriptableObject {
         content = "</coinage>";
         contentList.Add(content);
 
+        content = "<items>";
+        contentList.Add(content);
+        foreach(var item in Character_Info.characterItems)
+        {
+            content = "<itemName" + Character_Info.id + ">" + item.itemName + "</itemName" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemCat" + Character_Info.id + ">" + item.itemCategory + "</itemCat" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemDescr" + Character_Info.id + ">" + item.itemDescr + "</itemDescr" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemWeight" + Character_Info.id + ">" + item.itemWeight + "</itemWeight" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemCost" + Character_Info.id + ">" + item.itemCost + "</itemCost" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemPPO" + Character_Info.id + ">" + item.itemPPO + "</itemPPO" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemProperties" + Character_Info.id + ">" + item.itemProperties + "</itemProperties" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemArmorAC" + Character_Info.id + ">" + item.armorAC + "</itemArmorAC" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemArmorDexPen" + Character_Info.id + ">" + item.armorDexPenalty + "</itemArmorDexPen" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemArmorType" + Character_Info.id + ">" + item.armorType + "</itemArmorType" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemOilType" + Character_Info.id + ">" + item.oilType + "</itemOilType" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemPotionType" + Character_Info.id + ">" + item.potionType+ "</itemPotionType" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemPoisonType" + Character_Info.id + ">" + item.poisonType + "</itemPoisonType" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemPoisonOnset" + Character_Info.id + ">" + item.poisonOnset + "</itemPoisonOnset" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemPoisonFreq" + Character_Info.id + ">" + item.poisonFrequency + "</itemPoisonFreq" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemPPOFortDC" + Character_Info.id + ">" + item.PPOFortDC + "</itemPPOFortDC" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemWpnDmg" + Character_Info.id + ">" + item.wpnDmg + "</itemWpnDmg" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemWpnCrit" + Character_Info.id + ">" + item.wpnCritRange + "</itemWpnCrit" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemWpnType" + Character_Info.id + ">" + item.wpnType + "</itemWpnType" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemVehicleMaxSpeed" + Character_Info.id + ">" + item.vehicleMaxSpeed + "</itemVehicleMaxSpeed" + Character_Info.id + ">";
+            contentList.Add(content);
+            content = "<itemVehiclePassengers" + Character_Info.id + ">" + item.vehiclePassengers + "</itemVehiclePassengers" + Character_Info.id + ">";
+            contentList.Add(content);
+        }
+        content = "</items>";
+        contentList.Add(content);
+
         content = "</inventory>";
         contentList.Add(content);
 
