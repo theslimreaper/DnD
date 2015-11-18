@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Spells_Dropdown_Handler : MonoBehaviour
 {
@@ -28,146 +29,146 @@ public class Spells_Dropdown_Handler : MonoBehaviour
 	}
 
 	// Function for swapping spell level
-	void LevelDropdown ()
+	public void LevelDropdown ()
 	{
-		if (dropdownValue.GetComponent<InputField>().text == "0th Level Spells")
+		if (dropdownValue.GetComponent<Dropdown>().value == 0)
 		{
-			zeroLevel.setActive (true);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (true);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 
-		else if (dropdownValue.GetComponent<InputField>().text == "1st Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 1)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (true);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (true);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "2nd Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 2)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (true);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (true);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "3rd Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 3)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (true);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (true);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "4th Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 4)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (true);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (true);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "5th Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 5)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (true);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (true);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "6th Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 6)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (true);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (true);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "7th Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 7)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (true);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (true);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "8th Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 8)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (true);
-			ninthLevel.setActive (false);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (true);
+			ninthLevel.SetActive (false);
 		}
 		
-		else if (dropdownValue.GetComponent<InputField>().text == "9th Level Spells")
+		else if (dropdownValue.GetComponent<Dropdown>().value == 9)
 		{
-			zeroLevel.setActive (false);
-			firstLevel.setActive (false);
-			secondLevel.setActive (false);
-			thirdLevel.setActive (false);
-			fourthLevel.setActive (false);
-			fifthLevel.setActive (false);
-			sixthLevel.setActive (false);
-			seventhLevel.setActive (false);
-			eighthLevel.setActive (false);
-			ninthLevel.setActive (true);
+			zeroLevel.SetActive (false);
+			firstLevel.SetActive (false);
+			secondLevel.SetActive (false);
+			thirdLevel.SetActive (false);
+			fourthLevel.SetActive (false);
+			fifthLevel.SetActive (false);
+			sixthLevel.SetActive (false);
+			seventhLevel.SetActive (false);
+			eighthLevel.SetActive (false);
+			ninthLevel.SetActive (true);
 		}
 	}
 }

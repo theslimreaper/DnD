@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Load Spells from XML : MonoBehaviour {
+public class Load_Spells_from_XML : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -12,5 +12,7 @@ public class Load Spells from XML : MonoBehaviour {
 	void Update () {
 	
 	}
+
+
 }
 
