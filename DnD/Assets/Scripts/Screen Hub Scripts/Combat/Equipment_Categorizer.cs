@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System;
 using System.Text;
 
-public class Item_Categorizer : MonoBehaviour {
+public class Equipment_Categorizer : MonoBehaviour {
     List<Item_Types> itemsViewing = new List<Item_Types>();
     public GameObject Select_Item_Button;
     public GameObject Select_Item_Text;
@@ -22,7 +22,8 @@ public class Item_Categorizer : MonoBehaviour {
     float screenRatio = (float)Screen.height / (float)1080;
     float screenRatioW = (float)Screen.width / (float)1920;
     Scrollbar ScrollBar;
-    public Inventory_Handler inventoryHandler;
+    public Equipment_Handler EquipmentHandler;
+    public GameObject[] equipment;
 
     // Use this for initialization
     void Start()
@@ -95,7 +96,7 @@ public class Item_Categorizer : MonoBehaviour {
                         Button tempButton = ItemButton.gameObject.GetComponent<Button>();
                         int position = i;
 
-                        tempButton.onClick.AddListener(() => inventoryHandler.ViewItemDetails(position));
+                        tempButton.onClick.AddListener(() => EquipmentHandler.ViewItemDetails(position));
                         j++;
                     }
                 }
@@ -106,6 +107,16 @@ public class Item_Categorizer : MonoBehaviour {
                 ParentRect.sizeDelta = new Vector2(ParentRectDefault.rect.width, screenRatio * (ParentRectHeight - (dynamicObjects[j - 1].transform.position.y - (dynamicObjects[j - 1].GetComponent<RectTransform>().rect.height))));
                 ScrollBar.value = 1;
             }
+        }
+        int k = 0;
+        foreach (var item in Character_Info.characterItems)
+        {
+            if (Character_Info.characterItems[k].equipped != "")
+            {
+                int position = k;
+                SetEquipment(Convert.ToInt32(Character_Info.characterItems[k].equipped), position);
+            }
+            k++;
         }
     }
 
@@ -126,6 +137,11 @@ public class Item_Categorizer : MonoBehaviour {
         dynamicObjects.Clear();
 
         ScrollView.transform.position = new Vector3(ScrollView.transform.position.x, ScrollView.transform.position.y, -10000);
+    }
+
+    void SetEquipment(int slot, int position)
+    {
+            equipment[slot].GetComponent<Text>().text = Character_Info.characterItems[position].itemName;
     }
 	
 }

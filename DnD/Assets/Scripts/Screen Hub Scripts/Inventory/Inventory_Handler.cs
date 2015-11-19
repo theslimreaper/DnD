@@ -19,6 +19,7 @@ public class Inventory_Handler : MonoBehaviour {
     public Item_Editor itemEditor;
     public Dropdown itemCategory;
     public Item_Categorizer categorizer;
+    public Equipment_Handler equipmentHandler;
     static char mode = 'e';
     public GameObject saveButton;
     public GameObject deleteButton;
@@ -153,6 +154,7 @@ public class Inventory_Handler : MonoBehaviour {
         itemEditor.SaveItemInfo();
         HideItemEditor();
         categorizer.CategorizeItems(itemCategory.value);
+        equipmentHandler.CategorizeItems(equipmentHandler.itemCategory.value);
         MessageBoxOK.ShowBox("Save successful!");
     }
 
@@ -167,6 +169,7 @@ public class Inventory_Handler : MonoBehaviour {
         itemEditor.DeleteItem();
         HideItemEditor();
         categorizer.CategorizeItems(itemCategory.value);
+        equipmentHandler.CategorizeItems(equipmentHandler.itemCategory.value);
     }
 
     public void ViewItemDetails(int position)

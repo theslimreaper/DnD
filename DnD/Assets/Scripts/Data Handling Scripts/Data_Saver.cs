@@ -212,6 +212,9 @@ public class Data_Saver : ScriptableObject {
             contentList.Add(content);
             content = "<itemCraftHardness" + Character_Info.id + ">" + item.craftHardness + "</itemCraftHardness" + Character_Info.id + ">";
             contentList.Add(content);
+            content = "<itemEquipped" + Character_Info.id + ">" + item.equipped + "</itemEquipped" + Character_Info.id + ">";
+            Debug.Log(content);
+            contentList.Add(content);
         }
         content = "</items>";
         contentList.Add(content);

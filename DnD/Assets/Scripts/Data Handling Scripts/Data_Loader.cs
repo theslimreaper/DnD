@@ -483,6 +483,16 @@ public class Data_Loader : ScriptableObject {
         }
         elemList.Clear();
 
+        tagName = "itemEquipped" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        i = 0;
+        foreach (var item in elemList)
+        {
+            Character_Info.characterItems[i].equipped = item;
+            i++;
+        }
+        elemList.Clear();
+
         Character_Info.id = id;
 
 		//Delete the temporary xml file

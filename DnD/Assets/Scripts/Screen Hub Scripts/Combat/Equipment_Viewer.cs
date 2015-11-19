@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System;
 using System.Text;
 
-public class Item_Editor : MonoBehaviour {
+public class Equipment_Viewer : MonoBehaviour {
     public GameObject itemName;
     public GameObject itemCategory;
     public GameObject itemDescr;
@@ -31,6 +31,7 @@ public class Item_Editor : MonoBehaviour {
     public GameObject armorDexPenalty;
     public GameObject armorAC;
     public int newItem;
+    public string equipmentSlot;
 
 
 	// Use this for initialization
@@ -78,7 +79,38 @@ public class Item_Editor : MonoBehaviour {
         vehiclePassengers.transform.GetChild(0).GetComponent<InputField>().text = "";
     }
 
-    public void SaveItemInfo()
+    public void EquipItem()
+    {
+        Item_Types savedItem = new Item_Types();
+
+        savedItem.PPOFortDC = PPOFortDC.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.itemPPO = itemPPO.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.craftHardness = craftHardness.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.wpnDmg = wpnDmg.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.wpnCritRange = wpnCritRange.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.wpnType = wpnType.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.armorDexPenalty = armorDexPenalty.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.armorAC = armorAC.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.armorType = armorType.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.itemProperties = itemProperties.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.vehicleMaxSpeed = vehicleMaxSpeed.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.vehiclePassengers = vehiclePassengers.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.itemName = itemName.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.itemDescr = itemDescr.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.itemWeight = itemWeight.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.itemCost = itemCost.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.itemCategory = itemCategory.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.poisonType = poisonType.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.poisonOnset = poisonOnset.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.poisonFrequency = poisonFrequency.transform.GetChild(0).GetComponent<InputField>().text;
+        savedItem.potionType = potionType.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.oilType = oilType.transform.GetChild(0).GetComponent<Dropdown>().value;
+        savedItem.equipped = equipmentSlot;
+        Character_Info.characterItems[newItem] = savedItem;
+
+    }
+
+    public void UnequipItem()
     {
         Item_Types savedItem = new Item_Types();
 
@@ -105,20 +137,8 @@ public class Item_Editor : MonoBehaviour {
         savedItem.potionType = potionType.transform.GetChild(0).GetComponent<Dropdown>().value;
         savedItem.oilType = oilType.transform.GetChild(0).GetComponent<Dropdown>().value;
         savedItem.equipped = "";
-        if(newItem == -1)
-        {
-            Character_Info.characterItems.Add(savedItem);
-        }
-        else
-        {
-            Character_Info.characterItems[newItem] = savedItem;
-        }
+        Character_Info.characterItems[newItem] = savedItem;
 
-    }
-
-    public void DeleteItem()
-    {
-        Character_Info.characterItems.RemoveAt(newItem);
     }
 
     public void ViewMode()
@@ -147,33 +167,7 @@ public class Item_Editor : MonoBehaviour {
         oilType.transform.GetChild(0).GetComponent<Dropdown>().interactable = false;
     }
 
-    public void EditMode()
-    {
-        PPOFortDC.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        itemPPO.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-        craftHardness.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        wpnDmg.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        wpnCritRange.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        wpnType.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-        armorDexPenalty.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        armorAC.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        armorType.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-        itemProperties.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        vehicleMaxSpeed.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        vehiclePassengers.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        itemName.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        itemDescr.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        itemWeight.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        itemCost.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        itemCategory.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-        poisonType.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-        poisonOnset.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        poisonFrequency.transform.GetChild(0).GetComponent<InputField>().interactable = true;
-        potionType.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-        oilType.transform.GetChild(0).GetComponent<Dropdown>().interactable = true;
-    }
-
-    public void SetItemInfo(int position)
+    public void SetItemInfo(int position, string slot)
     {
         PPOFortDC.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].PPOFortDC;
         itemPPO.transform.GetChild(0).GetComponent<Dropdown>().value = Character_Info.characterItems[position].itemPPO;
@@ -198,5 +192,6 @@ public class Item_Editor : MonoBehaviour {
         oilType.transform.GetChild(0).GetComponent<Dropdown>().value = Character_Info.characterItems[position].oilType;
         craftHardness.transform.GetChild(0).GetComponent<InputField>().text = Character_Info.characterItems[position].craftHardness;
         newItem = position;
+        equipmentSlot = slot;
     }
 }

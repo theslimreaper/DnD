@@ -30,6 +30,7 @@ public class Item_Types : MonoBehaviour {
     public int armorType;
     public string armorDexPenalty;
     public string armorAC;
+    public string equipped;
 
 
 	// Use this for initialization
