@@ -129,6 +129,11 @@ public class Equipment_Categorizer : MonoBehaviour {
     //Destroy all dynamically created objects for the list
     public void DeleteList()
     {
+        for (int i = 0; i < equipment.Length; i++)
+        {
+            equipment[i].GetComponent<Text>().text = "";
+        }
+
         foreach (var item in dynamicObjects)
         {
             Destroy(item);

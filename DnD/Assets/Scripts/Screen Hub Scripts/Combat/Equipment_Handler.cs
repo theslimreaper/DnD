@@ -18,6 +18,7 @@ public class Equipment_Handler : MonoBehaviour {
     public CanvasGroup unequipButtonCanvas;
     public GameObject viewer;
     public GameObject selector;
+    public GameObject[] equipment;
     string equipmentSlot;
 
 	// Use this for initialization
@@ -61,7 +62,10 @@ public class Equipment_Handler : MonoBehaviour {
         viewer.SetActive(false);
         selector.SetActive(true);
         equipmentViewer.newItem = -1;
-
+        if (equipment[Convert.ToInt32(equipmentSlot)].GetComponent<Text>().text != "")
+        {
+            HideSelector();
+        }
     }
 
     public void DisplayMode()
@@ -113,8 +117,21 @@ public class Equipment_Handler : MonoBehaviour {
 
     public void ShowSelector(string position)
     {
+        int i = 0;
         equipmentSlot = position;
         selector.SetActive(true);
+        if(equipment[Convert.ToInt32(position)].GetComponent<Text>().text != "")
+        {
+            foreach(var item in Character_Info.characterItems)
+            {
+                if(item.equipped == position)
+                {
+                    ViewItemDetails(i);
+                    break;
+                }
+                i++;
+            }
+        }
     }
 
     public void HideSelector()
