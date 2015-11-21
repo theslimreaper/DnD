@@ -120,6 +120,22 @@ public class Equipment_Handler : MonoBehaviour {
         int i = 0;
         equipmentSlot = position;
         selector.SetActive(true);
+        if(position == "1" || position == "2")
+        {
+            itemCategory.value = 1;
+            itemCategory.value = 0;
+        }
+        else if(position == "3" || position == "4" || position == "5")
+        {
+            itemCategory.value = 0;
+            itemCategory.value = 2;
+        }
+        else if(position == "0")
+        {
+            itemCategory.value = 0;
+            itemCategory.value = 1;
+        }
+
         if(equipment[Convert.ToInt32(position)].GetComponent<Text>().text != "")
         {
             foreach(var item in Character_Info.characterItems)
