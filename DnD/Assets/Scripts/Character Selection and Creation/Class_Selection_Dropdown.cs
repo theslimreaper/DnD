@@ -13,6 +13,9 @@ public class Class_Selection_Dropdown : MonoBehaviour
     public Dropdown classDropdown;
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public Scrollbar scroll;
+    public GameObject scrollView;
+    public GameObject scrollObj;
 
     // Start and Update functions
 
@@ -69,6 +72,15 @@ public class Class_Selection_Dropdown : MonoBehaviour
     public void FillClassDescription()
     {
         classDescription.GetComponent<Text>().text = classDescrList[classDropdown.value];
+        if (classDescription.GetComponent<RectTransform>().rect.height < scrollView.GetComponent<RectTransform>().rect.height)
+        {
+            scrollObj.SetActive(false);
+        }
+        else
+        {
+            scrollObj.SetActive(true);
+        }
+        scroll.value = 1;
     }
 
     //Clear the class description
