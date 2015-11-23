@@ -17,6 +17,7 @@ public class Settings_Screen : MonoBehaviour {
     public static bool is_online;
     public static float BGMusicVol = 1;
     public static float SFXVol = 1;
+    public static AudioClip BGMusicClip;
     public Message_Handler MessageBoxYN;
     public Message_Handler MessageBoxOK;
     public Slider BGMusicSlider;
@@ -77,6 +78,14 @@ public class Settings_Screen : MonoBehaviour {
 
         BGMusicSlider.value = BGMusicVol;
         SFXSlider.value = SFXVol;
+        if (BGMusicClip != null)
+        {
+            Background_Music.Instance.SoundChanger(BGMusicClip);
+        }
+        else if (BGMusicClip == null && Background_Music.Instance.audioSource.clip != Background_Music.Instance.soundClip)
+        {
+            Background_Music.Instance.SoundChanger(Background_Music.Instance.soundClip);
+        }
     }
 
     public void promptModeChange()

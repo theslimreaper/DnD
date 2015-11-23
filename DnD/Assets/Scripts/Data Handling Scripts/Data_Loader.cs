@@ -510,6 +510,7 @@ public class Data_Loader : ScriptableObject {
         UnicodeEncoding encoding = new UnicodeEncoding();
         byte[] key = null;
         RijndaelManaged RMCrypto = new RijndaelManaged();
+        Sound_Converter SoundConverter = ScriptableObject.CreateInstance<Sound_Converter>();
 
         //Get encryption / decryption key from url
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
@@ -566,6 +567,18 @@ public class Data_Loader : ScriptableObject {
             foreach (var item in elemList)
             {
                 Settings_Screen.SFXVol = float.Parse(item);
+            }
+            elemList.Clear();
+
+            if (Settings_Screen.BGMusicClip != null)
+            {
+                Settings_Screen.BGMusicClip.UnloadAudioData();
+            }
+
+            elemList = XML.LoadInnerXmlFromFile(output_file, "bgmusicsong");
+            foreach (var item in elemList)
+            {
+                Settings_Screen.BGMusicClip = SoundConverter.ConvertStringToSound(item);
             }
             elemList.Clear();
 

@@ -9,7 +9,7 @@ using System.Text;
 
 public class Background_Music : MonoBehaviour {
     public AudioClip soundClip;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     private static Background_Music instance = null;
     public static Background_Music Instance
     {
@@ -39,5 +39,11 @@ public class Background_Music : MonoBehaviour {
         audioSource = gameObject.GetComponent<AudioSource>();
         Settings_Screen.BGMusicVol = slider.value;
         audioSource.volume = slider.value;
+    }
+
+    public void SoundChanger(AudioClip clip)
+    {
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }
