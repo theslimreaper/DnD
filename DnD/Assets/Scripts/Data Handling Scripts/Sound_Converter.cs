@@ -13,36 +13,42 @@ public class Sound_Converter : ScriptableObject
 {
     public string ConvertSoundToString(AudioClip clip){
         string base64 = "";
+        if (clip != null)
+        {
+            float[] fBytes = new float[clip.samples * clip.channels];
+            byte[] bytes;
+            float fByte = 0;
+            clip.GetData(fBytes, 0);
+            for (int s = 0; s < 100; s++) Debug.Log(fBytes[s]);
+            string byteStr = fBytes[0].ToString();
+            Debug.Log(byteStr);
 
-         float[] fBytes = new float[clip.samples * clip.channels];
-         byte[] bytes;
-         float fByte = 0;
-         clip.GetData(fBytes, 0);
-         string byteStr = new string(System.Array.ConvertAll(fBytes, x => (char)x));
-         Debug.Log(byteStr);
+            fByte = Convert.ToSingle(byteStr);
 
-         fByte = Convert.ToSingle(byteStr);
+            bytes = BitConverter.GetBytes(fByte);
 
-         bytes = BitConverter.GetBytes(fByte);
-          
-         base64 = Convert.ToBase64String(bytes);
+            base64 = Convert.ToBase64String(bytes);
+        }
          return base64;
     }
 	
     public AudioClip ConvertStringToSound(string base64)
     {
         AudioClip clip = Background_Music.Instance.audioSource.clip;
-        byte[] b64_bytes = System.Convert.FromBase64String(base64);
-        float[] fBytes = new float[b64_bytes.Length / sizeof(float)];
-        int index = 0;
-
-        for (int i = 0; i < fBytes.Length; i++)
+        if (base64 != "" && base64 != null)
         {
-            fBytes[i] = BitConverter.ToSingle(b64_bytes, index);
-            index += sizeof(float);
-        }
+            byte[] b64_bytes = System.Convert.FromBase64String(base64);
+            float[] fBytes = new float[b64_bytes.Length / sizeof(float)];
+            int index = 0;
+
+            for (int i = 0; i < fBytes.Length; i++)
+            {
+                fBytes[i] = BitConverter.ToSingle(b64_bytes, index);
+                index += sizeof(float);
+            }
 
             clip.SetData(fBytes, 0);
+        }
         return clip;
     }
 }

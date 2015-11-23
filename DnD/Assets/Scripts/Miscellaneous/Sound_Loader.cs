@@ -66,6 +66,8 @@ public class Sound_Loader : MonoBehaviour {
     {
         AudioClip clip;
         WWW www = new WWW(path);
+        Sound_Converter SoundConverter = ScriptableObject.CreateInstance<Sound_Converter>();
+
         while (!www.isDone)
         {
             yield return null;
@@ -73,6 +75,6 @@ public class Sound_Loader : MonoBehaviour {
         clip = www.audioClip;
         yield return clip;
         Background_Music.Instance.SoundChanger(clip);
-        Settings_Screen.BGMusicClip = clip;
+        Settings_Screen.BGMusicClip = SoundConverter.ConvertSoundToString(clip);
     }
 }

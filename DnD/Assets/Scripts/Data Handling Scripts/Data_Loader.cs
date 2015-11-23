@@ -570,15 +570,20 @@ public class Data_Loader : ScriptableObject {
             }
             elemList.Clear();
 
-            if (Settings_Screen.BGMusicClip != null)
+            if (Settings_Screen.BGMusicClip != "")
             {
-                Settings_Screen.BGMusicClip.UnloadAudioData();
+                Settings_Screen.BGMusicClip = "";
             }
 
+            AudioClip clip = new AudioClip();
             elemList = XML.LoadInnerXmlFromFile(output_file, "bgmusicsong");
             foreach (var item in elemList)
             {
-                Settings_Screen.BGMusicClip = SoundConverter.ConvertStringToSound(item);
+                clip = SoundConverter.ConvertStringToSound(item);
+            }
+            if(clip != null)
+            {
+                Background_Music.Instance.SoundChanger(clip);
             }
             elemList.Clear();
 

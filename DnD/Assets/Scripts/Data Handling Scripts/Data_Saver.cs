@@ -293,9 +293,9 @@ public class Data_Saver : ScriptableObject {
         contentList.Add(content);
         content = "<sfxvol>" + Settings_Screen.SFXVol + "</sfxvol>";
         contentList.Add(content);
-        if (Settings_Screen.BGMusicClip != null)
+        if (Settings_Screen.BGMusicClip != "")
         {
-            content = SoundConverter.ConvertSoundToString(Settings_Screen.BGMusicClip);
+            content = Settings_Screen.BGMusicClip;
             content = "<bgmusicsong>" + content + "</bgmusicsong>";
             contentList.Add(content);
         }
