@@ -15,6 +15,11 @@ public class Dice_Rolling : MonoBehaviour {
 	// Use this for initialization
 	public void RollDice()
 	{
+        if (GameObject.Find("Amount of Dice").GetComponent<InputField>().text == "" || GameObject.Find("SideofDice").GetComponent<InputField>().text == "")
+        {
+            MessageBoxOK.ShowBox("Please ensure that both the amount of dice and the sides on the dice are filled!");
+            return;
+        }
 		diceAmount =System.Convert.ToInt32(GameObject.Find ("Amount of Dice").GetComponent<InputField> ().text);
 		diceSides=System.Convert.ToInt32(GameObject.Find ("SideofDice").GetComponent<InputField> ().text);
 

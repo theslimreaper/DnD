@@ -9,6 +9,7 @@ public class TrainedSkillChecker : MonoBehaviour {
     public int lastResult;
     public GameObject ResultBG;
     public GameObject SkillResultsText;
+    public Message_Handler MessageBoxOK;
     public void onclickRoll()
     {
         lastResult = 0;
@@ -19,8 +20,9 @@ public class TrainedSkillChecker : MonoBehaviour {
         }
 
         lastResult += Random.Range(1, 21);
-        ResultBG.SetActive(true);
-        SkillResultsText.GetComponent<Text>().text = "You Rolled: " + lastResult + "\nfor " + Skill_Handler.skillNames[skillNumber-1];
+        //ResultBG.SetActive(true);
+        MessageBoxOK.ShowBox("You Rolled: " + lastResult + "\nfor " + Skill_Handler.skillNames[skillNumber - 1]);
+        //SkillResultsText.GetComponent<Text>().text = "You Rolled: " + lastResult + "\nfor " + Skill_Handler.skillNames[skillNumber-1];
 
     }
 
