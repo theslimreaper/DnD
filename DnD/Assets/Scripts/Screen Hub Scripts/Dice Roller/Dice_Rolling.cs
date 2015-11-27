@@ -11,12 +11,12 @@ public class Dice_Rolling : MonoBehaviour {
 	public static int[] lastResults=new int[6];
 	public static int lastSlotUsed=0;
 	public GameObject FinalResultsText;
+    public Message_Handler MessageBoxOK;
 	// Use this for initialization
 	public void RollDice()
 	{
 		diceAmount =System.Convert.ToInt32(GameObject.Find ("Amount of Dice").GetComponent<InputField> ().text);
 		diceSides=System.Convert.ToInt32(GameObject.Find ("SideofDice").GetComponent<InputField> ().text);
-		print (diceAmount + " " + diceSides);
 
 		total = 0;
 
@@ -30,13 +30,11 @@ public class Dice_Rolling : MonoBehaviour {
 			results[i]=Random.Range (1,diceSides+1);
 			total+=results[i];
 			finalResults+=results[i]+", ";
-			print (results[i]);
 		}
 		finalResults = finalResults.Substring (0, finalResults.Length - 2);
 		finalResults += "\nTotalling to: " + total;
 
-		print (finalResults);
-		FinalResultsText.GetComponent<Text> ().text = finalResults;
+		MessageBoxOK.ShowBox(finalResults);
 
 
 

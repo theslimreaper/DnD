@@ -78,7 +78,7 @@ public class Settings_Screen : MonoBehaviour {
 
         BGMusicSlider.value = BGMusicVol;
         SFXSlider.value = SFXVol;
-        if (BGMusicClip != "")
+        /*if (BGMusicClip != "")
         {
             AudioClip clip = new AudioClip();
             Sound_Converter SoundConverter = ScriptableObject.CreateInstance<Sound_Converter>();
@@ -88,7 +88,7 @@ public class Settings_Screen : MonoBehaviour {
         else if (BGMusicClip == null && Background_Music.Instance.audioSource.clip != Background_Music.Instance.soundClip)
         {
             Background_Music.Instance.SoundChanger(Background_Music.Instance.soundClip);
-        }
+        }*/
     }
 
     public void promptModeChange()

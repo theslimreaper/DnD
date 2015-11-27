@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System;
 using System.Text;
 using System.Security.Cryptography;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class Sound_Converter : ScriptableObject
 {
@@ -16,16 +15,9 @@ public class Sound_Converter : ScriptableObject
         if (clip != null)
         {
             float[] fBytes = new float[clip.samples * clip.channels];
-            byte[] bytes;
-            float fByte = 0;
+            byte[] bytes = new byte[fBytes.Length * 4];
             clip.GetData(fBytes, 0);
-            for (int s = 0; s < 100; s++) Debug.Log(fBytes[s]);
-            string byteStr = fBytes[0].ToString();
-            Debug.Log(byteStr);
-
-            fByte = Convert.ToSingle(byteStr);
-
-            bytes = BitConverter.GetBytes(fByte);
+            Buffer.BlockCopy(fBytes, 0, bytes, 0, bytes.Length);
 
             base64 = Convert.ToBase64String(bytes);
         }
@@ -37,15 +29,10 @@ public class Sound_Converter : ScriptableObject
         AudioClip clip = Background_Music.Instance.audioSource.clip;
         if (base64 != "" && base64 != null)
         {
-            byte[] b64_bytes = System.Convert.FromBase64String(base64);
-            float[] fBytes = new float[b64_bytes.Length / sizeof(float)];
-            int index = 0;
+            byte[] b64_bytes = Convert.FromBase64String(base64);
+            float[] fBytes = new float[b64_bytes.Length / 4];
 
-            for (int i = 0; i < fBytes.Length; i++)
-            {
-                fBytes[i] = BitConverter.ToSingle(b64_bytes, index);
-                index += sizeof(float);
-            }
+            Buffer.BlockCopy(b64_bytes, 0, fBytes, 0, b64_bytes.Length);
 
             clip.SetData(fBytes, 0);
         }
