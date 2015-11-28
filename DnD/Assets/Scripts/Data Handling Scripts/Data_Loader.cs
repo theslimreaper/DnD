@@ -181,6 +181,36 @@ public class Data_Loader : ScriptableObject {
 		Character_Info.characterLanguages = elemList[0];
 		elemList.Clear ();
 
+		tagName = "Strength" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		AbilityScoreInitial.AbilityScores [0] = System.Convert.ToInt32(elemList[0]);
+		elemList.Clear ();
+
+		tagName = "Dexterity" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		AbilityScoreInitial.AbilityScores [1] = System.Convert.ToInt32(elemList[0]);
+		elemList.Clear ();
+
+		tagName = "Constitution" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		AbilityScoreInitial.AbilityScores [2] = System.Convert.ToInt32(elemList[0]);
+		elemList.Clear ();
+
+		tagName = "Intelligence" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		AbilityScoreInitial.AbilityScores [3] = System.Convert.ToInt32(elemList[0]);
+		elemList.Clear ();
+
+		tagName = "Wisdom" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		AbilityScoreInitial.AbilityScores [4] = System.Convert.ToInt32(elemList[0]);
+		elemList.Clear ();
+
+		tagName = "Charisma" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		AbilityScoreInitial.AbilityScores [5] = System.Convert.ToInt32(elemList[0]);
+		elemList.Clear ();
+
         //Get notes related to the character
 		Note_List_Info.noteTitles.Clear ();
         tagName = "title" + id;
