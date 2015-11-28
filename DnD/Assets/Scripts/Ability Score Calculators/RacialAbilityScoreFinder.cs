@@ -142,4 +142,22 @@ public class RacialAbilityScoreFinder : MonoBehaviour {
 		}
 	}
 
+	public void rollforStatsContinue()
+	{
+		bool FilledOut=true;
+
+		for(int i =0;i<6;i++)
+		{
+			if(RollingAbilityChosen[i].value==0)
+			{
+				FilledOut=false;
+				break;
+			}
+		}
+		if(FilledOut)
+		{
+			Application.LoadLevel ("Screen Hub");
+		}
+	}
+
 }
