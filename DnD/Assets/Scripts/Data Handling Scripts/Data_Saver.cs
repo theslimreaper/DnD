@@ -273,6 +273,7 @@ public class Data_Saver : ScriptableObject {
     {
         List<string> contentList = new List<string>();
         string content = "";
+        Sound_Converter SoundConverter = ScriptableObject.CreateInstance<Sound_Converter>();
 
         content = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
         contentList.Add(content);
@@ -292,6 +293,12 @@ public class Data_Saver : ScriptableObject {
         contentList.Add(content);
         content = "<sfxvol>" + Settings_Screen.SFXVol + "</sfxvol>";
         contentList.Add(content);
+        if (Settings_Screen.BGMusicClip != "")
+        {
+            content = Settings_Screen.BGMusicClip;
+            content = "<bgmusicsong>" + content + "</bgmusicsong>";
+            contentList.Add(content);
+        }
         content = "</settings>";
         contentList.Add(content);
 

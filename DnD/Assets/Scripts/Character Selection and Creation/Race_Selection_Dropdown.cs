@@ -13,6 +13,9 @@ public class Race_Selection_Dropdown : MonoBehaviour
     public Dropdown raceDropdown;
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public Scrollbar scroll;
+    public GameObject scrollView;
+    public GameObject scrollObj;
 
     // Start and Update functions
 
@@ -70,6 +73,15 @@ public class Race_Selection_Dropdown : MonoBehaviour
     public void FillRaceDescription()
     {
         raceDescription.GetComponent<Text>().text = raceDescrList[raceDropdown.value];
+        if (raceDescription.GetComponent<RectTransform>().rect.height < scrollView.GetComponent<RectTransform>().rect.height)
+        {
+            scrollObj.SetActive(false);
+        }
+        else
+        {
+            scrollObj.SetActive(true);
+        }
+        scroll.value = 1;
     }
 
     //Clear the race description

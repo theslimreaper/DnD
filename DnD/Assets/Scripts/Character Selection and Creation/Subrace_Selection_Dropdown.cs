@@ -16,10 +16,13 @@ public class Subrace_Selection_Dropdown : MonoBehaviour {
     List<string> subraceNameList = new List<string>();
     public AudioSource audioSource;
     public AudioClip audioClip;
+    public Scrollbar scroll;
+    public GameObject scrollView;
+    public GameObject scrollObj;
 
-	// Start and Update functions
+    // Start and Update functions
 
-	void Start () {
+    void Start () {
 		GetSubraces ();
 	}
 
@@ -75,10 +78,21 @@ public class Subrace_Selection_Dropdown : MonoBehaviour {
         if (Character_Info.characterSubrace != "")
         {
             subraceDescription.GetComponent<Text>().text = subraceDescrList[subraceDropdown.value];
+            scrollView.SetActive(true);
+            if (subraceDescription.GetComponent<RectTransform>().rect.height < scrollView.GetComponent<RectTransform>().rect.height)
+            {
+                scrollObj.SetActive(false);
+            }
+            else
+            {
+                scrollObj.SetActive(true);
+            }
+            scroll.value = 1;
         }
         else
         {
             subraceDescription.GetComponent<Text>().text = "";
+            scrollView.SetActive(false);
         }
 	}
 

@@ -540,6 +540,7 @@ public class Data_Loader : ScriptableObject {
         UnicodeEncoding encoding = new UnicodeEncoding();
         byte[] key = null;
         RijndaelManaged RMCrypto = new RijndaelManaged();
+        Sound_Converter SoundConverter = ScriptableObject.CreateInstance<Sound_Converter>();
 
         //Get encryption / decryption key from url
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
@@ -559,15 +560,13 @@ public class Data_Loader : ScriptableObject {
                     using (BufferedStream writeBuffer = new BufferedStream(temp_file))
                     using (StreamWriter swTemp = new StreamWriter(writeBuffer))
                     {
-                        while ((line = srDecrypt.ReadLine()) != null)
-                        {
-                            swTemp.WriteLine(line);
-                        }
+                            swTemp.WriteLine(srDecrypt.ReadToEnd());
                     }
                 }
             }
             cryptography_stream.Close();
             decrypted_file.Close();
+
 
             //Call functions to load data from temporary xml file into specified game objects
             elemList = XML.LoadInnerXmlFromFile(output_file, "mode");
@@ -598,6 +597,23 @@ public class Data_Loader : ScriptableObject {
                 Settings_Screen.SFXVol = float.Parse(item);
             }
             elemList.Clear();
+
+            if (Settings_Screen.BGMusicClip != "")
+            {
+                Settings_Screen.BGMusicClip = "";
+            }
+
+            /*AudioClip clip = new AudioClip();
+            elemList = XML.LoadInnerXmlFromFile(output_file, "bgmusicsong");
+            foreach (var item in elemList)
+            {
+                clip = SoundConverter.ConvertStringToSound(item);
+            }
+            if(clip != null)
+            {
+                Background_Music.Instance.SoundChanger(clip);
+            }
+            elemList.Clear();*/
 
             //Delete the temporary xml file
             File.Delete(output_file);

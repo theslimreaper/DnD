@@ -13,8 +13,10 @@ public class Image_Loader : MonoBehaviour {
     public GameObject filename;
     public GameObject uploadBox;
     public CanvasGroup uploadCanvasGroup;
-	// Use this for initialization
-	void Start () {
+    public Message_Handler MessageBoxOK;
+
+    // Use this for initialization
+    void Start () {
         Character_Info.characterAvatar = avatarImage.GetComponent<Image>().sprite;
         filename.GetComponent<InputField>().interactable = false;
         HideBox();
@@ -45,25 +47,44 @@ public class Image_Loader : MonoBehaviour {
         LoadImageFromFile(filename.GetComponent<InputField>().text);
         avatarImage.GetComponentInChildren<Text>().text = "";
     }
-            public void LoadImageFromFile(string image)
-            {
-                string pathPrefix = @"file://";
-                Texture2D avatar = new Texture2D(1, 1, TextureFormat.Alpha8, false);
-                string fullFilename = pathPrefix + image;
-                WWW www = new WWW(fullFilename);
-                //LoadImageIntoTexture compresses JPGs by DXT1 and PNGs by DXT5     
-                www.LoadImageIntoTexture(avatar);
-                Rect tempRect = new Rect(0, 0, avatar.width, avatar.height);
-                Sprite tempSprite = Sprite.Create(avatar, tempRect, new Vector2(0.5f, 0.5f));
-                avatarImage.GetComponent<Image>().sprite = tempSprite;
-                HideBox();
+
+    public void LoadImageFromFile(string image)
+    {
+        string pathPrefix = @"file://";
+
+        CheckImage(image);
+
+        if (image.EndsWith("jpg") || image.EndsWith("png"))
+        {
+            Texture2D avatar = new Texture2D(1, 1, TextureFormat.Alpha8, false);
+            string fullFilename = pathPrefix + image;
+            WWW www = new WWW(fullFilename);
+            //LoadImageIntoTexture compresses JPGs by DXT1 and PNGs by DXT5     
+            www.LoadImageIntoTexture(avatar);
+            Rect tempRect = new Rect(0, 0, avatar.width, avatar.height);
+            Sprite tempSprite = Sprite.Create(avatar, tempRect, new Vector2(0.5f, 0.5f));
+            avatarImage.GetComponent<Image>().sprite = tempSprite;
+            HideBox();
+        }
     }
 
     public void LoadImage()
     {
-        StartCoroutine(DownloadImage(url.GetComponent<InputField>().text));
-        avatarImage.GetComponentInChildren<Text>().text = "";
-        HideBox();
+        CheckImage(url.GetComponent<InputField>().text);
+        if (url.GetComponent<InputField>().text.EndsWith("jpg") || url.GetComponent<InputField>().text.EndsWith("png"))
+        {
+            StartCoroutine(DownloadImage(url.GetComponent<InputField>().text));
+            avatarImage.GetComponentInChildren<Text>().text = "";
+            HideBox();
+        }
+    }
+
+    void CheckImage(string image)
+    {
+        if(!image.EndsWith("jpg") && !image.EndsWith("png"))
+        {
+            MessageBoxOK.ShowBox("Please select a valid file type (.jpg or .png)!");
+        }
     }
 
     IEnumerator<Sprite> DownloadImage(string image)
