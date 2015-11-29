@@ -120,6 +120,8 @@ public class Data_Saver : ScriptableObject {
 		contentList.Add (content);
         content = "<health" + Character_Info.id + ">" + Character_Info.characterHealth + "</health" + Character_Info.id + ">";
 		contentList.Add (content);
+        content = "<currHealth" + Character_Info.id + ">" + Character_Info.characterCurrHealth + "</currHealth" + Character_Info.id + ">";
+        contentList.Add(content);
         content = "<height" + Character_Info.id + ">" + Character_Info.characterHeight + "</height" + Character_Info.id + ">";
 		contentList.Add (content);
         content = "<weight" + Character_Info.id + ">" + Character_Info.characterWeight + "</weight" + Character_Info.id + ">";
@@ -143,15 +145,16 @@ public class Data_Saver : ScriptableObject {
 			contentList.Add (content);
 			i++;
 		}
-		i = 0;
-		foreach(string item in ProficiencyTracker.Proficiencies)
-		{
-			content="<Proficiency"+Character_Info.id+">"+ProficiencyTracker.Proficiencies[i]+"</Proficiency"+Character_Info.id+">";
-			contentList.Add (content);
-			i++;
-		}
 		content = "</notes>";
 		contentList.Add (content);
+
+        i = 0;
+        foreach (string item in ProficiencyTracker.Proficiencies)
+        {
+            content = "<Proficiency" + Character_Info.id + ">" + ProficiencyTracker.Proficiencies[i] + "</Proficiency" + Character_Info.id + ">";
+            contentList.Add(content);
+            i++;
+        }
 
         content = "<inventory>";
         contentList.Add(content);

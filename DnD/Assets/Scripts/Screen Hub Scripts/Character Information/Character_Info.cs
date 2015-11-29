@@ -22,6 +22,7 @@ public class Character_Info : ScriptableObject {
 	public static string characterCarryWeight = "";
 	public static string characterMoveSpeed = "";
 	public static string characterLanguages = "";
+    public static string characterCurrHealth = "";
     public static Sprite characterAvatar;
     public static int id = 0;
     public static int maxid = 0;

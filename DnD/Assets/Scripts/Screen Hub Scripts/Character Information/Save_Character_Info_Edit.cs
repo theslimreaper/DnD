@@ -34,46 +34,50 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 	public GameObject displaySubRace;
     public GameObject displayAvatar;
     public GameObject editAvatar;
+    public GameObject editCurrHP;
+    public GameObject displayCurrHP;
 
 	// Use this for initialization
 	void Start () {
 	}
 
 	public void DisplayMode(){
-		displayName.GetComponent<Text>().text = editName.GetComponent<InputField>().text;
-		displayClass.GetComponent<Text>().text = editClass.GetComponent<InputField>().text;
-		displayRace.GetComponent<Text>().text = editRace.GetComponent<InputField>().text;
-		displaySubRace.GetComponent<Text>().text = editSubRace.GetComponent<InputField>().text;
-		displayAlignment.GetComponent<Text>().text = editAlignment.GetComponent<InputField>().text;
-		displayAge.GetComponent<Text>().text = editAge.GetComponent<InputField>().text;
-		displayGender.GetComponent<Text>().text = editGender.GetComponent<InputField>().text;
-		displayLevel.GetComponent<Text>().text = editLevel.GetComponent<InputField>().text;
-		displayHP.GetComponent<Text>().text = editHP.GetComponent<InputField>().text;
-		displayHeight.GetComponent<Text>().text = editHeight.GetComponent<InputField>().text;
-		displayWeight.GetComponent<Text>().text = editWeight.GetComponent<InputField>().text;
-		displayCarry.GetComponent<Text>().text = editCarry.GetComponent<InputField>().text;
-		displaySpeed.GetComponent<Text>().text = editSpeed.GetComponent<InputField>().text;
-		displayLanguage.GetComponent<Text>().text = editLanguage.GetComponent<InputField>().text;
+		displayName.GetComponent<InputField>().text = editName.GetComponent<InputField>().text;
+		displayClass.GetComponent<InputField>().text = editClass.GetComponent<InputField>().text;
+		displayRace.GetComponent<InputField>().text = editRace.GetComponent<InputField>().text;
+		displaySubRace.GetComponent<InputField>().text = editSubRace.GetComponent<InputField>().text;
+		displayAlignment.GetComponent<InputField>().text = editAlignment.GetComponent<InputField>().text;
+		displayAge.GetComponent<InputField>().text = editAge.GetComponent<InputField>().text;
+		displayGender.GetComponent<InputField>().text = editGender.GetComponent<InputField>().text;
+		displayLevel.GetComponent<InputField>().text = editLevel.GetComponent<InputField>().text;
+		displayHP.GetComponent<InputField>().text = editHP.GetComponent<InputField>().text;
+        displayCurrHP.GetComponent<InputField>().text = editCurrHP.GetComponent<InputField>().text;
+        displayHeight.GetComponent<InputField>().text = editHeight.GetComponent<InputField>().text;
+		displayWeight.GetComponent<InputField>().text = editWeight.GetComponent<InputField>().text;
+		displayCarry.GetComponent<InputField>().text = editCarry.GetComponent<InputField>().text;
+		displaySpeed.GetComponent<InputField>().text = editSpeed.GetComponent<InputField>().text;
+		displayLanguage.GetComponent<InputField>().text = editLanguage.GetComponent<InputField>().text;
         displayAvatar.GetComponent<Image>().sprite = editAvatar.GetComponent<Image>().sprite;
 
 	}
 
     public void EditMode()
     {
-        editName.GetComponent<InputField>().text = displayName.GetComponent<Text>().text;
-        editClass.GetComponent<InputField>().text = displayClass.GetComponent<Text>().text;
-        editRace.GetComponent<InputField>().text = displayRace.GetComponent<Text>().text;
-        editSubRace.GetComponent<InputField>().text = displaySubRace.GetComponent<Text>().text;
-        editAlignment.GetComponent<InputField>().text = displayAlignment.GetComponent<Text>().text;
-        editAge.GetComponent<InputField>().text = displayAge.GetComponent<Text>().text;
-        editGender.GetComponent<InputField>().text = displayGender.GetComponent<Text>().text;
-        editLevel.GetComponent<InputField>().text = displayLevel.GetComponent<Text>().text;
-        editHP.GetComponent<InputField>().text = displayHP.GetComponent<Text>().text;
-        editHeight.GetComponent<InputField>().text = displayHeight.GetComponent<Text>().text;
-        editWeight.GetComponent<InputField>().text = displayWeight.GetComponent<Text>().text;
-        editCarry.GetComponent<InputField>().text = displayCarry.GetComponent<Text>().text;
-        editSpeed.GetComponent<InputField>().text = displaySpeed.GetComponent<Text>().text;
-        editLanguage.GetComponent<InputField>().text = displayLanguage.GetComponent<Text>().text;
+        editName.GetComponent<InputField>().text = displayName.GetComponent<InputField>().text;
+        editClass.GetComponent<InputField>().text = displayClass.GetComponent<InputField>().text;
+        editRace.GetComponent<InputField>().text = displayRace.GetComponent<InputField>().text;
+        editSubRace.GetComponent<InputField>().text = displaySubRace.GetComponent<InputField>().text;
+        editAlignment.GetComponent<InputField>().text = displayAlignment.GetComponent<InputField>().text;
+        editAge.GetComponent<InputField>().text = displayAge.GetComponent<InputField>().text;
+        editGender.GetComponent<InputField>().text = displayGender.GetComponent<InputField>().text;
+        editLevel.GetComponent<InputField>().text = displayLevel.GetComponent<InputField>().text;
+        editHP.GetComponent<InputField>().text = displayHP.GetComponent<InputField>().text;
+        editCurrHP.GetComponent<InputField>().text = displayCurrHP.GetComponent<InputField>().text;
+        editHeight.GetComponent<InputField>().text = displayHeight.GetComponent<InputField>().text;
+        editWeight.GetComponent<InputField>().text = displayWeight.GetComponent<InputField>().text;
+        editCarry.GetComponent<InputField>().text = displayCarry.GetComponent<InputField>().text;
+        editSpeed.GetComponent<InputField>().text = displaySpeed.GetComponent<InputField>().text;
+        editLanguage.GetComponent<InputField>().text = displayLanguage.GetComponent<InputField>().text;
         editAvatar.GetComponent<Image>().sprite = displayAvatar.GetComponent<Image>().sprite;
     }
 	

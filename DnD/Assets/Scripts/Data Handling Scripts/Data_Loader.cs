@@ -108,79 +108,114 @@ public class Data_Loader : ScriptableObject {
         //Get character overview info
         tagName = "avatar" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-        Character_Info.characterAvatar = ImageConverter.ConvertStringToImage(elemList[0]);
+        if (elemList.Count > 0)
+            Character_Info.characterAvatar = ImageConverter.ConvertStringToImage(elemList[0]);
         elemList.Clear();
 
         tagName = "charactername" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-		Character_Info.characterName = elemList[0];
+        Character_Info.characterName = "";
+        if (elemList.Count > 0)
+            Character_Info.characterName = elemList[0];
 		elemList.Clear ();
 
         tagName = "characterclass" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-		Character_Info.characterClass = elemList[0];
+        Character_Info.characterClass = "";
+        if (elemList.Count > 0)
+            Character_Info.characterClass = elemList[0];
 		elemList.Clear ();
 
         tagName = "characterrace" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-        Character_Info.characterRace = elemList[0];
+        Character_Info.characterRace = "";
+        if (elemList.Count > 0)
+            Character_Info.characterRace = elemList[0];
 		elemList.Clear ();
 
         tagName = "charactersubrace" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-	    Character_Info.characterSubrace = elemList[0];
+        Character_Info.characterSubrace = "";
+        if (elemList.Count > 0)
+            Character_Info.characterSubrace = elemList[0];
 		elemList.Clear ();
 
         tagName = "alignment" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-	    Character_Info.characterAlignment = elemList[0];
+        Character_Info.characterAlignment = "";
+        if (elemList.Count > 0)
+            Character_Info.characterAlignment = elemList[0];
 		elemList.Clear ();
 
 		tagName = "age" + id;
 		elemList = XML.LoadInnerXmlFromFile (output_file, tagName);
-	    Character_Info.characterAge = elemList[0];
+        Character_Info.characterAge = "";
+        if (elemList.Count > 0)
+            Character_Info.characterAge = elemList[0];
         elemList.Clear();
 
         tagName = "gender" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-	    Character_Info.characterGender = elemList[0];
+        Character_Info.characterGender = "";
+        if (elemList.Count > 0)
+            Character_Info.characterGender = elemList[0];
 		elemList.Clear ();
 
         tagName = "characterlevel" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-        Character_Info.characterLevel = elemList[0];
+        Character_Info.characterLevel = "0";
+        if (elemList.Count > 0)
+            Character_Info.characterLevel = elemList[0];
         elemList.Clear();
 
         tagName = "health" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-        Character_Info.characterHealth = elemList[0];
+        Character_Info.characterHealth = "";
+        if (elemList.Count > 0)
+            Character_Info.characterHealth = elemList[0];
 		elemList.Clear ();
+
+        tagName = "currHealth" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.characterCurrHealth = "";
+        if (elemList.Count > 0)
+            Character_Info.characterCurrHealth = elemList[0];
+        elemList.Clear();
 
         tagName = "height" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-		Character_Info.characterHeight = elemList[0];
+        Character_Info.characterHeight = "";
+        if (elemList.Count > 0)
+            Character_Info.characterHeight = elemList[0];
 		elemList.Clear ();
 
         tagName = "weight" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-		Character_Info.characterWeight = elemList[0];
+        Character_Info.characterWeight = "";
+        if (elemList.Count > 0)
+            Character_Info.characterWeight = elemList[0];
 		elemList.Clear ();
 
         tagName = "carryweight" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-        Character_Info.characterCarryWeight = elemList[0];
+        Character_Info.characterCarryWeight = "";
+        if (elemList.Count > 0)
+            Character_Info.characterCarryWeight = elemList[0];
 		elemList.Clear ();
 
         tagName = "movespeed" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-		Character_Info.characterMoveSpeed = elemList[0];
+        Character_Info.characterMoveSpeed = "";
+        if (elemList.Count > 0)
+            Character_Info.characterMoveSpeed = elemList[0];
 		elemList.Clear ();
 
         tagName = "languages" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-		Character_Info.characterLanguages = elemList[0];
+        Character_Info.characterLanguages = "";
+        if (elemList.Count > 0)
+            Character_Info.characterLanguages = elemList[0];
 		elemList.Clear ();
-
 		tagName = "Proficiency" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
 		int i = 0;
@@ -190,7 +225,7 @@ public class Data_Loader : ScriptableObject {
 			Debug.Log(i);
 			i++;
 		}
-		elemList.Clear();
+        elemList.Clear();
 		tagName = "Strength" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         if(elemList.Count > 0)
@@ -541,8 +576,8 @@ public class Data_Loader : ScriptableObject {
 
         Character_Info.id = id;
 
-		//Delete the temporary xml file
-		File.Delete (output_file);
+        //Delete the temporary xml file
+       File.Delete (output_file);
 
 	}
 
