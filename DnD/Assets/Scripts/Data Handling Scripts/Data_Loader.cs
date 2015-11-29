@@ -186,7 +186,8 @@ public class Data_Loader : ScriptableObject {
 		int i = 0;
 		foreach (var item in elemList)
 		{
-			ProficiencyTracker.Proficiencies[i]= item;
+			ProficiencyTracker.Proficiencies.Add (item);
+			Debug.Log(i);
 			i++;
 		}
 		elemList.Clear();

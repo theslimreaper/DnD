@@ -27,9 +27,9 @@ public class ProficiencyTracker : MonoBehaviour {
 		Popup.SetActive (true);
 	}
 
-	public void closePrompt()
+	public void closePrompt(int keep)
 	{
-		if(newValue.text!=null&&newValue.text.Length!=0)
+		if(newValue.text!=null&&newValue.text.Length!=0&&keep==1)
 		{
 			print (newValue.text);
 			Proficiencies.Add(newValue.text);

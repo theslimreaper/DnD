@@ -147,6 +147,7 @@ public class Data_Saver : ScriptableObject {
 		foreach(string item in ProficiencyTracker.Proficiencies)
 		{
 			content="<Proficiency"+Character_Info.id+">"+ProficiencyTracker.Proficiencies[i]+"</Proficiency"+Character_Info.id+">";
+			contentList.Add (content);
 			i++;
 		}
 		content = "</notes>";
