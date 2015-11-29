@@ -143,12 +143,6 @@ public class Data_Saver : ScriptableObject {
 			contentList.Add (content);
 			i++;
 		}
-		i = 0;
-		foreach(string item in ProficiencyTracker.Proficiencies)
-		{
-			content="<Proficiency"+Character_Info.id+">"+ProficiencyTracker.Proficiencies[i]+"</Proficiency"+Character_Info.id+">";
-			i++;
-		}
 		content = "</notes>";
 		contentList.Add (content);
 
