@@ -46,7 +46,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 	public GameObject spellComponentsObj;
 	public GameObject spellRitualObj;
 	public GameObject spellRollObj;
-	//public GameObject spellIDObj;
+	public GameObject spellIDObj;
 
 	// Use this for initialization
 	void Start () {
@@ -67,7 +67,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 			if (classLine.Contains(selectedClass))
 			{
 				Spell_Class SpellsSet = new Spell_Class();
-				SpellsSet.spellName = item.Substring(item.IndexOf("<name>"),(item.IndexOf("</name>")-item.IndexOf("<name>")));
+				SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
 				SpellsSet.spellLevel = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
 				SpellsSet.spellCast = item.Substring(item.IndexOf("<time>"),(item.IndexOf("</time>")-item.IndexOf("<time>")));
 				SpellsSet.spellClasses = item.Substring(item.IndexOf("<classes>"),(item.IndexOf("</classes>")-item.IndexOf("<classes>")));
@@ -80,7 +80,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>"),(item.IndexOf("</roll>")-item.IndexOf("<roll>")));
 				}
 				SpellsSet.spellRange = item.Substring(item.IndexOf("<range>"),(item.IndexOf("</range>")-item.IndexOf("<range>")));
-				//SpellsSet.spellDescription = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
+				SpellsSet.spellID = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
 				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text>"),(item.IndexOf("</text>")-item.IndexOf("<text>")));
 
 
@@ -306,7 +306,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 		spellComponentsObj.GetComponent<Text>().text = SpellsTemp[position].spellComponents;
 		spellRitualObj.GetComponent<Text>().text = SpellsTemp[position].spellRitual;
 		spellRollObj.GetComponent<Text>().text = SpellsTemp[position].spellRoll;
-		//spellIDObj.GetComponent<Text>().text = SpellsTemp[position].spellID;
+		spellIDObj.GetComponent<Text>().text = SpellsTemp[position].spellID;
 	}
 
 }
