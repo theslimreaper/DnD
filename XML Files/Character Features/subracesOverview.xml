@@ -2,7 +2,56 @@
 <compendium version="5" auto_indent="NO">
 <race>
 	<Dragonborn>
-	<!-- Need to determine how to handle draconic ancestries -->
+		<subrace>
+			<Dragonbornname>Black</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Acid. Breath Weapon: 5 by 30 ft line (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Blue</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Lightning. Breath Weapon: 5 by 30 ft line (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Brass</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Fire. Breath Weapon: 5 by 30 ft line (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Bronze</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Lightning. Breath Weapon: 5 by 30 ft line (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Copper</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Acid. Breath Weapon: 5 by 30 ft line (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Gold</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Fire. Breath Weapon: 15 ft cone (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Green</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Poison. Breath Weapon: 15 ft cone (Con save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Red</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Fire. Breath Weapon: 15 ft cone (Dex save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>Silver</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Cold. Breath Weapon: 15 ft cone (Con save).</Dragonborndescr>
+		</subrace>
+		<subrace>
+			<Dragonbornname>White</Dragonbornname>
+			<Dragonborndescr>While Dragonborn do not have a subrace, they do have a draconic ancestry, which denotes the color
+			of the dragon, its damage type, and its breath weapon. Damage Type: Cold. Breath Weapon: 15 ft cone (Con save).</Dragonborndescr>
+		</subrace>
 	</Dragonborn>
 </race>
 
