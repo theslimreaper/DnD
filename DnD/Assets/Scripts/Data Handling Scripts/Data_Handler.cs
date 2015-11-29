@@ -13,6 +13,7 @@ public class Data_Handler : MonoBehaviour {
 	public GameObject Subrace;
 	public GameObject Name;
 	public GameObject Health;
+    public GameObject currHealth;
 	public GameObject Gender;
 	public GameObject Alignment;
 	public GameObject Height;
@@ -40,20 +41,21 @@ public class Data_Handler : MonoBehaviour {
 	}
 
 	void CollectData(){
-		Character_Info.characterClass = Class.GetComponent<Text> ().text;
-		Character_Info.characterRace = Race.GetComponent<Text> ().text;
-		Character_Info.characterSubrace = Subrace.GetComponent<Text> ().text;
-		Character_Info.characterName = Name.GetComponent<Text> ().text;
-		Character_Info.characterHealth = Health.GetComponent<Text> ().text;
-		Character_Info.characterGender = Gender.GetComponent<Text> ().text;
-		Character_Info.characterAlignment = Alignment.GetComponent<Text> ().text;
-		Character_Info.characterHeight = Height.GetComponent<Text> ().text;
-		Character_Info.characterWeight = Weight.GetComponent<Text> ().text;
-		Character_Info.characterCarryWeight = CarryWeight.GetComponent<Text> ().text;
-		Character_Info.characterAge = Age.GetComponent<Text> ().text;
-		Character_Info.characterLevel = Level.GetComponent<Text> ().text;
-		Character_Info.characterMoveSpeed = MoveSpeed.GetComponent<Text> ().text;
-		Character_Info.characterLanguages = Languages.GetComponent<Text> ().text;
+		Character_Info.characterClass = Class.GetComponent<InputField> ().text;
+		Character_Info.characterRace = Race.GetComponent<InputField> ().text;
+		Character_Info.characterSubrace = Subrace.GetComponent<InputField> ().text;
+		Character_Info.characterName = Name.GetComponent<InputField> ().text;
+		Character_Info.characterHealth = Health.GetComponent<InputField> ().text;
+        Character_Info.characterCurrHealth = currHealth.GetComponent<InputField>().text;
+        Character_Info.characterGender = Gender.GetComponent<InputField> ().text;
+		Character_Info.characterAlignment = Alignment.GetComponent<InputField> ().text;
+		Character_Info.characterHeight = Height.GetComponent<InputField> ().text;
+		Character_Info.characterWeight = Weight.GetComponent<InputField> ().text;
+		Character_Info.characterCarryWeight = CarryWeight.GetComponent<InputField> ().text;
+		Character_Info.characterAge = Age.GetComponent<InputField> ().text;
+		Character_Info.characterLevel = Level.GetComponent<InputField> ().text;
+		Character_Info.characterMoveSpeed = MoveSpeed.GetComponent<InputField> ().text;
+		Character_Info.characterLanguages = Languages.GetComponent<InputField> ().text;
         Character_Info.characterAvatar = avatar.GetComponent<Image>().sprite;
         Character_Info.copper = Convert.ToInt32(copper.GetComponent<InputField>().text);
         Character_Info.silver = Convert.ToInt32(silver.GetComponent<InputField>().text);
@@ -64,20 +66,21 @@ public class Data_Handler : MonoBehaviour {
 	}
 
 	public void ImportData(){
-		Class.GetComponent<Text>().text = Character_Info.characterClass;
-		Race.GetComponent<Text>().text = Character_Info.characterRace;
-		Subrace.GetComponent<Text>().text = Character_Info.characterSubrace;
-		Name.GetComponent<Text> ().text = Character_Info.characterName;
-		Health.GetComponent<Text> ().text = Character_Info.characterHealth;
-		Gender.GetComponent<Text> ().text = Character_Info.characterGender;
-		Alignment.GetComponent<Text> ().text = Character_Info.characterAlignment;
-		Height.GetComponent<Text> ().text = Character_Info.characterHeight;
-		Weight.GetComponent<Text> ().text = Character_Info.characterWeight;
-		CarryWeight.GetComponent<Text> ().text = Character_Info.characterCarryWeight;
-		Age.GetComponent<Text> ().text = Character_Info.characterAge;
-		Level.GetComponent<Text> ().text = Character_Info.characterLevel;
-		MoveSpeed.GetComponent<Text> ().text = Character_Info.characterMoveSpeed;
-		Languages.GetComponent<Text> ().text = Character_Info.characterLanguages;
+		Class.GetComponent<InputField>().text = Character_Info.characterClass;
+		Race.GetComponent<InputField>().text = Character_Info.characterRace;
+		Subrace.GetComponent<InputField>().text = Character_Info.characterSubrace;
+		Name.GetComponent<InputField> ().text = Character_Info.characterName;
+		Health.GetComponent<InputField> ().text = Character_Info.characterHealth;
+        currHealth.GetComponent<InputField>().text = Character_Info.characterCurrHealth;
+        Gender.GetComponent<InputField> ().text = Character_Info.characterGender;
+		Alignment.GetComponent<InputField> ().text = Character_Info.characterAlignment;
+		Height.GetComponent<InputField> ().text = Character_Info.characterHeight;
+		Weight.GetComponent<InputField> ().text = Character_Info.characterWeight;
+		CarryWeight.GetComponent<InputField> ().text = Character_Info.characterCarryWeight;
+		Age.GetComponent<InputField> ().text = Character_Info.characterAge;
+		Level.GetComponent<InputField> ().text = Character_Info.characterLevel;
+		MoveSpeed.GetComponent<InputField> ().text = Character_Info.characterMoveSpeed;
+		Languages.GetComponent<InputField> ().text = Character_Info.characterLanguages;
         avatar.GetComponent<Image>().sprite = Character_Info.characterAvatar;
         copper.GetComponent<InputField>().text = Convert.ToString(Character_Info.copper);
         silver.GetComponent<InputField>().text = Convert.ToString(Character_Info.silver);
