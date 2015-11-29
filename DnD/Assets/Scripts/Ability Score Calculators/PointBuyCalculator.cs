@@ -40,7 +40,6 @@ public class PointBuyCalculator : MonoBehaviour {
             PointCostPerStat[AbilityNumber - 1] = 19;
         }
 
-
         //look at each stat and find remaining points
         PointBuyLeft = PointBuyTotal;
         for (int i=0;i<6;i++)
@@ -112,5 +111,13 @@ public class PointBuyCalculator : MonoBehaviour {
 		}
 		AbilityScoreInitial.AbilityScores [AbilityNumber - 1] = (System.Convert.ToInt32 (RaceInput.text) + baseInput.value + 8);
 	}
+	public void pointBuyContinue()
+	{
+		if(PointBuyLeft>=0)
+		{
+			Application.LoadLevel("Screen Hub");
+		}
+		
 
+	}
 }
