@@ -216,7 +216,68 @@ public class Data_Loader : ScriptableObject {
         if (elemList.Count > 0)
             Character_Info.characterLanguages = elemList[0];
 		elemList.Clear ();
-		tagName = "Proficiency" + id;
+
+        tagName = "combatAC" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatAC = "";
+        if (elemList.Count > 0)
+            Character_Info.combatAC = elemList[0];
+        elemList.Clear();
+
+        //Get combat info
+
+        tagName = "combatBAB" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatBAB = "";
+        if (elemList.Count > 0)
+            Character_Info.combatBAB = elemList[0];
+        elemList.Clear();
+
+        tagName = "combatInitiative" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatInitiative = "";
+        if (elemList.Count > 0)
+            Character_Info.combatInitiative = elemList[0];
+        elemList.Clear();
+
+        tagName = "combatReflex" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatReflex = "";
+        if (elemList.Count > 0)
+            Character_Info.combatReflex = elemList[0];
+        elemList.Clear();
+
+        tagName = "combatWill" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatWill = "";
+        if (elemList.Count > 0)
+            Character_Info.combatWill = elemList[0];
+        elemList.Clear();
+
+        tagName = "combatFortitude" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatFortitude = "";
+        if (elemList.Count > 0)
+            Character_Info.combatFortitude = elemList[0];
+        elemList.Clear();
+
+        tagName = "combatCMB" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatCMB = "";
+        if (elemList.Count > 0)
+            Character_Info.combatCMB = elemList[0];
+        elemList.Clear();
+
+        tagName = "combatCMD" + id;
+        elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+        Character_Info.combatCMD = "";
+        if (elemList.Count > 0)
+            Character_Info.combatCMD = elemList[0];
+        elemList.Clear();
+
+        //Get proficiencies
+
+        tagName = "Proficiency" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
 		int i = 0;
 		foreach (var item in elemList)
@@ -226,6 +287,9 @@ public class Data_Loader : ScriptableObject {
 			i++;
 		}
         elemList.Clear();
+
+        //Get ability scores
+
 		tagName = "Strength" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         if(elemList.Count > 0)
@@ -263,6 +327,7 @@ public class Data_Loader : ScriptableObject {
 		elemList.Clear ();
 
         //Get notes related to the character
+
 		Note_List_Info.noteTitles.Clear ();
         tagName = "title" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
@@ -288,6 +353,7 @@ public class Data_Loader : ScriptableObject {
 		elemList.Clear ();
 
         //Get the character's coin
+
         Character_Info.copper = 0;
         tagName = "copper" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
@@ -334,6 +400,7 @@ public class Data_Loader : ScriptableObject {
         elemList.Clear();
 
         //Load items character has in their inventory
+
         Character_Info.characterItems.Clear();
         tagName = "itemName" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
@@ -583,7 +650,6 @@ public class Data_Loader : ScriptableObject {
 
     public void LoadSettingsData()
     {
-        string line = "";
         string input_file = "./Saved Data/settings.xml";
         string output_file = "temp.xml";
         List<string> keyList = new List<string>();
@@ -653,18 +719,6 @@ public class Data_Loader : ScriptableObject {
             {
                 Settings_Screen.BGMusicClip = "";
             }
-
-            /*AudioClip clip = new AudioClip();
-            elemList = XML.LoadInnerXmlFromFile(output_file, "bgmusicsong");
-            foreach (var item in elemList)
-            {
-                clip = SoundConverter.ConvertStringToSound(item);
-            }
-            if(clip != null)
-            {
-                Background_Music.Instance.SoundChanger(clip);
-            }
-            elemList.Clear();*/
 
             //Delete the temporary xml file
             File.Delete(output_file);

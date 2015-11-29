@@ -92,6 +92,8 @@ public class Data_Saver : ScriptableObject {
 		string content = "";
         Image_Converter ImageConverter = ScriptableObject.CreateInstance<Image_Converter>();
 
+        //Get character ID and overview info
+
         content = "<id>" + Character_Info.id + "</id>";
         contentList.Add(content);
 		content = "<characterinfo>";
@@ -133,6 +135,8 @@ public class Data_Saver : ScriptableObject {
         content = "<languages" + Character_Info.id + ">" + Character_Info.characterLanguages + "</languages" + Character_Info.id + ">";
 		contentList.Add (content);
 
+        //Get notes
+
 		content = "<notes>";
 		contentList.Add (content);
 		int i = 0;
@@ -148,6 +152,31 @@ public class Data_Saver : ScriptableObject {
 		content = "</notes>";
 		contentList.Add (content);
 
+        //Get combat info
+
+        content = "<combat>";
+        contentList.Add(content);
+        content = "<combatAC" + Character_Info.id + ">" + Character_Info.combatAC + "</combatAC" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatBAB" + Character_Info.id + ">" + Character_Info.combatBAB + "</combatBAB" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatInitiative" + Character_Info.id + ">" + Character_Info.combatInitiative + "</combatInitiative" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatReflex" + Character_Info.id + ">" + Character_Info.combatReflex + "</combatReflex" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatWill" + Character_Info.id + ">" + Character_Info.combatWill + "</combatWill" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatFortitude" + Character_Info.id + ">" + Character_Info.combatFortitude + "</combatFortitude" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatCMB" + Character_Info.id + ">" + Character_Info.combatCMB + "</combatCMB" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "<combatCMD" + Character_Info.id + ">" + Character_Info.combatCMD + "</combatCMD" + Character_Info.id + ">";
+        contentList.Add(content);
+        content = "</combat>";
+        contentList.Add(content);
+
+        //Get proficiencies
+
         i = 0;
         foreach (string item in ProficiencyTracker.Proficiencies)
         {
@@ -155,6 +184,8 @@ public class Data_Saver : ScriptableObject {
             contentList.Add(content);
             i++;
         }
+
+        //Get coin and items
 
         content = "<inventory>";
         contentList.Add(content);
