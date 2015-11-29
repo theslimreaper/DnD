@@ -8,7 +8,7 @@ public class Display_Spell_Information : MonoBehaviour
 {
 	public GameObject InfoScreen;
 	public GameObject spellScreen;
-	public static List<string> characterSpells = new List<string>();
+	public GameObject backgroundID;
 
 	// Use this for initialization
 	void Start ()
@@ -29,7 +29,7 @@ public class Display_Spell_Information : MonoBehaviour
 
 	public void AddSpell()
 	{
-
+		//Character_Info.characterSpells.Add (backgroundID);
 
 		InfoScreen.SetActive (false);
 		spellScreen.SetActive (true);
