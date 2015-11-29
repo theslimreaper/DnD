@@ -181,6 +181,15 @@ public class Data_Loader : ScriptableObject {
 		Character_Info.characterLanguages = elemList[0];
 		elemList.Clear ();
 
+		tagName = "Proficiency" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		int i = 0;
+		foreach (var item in elemList)
+		{
+			ProficiencyTracker.Proficiencies[i]= item;
+			i++;
+		}
+		elemList.Clear();
 		tagName = "Strength" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
         if(elemList.Count > 0)
@@ -301,7 +310,7 @@ public class Data_Loader : ScriptableObject {
 
         tagName = "itemName" + id;
         elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
-        int i = 0;
+        i = 0;
         foreach (var item in elemList)
         {
             Character_Info.characterItems[i].itemName = item;
