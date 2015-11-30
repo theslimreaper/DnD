@@ -36,9 +36,21 @@ public class Save_Character_Info_Edit : MonoBehaviour {
     public GameObject editAvatar;
     public GameObject editCurrHP;
     public GameObject displayCurrHP;
+    public GameObject displayStr;
+    public GameObject editStr;
+    public GameObject displayDex;
+    public GameObject editDex;
+    public GameObject displayCon;
+    public GameObject editCon;
+    public GameObject displayInt;
+    public GameObject editInt;
+    public GameObject displayWis;
+    public GameObject editWis;
+    public GameObject displayCha;
+    public GameObject editCha;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 	}
 
 	public void DisplayMode(){
@@ -57,6 +69,12 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 		displayCarry.GetComponent<InputField>().text = editCarry.GetComponent<InputField>().text;
 		displaySpeed.GetComponent<InputField>().text = editSpeed.GetComponent<InputField>().text;
 		displayLanguage.GetComponent<InputField>().text = editLanguage.GetComponent<InputField>().text;
+        displayStr.GetComponent<InputField>().text = editStr.GetComponent<InputField>().text;
+        displayDex.GetComponent<InputField>().text = editDex.GetComponent<InputField>().text;
+        displayCon.GetComponent<InputField>().text = editCon.GetComponent<InputField>().text;
+        displayInt.GetComponent<InputField>().text = editInt.GetComponent<InputField>().text;
+        displayWis.GetComponent<InputField>().text = editWis.GetComponent<InputField>().text;
+        displayCha.GetComponent<InputField>().text = editCha.GetComponent<InputField>().text;
         displayAvatar.GetComponent<Image>().sprite = editAvatar.GetComponent<Image>().sprite;
 
 	}
@@ -78,6 +96,12 @@ public class Save_Character_Info_Edit : MonoBehaviour {
         editCarry.GetComponent<InputField>().text = displayCarry.GetComponent<InputField>().text;
         editSpeed.GetComponent<InputField>().text = displaySpeed.GetComponent<InputField>().text;
         editLanguage.GetComponent<InputField>().text = displayLanguage.GetComponent<InputField>().text;
+        editStr.GetComponent<InputField>().text = displayStr.GetComponent<InputField>().text;
+        editDex.GetComponent<InputField>().text = displayDex.GetComponent<InputField>().text;
+        editCon.GetComponent<InputField>().text = displayCon.GetComponent<InputField>().text;
+        editInt.GetComponent<InputField>().text = displayInt.GetComponent<InputField>().text;
+        editWis.GetComponent<InputField>().text = displayWis.GetComponent<InputField>().text;
+        editCha.GetComponent<InputField>().text = displayCha.GetComponent<InputField>().text;
         editAvatar.GetComponent<Image>().sprite = displayAvatar.GetComponent<Image>().sprite;
     }
 	

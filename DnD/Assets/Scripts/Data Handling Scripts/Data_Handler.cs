@@ -29,8 +29,14 @@ public class Data_Handler : MonoBehaviour {
     public GameObject electrum;
     public GameObject gold;
     public GameObject platinum;
+    public GameObject Str;
+    public GameObject Dex;
+    public GameObject Con;
+    public GameObject Int;
+    public GameObject Wis;
+    public GameObject Cha;
 
-	void Start(){
+    void Start(){
 		ImportData ();
 	}
 
@@ -62,8 +68,14 @@ public class Data_Handler : MonoBehaviour {
         Character_Info.electrum = Convert.ToInt32(electrum.GetComponent<InputField>().text);
         Character_Info.gold = Convert.ToInt32(gold.GetComponent<InputField>().text);
         Character_Info.platinum = Convert.ToInt32(platinum.GetComponent<InputField>().text);
+        AbilityScoreInitial.AbilityScores[0] = Convert.ToInt32(Str.GetComponent<InputField>().text);
+        AbilityScoreInitial.AbilityScores[1] = Convert.ToInt32(Dex.GetComponent<InputField>().text);
+        AbilityScoreInitial.AbilityScores[2] = Convert.ToInt32(Con.GetComponent<InputField>().text);
+        AbilityScoreInitial.AbilityScores[3] = Convert.ToInt32(Int.GetComponent<InputField>().text);
+        AbilityScoreInitial.AbilityScores[4] = Convert.ToInt32(Wis.GetComponent<InputField>().text);
+        AbilityScoreInitial.AbilityScores[5] = Convert.ToInt32(Cha.GetComponent<InputField>().text);
 
-	}
+    }
 
 	public void ImportData(){
 		Class.GetComponent<InputField>().text = Character_Info.characterClass;
@@ -87,5 +99,11 @@ public class Data_Handler : MonoBehaviour {
         electrum.GetComponent<InputField>().text = Convert.ToString(Character_Info.electrum);
         gold.GetComponent<InputField>().text = Convert.ToString(Character_Info.gold);
         platinum.GetComponent<InputField>().text = Convert.ToString(Character_Info.platinum);
-	}
+        Str.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[0]);
+        Dex.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[1]);
+        Con.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[2]);
+        Int.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[3]);
+        Wis.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[4]);
+        Cha.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[5]);
+    }
 }
