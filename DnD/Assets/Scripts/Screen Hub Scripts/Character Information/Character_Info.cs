@@ -15,7 +15,7 @@ public class Character_Info : ScriptableObject {
 	public static string characterAlignment = "";
 	public static string characterAge = "";
 	public static string characterGender = "";
-	public static string characterLevel = "";
+	public static string characterLevel = "0";
 	public static string characterHealth = "";
 	public static string characterHeight = "";
 	public static string characterWeight = "";
