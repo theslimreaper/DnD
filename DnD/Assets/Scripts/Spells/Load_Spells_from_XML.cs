@@ -68,13 +68,13 @@ public class Load_Spells_from_XML : MonoBehaviour {
 			{
 				Spell_Class SpellsSet = new Spell_Class();
 				SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
-				SpellsSet.spellLevel = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
-				SpellsSet.spellCast = item.Substring(item.IndexOf("<time>"),(item.IndexOf("</time>")-item.IndexOf("<time>")));
-				SpellsSet.spellClasses = item.Substring(item.IndexOf("<classes>"),(item.IndexOf("</classes>")-item.IndexOf("<classes>")));
-				SpellsSet.spellComponents = item.Substring(item.IndexOf("<components>"),(item.IndexOf("</components>")-item.IndexOf("<components>")));
-				SpellsSet.spellDuration = item.Substring(item.IndexOf("<duration>"),(item.IndexOf("</duration>")-item.IndexOf("<duration>")));
-				SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>"),(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")));
-				SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>"),(item.IndexOf("</school>")-item.IndexOf("<school>")));
+				SpellsSet.spellLevel = item.Substring(item.IndexOf("<level>") + 7,(item.IndexOf("</level>")-item.IndexOf("<level>")) - 7);
+				SpellsSet.spellCast = item.Substring(item.IndexOf("<time>") + 6,(item.IndexOf("</time>")-item.IndexOf("<time>")) - 6);
+				SpellsSet.spellClasses = item.Substring(item.IndexOf("<classes>") + 9,(item.IndexOf("</classes>")-item.IndexOf("<classes>")) - 9);
+				SpellsSet.spellComponents = item.Substring(item.IndexOf("<components>") + 12,(item.IndexOf("</components>")-item.IndexOf("<components>")) - 12);
+				SpellsSet.spellDuration = item.Substring(item.IndexOf("<duration>") + 10,(item.IndexOf("</duration>")-item.IndexOf("<duration>")) - 10);
+				SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>") + 8,(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")) - 8);
+				SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
 				if (item.IndexOf("<roll>") != -1)
 				{
 					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>"),(item.IndexOf("</roll>")-item.IndexOf("<roll>")));
