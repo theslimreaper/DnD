@@ -9,6 +9,7 @@ public class RollingAbilityChoice : MonoBehaviour {
 	public int dropDownNumber;
 	int previousValue=0;
 	int currentValue=0;
+    public Message_Handler MessageBoxOK;
 	void Start(){
 		string temp;
 		dropDowns [dropDownNumber-1] = this.gameObject;

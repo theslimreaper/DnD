@@ -11,6 +11,9 @@ public class Character_Creation : MonoBehaviour {
     public Message_Handler MessageBoxYN;
     public GameObject characterName;
     public GameObject characterAvatar;
+    public PointBuyCalculator pointBuy;
+    public Button pointBuyButton;
+    public Button rollingScoreButton;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +38,30 @@ public class Character_Creation : MonoBehaviour {
 
     public void confirmCharacterPrompt()
     {
+        if(rollingScoreButton.interactable == false)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                if (RollingAbilityChoice.dropDowns[i].GetComponent<Dropdown>().value == 0)
+                {
+                    MessageBoxOK.ShowBox("Please ensure that each ability score has a corresponding stat!");
+                    return;
+                }
+            }
+        }
+        else if(pointBuyButton.interactable == false)
+        {
+            if (PointBuyCalculator.PointBuyLeft < 0)
+            {
+                MessageBoxOK.ShowBox("Please ensure that the total number of remaining points is greater than or equal to 0!");
+                return;
+            }
+        }
+        if(characterName.GetComponent<InputField>().text == "")
+        {
+            MessageBoxOK.ShowBox("Please enter a name for the character!");
+            return;
+        }
         MessageBoxYN.ShowBox("Are you sure you want to confirm this character?");
         MessageBoxYN.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<Button>().onClick.AddListener(() => confirmCharacter());
     }
