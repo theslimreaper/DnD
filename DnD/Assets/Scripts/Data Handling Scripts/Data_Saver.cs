@@ -175,8 +175,20 @@ public class Data_Saver : ScriptableObject {
         content = "</combat>";
         contentList.Add(content);
 
-        //Get proficiencies
 
+		content = "<Strength" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[0] + "</Strength" + Character_Info.id + ">";
+		contentList.Add(content);
+		content = "<Dexterity" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[1] + "</Dexterity" + Character_Info.id + ">";
+		contentList.Add(content);
+		content = "<Constitution" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[2] + "</Constitution" + Character_Info.id + ">";
+		contentList.Add(content);
+		content = "<Intelligence" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[3] + "</Intelligence" + Character_Info.id + ">";
+		contentList.Add(content);
+		content = "<Wisdom" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[4] + "</Wisdom" + Character_Info.id + ">";
+		contentList.Add(content);
+		content = "<Charisma" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[5] + "</Charisma" + Character_Info.id + ">";
+		contentList.Add(content);
+        //Get proficiencies
         i = 0;
         foreach (string item in ProficiencyTracker.Proficiencies)
         {

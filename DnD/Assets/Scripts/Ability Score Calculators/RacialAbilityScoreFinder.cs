@@ -13,8 +13,6 @@ public class RacialAbilityScoreFinder : MonoBehaviour {
 	public Dropdown[] RollingAbilityChosen = new Dropdown[6];
 	public Text[] RollingFinalResult = new Text[6];
 	void Start () {
-		Character_Info.characterSubrace = "Dragonborn";//test value, remove after done testing
-
 
 		if(Character_Info.characterSubrace==null||Character_Info.characterSubrace=="")//use subrace for race if you use one
 		{
