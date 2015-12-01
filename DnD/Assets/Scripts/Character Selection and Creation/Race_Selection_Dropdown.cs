@@ -16,6 +16,7 @@ public class Race_Selection_Dropdown : MonoBehaviour
     public Scrollbar scroll;
     public GameObject scrollView;
     public GameObject scrollObj;
+    public Subrace_Selection_Dropdown subraceSelection;
 
     // Start and Update functions
 
@@ -41,7 +42,6 @@ public class Race_Selection_Dropdown : MonoBehaviour
     //Get the names and decriptions of the races from the xml files
     void GetRaces()
     {
-        int i = 0;
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
         if (Settings_Screen.is_online == true)
         {
@@ -67,6 +67,7 @@ public class Race_Selection_Dropdown : MonoBehaviour
     {
         Character_Info.characterRace = raceDropdown.options[raceDropdown.value].text;
         FillRaceDescription();
+        subraceSelection.GetSubraces();
     }
 
     //Fill the race description based on the highlighted race

@@ -19,6 +19,7 @@ public class Subrace_Selection_Dropdown : MonoBehaviour {
     public Scrollbar scroll;
     public GameObject scrollView;
     public GameObject scrollObj;
+    public RacialAbilityScoreFinder RacialAbilityScores;
 
     // Start and Update functions
 
@@ -70,6 +71,7 @@ public class Subrace_Selection_Dropdown : MonoBehaviour {
 	public void SelectSubrace(){
         Character_Info.characterSubrace = subraceDropdown.options[subraceDropdown.value].text;
         FillSubraceDescription();
+        RacialAbilityScores.FindRacialModifiers();
 	}
 
 	//Fill sub race description based on highlighted subrace
