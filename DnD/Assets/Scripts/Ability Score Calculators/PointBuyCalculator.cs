@@ -15,6 +15,7 @@ public class PointBuyCalculator : MonoBehaviour {
     public Text ProblemText;
     public static int[] PointCostPerStat= new int[6];
     public int AbilityNumber;
+    public Message_Handler MessageBoxOK;
 
     public void onBaseUpdate(string newValue)
     {
@@ -105,13 +106,8 @@ public class PointBuyCalculator : MonoBehaviour {
 		}
 		AbilityScoreInitial.AbilityScores [AbilityNumber - 1] = (System.Convert.ToInt32 (RaceInput.text) + baseInput.value + 8);
 	}
+
 	public void pointBuyContinue()
 	{
-		if(PointBuyLeft>=0)
-		{
-			Application.LoadLevel("Screen Hub");
-		}
-		
-
 	}
 }

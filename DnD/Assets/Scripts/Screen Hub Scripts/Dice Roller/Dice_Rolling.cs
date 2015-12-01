@@ -61,7 +61,6 @@ public class Dice_Rolling : MonoBehaviour {
 			results[i]=Random.Range (1,7);
 			total+=results[i];
 			resultString+=results[i]+" + ";
-			print (results[i]);
 			if(lowestValue>results[i])
 			{
 				lowestValue=results[i];
@@ -78,8 +77,6 @@ public class Dice_Rolling : MonoBehaviour {
 		}
 
 		resultString += " = " + total.ToString();
-		
-		print (finalResults);
 		this.gameObject.GetComponent<Text> ().text = resultString;
 		
 		
