@@ -175,7 +175,24 @@ public class Data_Saver : ScriptableObject {
         content = "</combat>";
         contentList.Add(content);
 
+		//Get spell IDs
 
+		content = "<spells>";
+		contentList.Add (content);
+
+		i = 0;
+		foreach (string item in Character_Info.characterSpells)
+		{
+			content = "<spellID" + Character_Info.id + ">" + Character_Info.characterSpells[i].spellID + "</spellID" + Character_Info.id + ">";
+			contentList.Add(content);
+			i++;
+		}
+
+		content = "</spells>";
+		contentList.Add (content);
+
+		//Get ability scores
+		
 		content = "<Strength" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[0] + "</Strength" + Character_Info.id + ">";
 		contentList.Add(content);
 		content = "<Dexterity" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[1] + "</Dexterity" + Character_Info.id + ">";

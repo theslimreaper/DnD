@@ -57,7 +57,8 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		
 		XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader> ();//load xml
 		List<string> XmlResult  = new List<string> ();
-		XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml","spell" );
+		//XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml","spell" );
+		XmlResult = xmlLoader.LoadInnerXml ("C:/Users/dokeefe/Documents/DnD/XML Files/Spells/spells.xml","spell" );
 		//List<Spell_Class> IDList = new List<Spell_Class> ();
 
 		//foreach (var IDItem in IDList) {
@@ -66,8 +67,9 @@ public class Load_Spells_from_ID : MonoBehaviour {
 			foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 			{
 				idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
-				if (idLine.Contains("0010"))
+				if (idLine.Contains("0001"))
 				{
+			print (idLine);
 					Spell_Class SpellsSet = new Spell_Class();
 					SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
 					SpellsSet.spellLevel = item.Substring(item.IndexOf("<level>") + 7,(item.IndexOf("</level>")-item.IndexOf("<level>")) - 7);
@@ -76,15 +78,15 @@ public class Load_Spells_from_ID : MonoBehaviour {
 					SpellsSet.spellComponents = item.Substring(item.IndexOf("<components>") + 12,(item.IndexOf("</components>")-item.IndexOf("<components>")) - 12);
 					SpellsSet.spellDuration = item.Substring(item.IndexOf("<duration>") + 10,(item.IndexOf("</duration>")-item.IndexOf("<duration>")) - 10);
 					SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>") + 8,(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")) - 8);
-					SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
-					if (item.IndexOf("<roll>") != -1)
-					{
-						SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>"),(item.IndexOf("</roll>")-item.IndexOf("<roll>")));
-					}
-					SpellsSet.spellRange = item.Substring(item.IndexOf("<range>"),(item.IndexOf("</range>")-item.IndexOf("<range>")));
-					SpellsSet.spellID = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
-					SpellsSet.spellDescription = item.Substring(item.IndexOf("<text>"),(item.IndexOf("</text>")-item.IndexOf("<text>")));
-					
+				SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
+				if (item.IndexOf("<roll>") != -1)
+				{
+					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>") + 6,(item.IndexOf("</roll>")-item.IndexOf("<roll>")) - 6);
+				}
+				SpellsSet.spellRange = item.Substring(item.IndexOf("<range>") + 7,(item.IndexOf("</range>")-item.IndexOf("<range>")) - 7);
+				SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text> + 6"),(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
+				
 					
 					levelLine = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
 					nameLine = item.Substring(item.IndexOf("<name>"),(item.IndexOf("</name>")-item.IndexOf("<name>")));
@@ -211,7 +213,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 				
 				if (j == 0 || j == 1)
 				{
-					ItemButton.transform.position = new Vector3(SpellParentText.transform.position.x + (j * 500 * screenRatioW), SpellParentText.transform.position.y, 250);
+					ItemButton.transform.position = new Vector3(SpellParentText.transform.position.x + (j * 150 * screenRatioW), SpellParentText.transform.position.y, 250);
 				}
 				else
 				{
@@ -227,7 +229,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 						pos = 1;
 					}
 					
-					ItemButton.transform.position = new Vector3(SpellParentText.transform.position.x + (pos * 500 * screenRatioW), SpellParentText.transform.position.y - (100 * (j - pos - posBehind) * screenRatio), 250);
+					ItemButton.transform.position = new Vector3(SpellParentText.transform.position.x + (pos * 150 * screenRatioW), SpellParentText.transform.position.y - (50 * (j - pos - posBehind) * screenRatio), 250);
 				}
 				
 				dynamicObjects.Add(ItemButton);
