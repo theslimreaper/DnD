@@ -66,7 +66,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		
 			foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 			{
-				idLine = item.Substring(item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>"))));
+				idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
 				if (idLine.Contains(IDContained))
 				{
 					Spell_Class SpellsSet = new Spell_Class();
