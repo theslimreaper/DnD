@@ -18,21 +18,16 @@ public class PointBuyCalculator : MonoBehaviour {
 
     public void onBaseUpdate(string newValue)
     {
-        print("Updated base");
-       
         if (baseInput.value+8 <= 13)//calculate points used by choice
         {
-            print("8 (0) to 13 (4) used");
             PointCostPerStat[AbilityNumber - 1] = baseInput.value;
         }
         else if (baseInput.value + 8 <= 15)
         {
-            print("14 (5) or 15 (6) used");
             PointCostPerStat[AbilityNumber - 1] = 5+(baseInput.value - 5) * 2;
         }
         else if (baseInput.value + 8 <= 17)
         {
-            print("16 (7) or 17 (8) used");
             PointCostPerStat[AbilityNumber - 1] = 9+(baseInput.value- 7) * 3;
         }
         else
@@ -64,7 +59,6 @@ public class PointBuyCalculator : MonoBehaviour {
 
     public void onRacialUpdate(string newValue)
     {
-        print("Updated racial");
         if (System.Convert.ToInt32(RaceInput.text) <0 && RaceInput.text[0]!='-')
         {
             RaceInput.text = "-" + RaceInput.text;

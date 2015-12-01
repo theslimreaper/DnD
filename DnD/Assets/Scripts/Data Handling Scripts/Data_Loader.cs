@@ -77,6 +77,7 @@ public class Data_Loader : ScriptableObject {
 		RijndaelManaged RMCrypto = new RijndaelManaged ();
         Image_Converter ImageConverter = ScriptableObject.CreateInstance<Image_Converter>();
         string tagName = "";
+        RacialAbilityScoreFinder racialScores = new RacialAbilityScoreFinder();
 		
 		//Get encryption / decryption key from url
 		XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader> ();
@@ -640,6 +641,8 @@ public class Data_Loader : ScriptableObject {
             i++;
         }
         elemList.Clear();
+
+        racialScores.FillRacialModifiers();
 
         Character_Info.id = id;
 

@@ -99,11 +99,11 @@ public class Data_Handler : MonoBehaviour {
         electrum.GetComponent<InputField>().text = Convert.ToString(Character_Info.electrum);
         gold.GetComponent<InputField>().text = Convert.ToString(Character_Info.gold);
         platinum.GetComponent<InputField>().text = Convert.ToString(Character_Info.platinum);
-        Str.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[0]);
-        Dex.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[1]);
-        Con.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[2]);
-        Int.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[3]);
-        Wis.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[4]);
-        Cha.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[5]);
+        Str.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[0] + AbilityScoreInitial.racialScores[0]);
+        Dex.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[1] + AbilityScoreInitial.racialScores[1]);
+        Con.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[2] + AbilityScoreInitial.racialScores[2]);
+        Int.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[3] + AbilityScoreInitial.racialScores[3]);
+        Wis.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[4] + AbilityScoreInitial.racialScores[4]);
+        Cha.GetComponent<InputField>().text = Convert.ToString(AbilityScoreInitial.AbilityScores[5] + AbilityScoreInitial.racialScores[5]);
     }
 }

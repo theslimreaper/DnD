@@ -15,7 +15,7 @@ public class RacialAbilityScoreFinder : MonoBehaviour {
 	void Start () {
 	}
 
-    public void FindRacialModifiers()
+    public void FillRacialModifiers()
     {
         if (Character_Info.characterSubrace == null || Character_Info.characterSubrace == "" || Character_Info.characterRace == "Dragonborn")//use subrace for race if you use one
         {
@@ -31,8 +31,88 @@ public class RacialAbilityScoreFinder : MonoBehaviour {
             xmlRaceName = xmlRaceName.Substring(0, xmlRaceName.IndexOf("(") - 1);
         }
 
-        print(xmlRaceName);
+        XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader>();//load xml
+        List<string> XmlResult = new List<string>();
+        XmlResult = xmlLoader.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/races.xml", "race");
 
+        foreach (var item in XmlResult)//search through race list to find the race you use
+        {
+            if (item.Contains(xmlRaceName))
+            {
+                abilityInfoLine = item.Substring(item.IndexOf("<ability>"), (item.IndexOf("</ability>") - item.IndexOf("<ability>")));//find the abilitys line for your race
+                break;
+            }
+        }
+
+        if (abilityInfoLine.Contains("Str"))
+        {
+            AbilityScoreInitial.racialScores[0] = System.Convert.ToInt32(abilityInfoLine.Substring(abilityInfoLine.IndexOf("Str") + 4, 1));
+        }
+        else
+        {
+            AbilityScoreInitial.racialScores[0] = 0;
+        }
+
+        if (abilityInfoLine.Contains("Dex"))
+        {
+            AbilityScoreInitial.racialScores[1] = System.Convert.ToInt32(abilityInfoLine.Substring(abilityInfoLine.IndexOf("Dex") + 4, 1));
+        }
+        else
+        {
+            AbilityScoreInitial.racialScores[1] = 0;
+        }
+
+        if (abilityInfoLine.Contains("Con"))
+        {
+            AbilityScoreInitial.racialScores[2] = System.Convert.ToInt32(abilityInfoLine.Substring(abilityInfoLine.IndexOf("Con") + 4, 1));
+        }
+        else
+        {
+            AbilityScoreInitial.racialScores[2] = 0;
+        }
+
+        if (abilityInfoLine.Contains("Int"))
+        {
+            AbilityScoreInitial.racialScores[3] = System.Convert.ToInt32(abilityInfoLine.Substring(abilityInfoLine.IndexOf("Int") + 4, 1));
+        }
+        else
+        {
+            AbilityScoreInitial.racialScores[3] = 0;
+        }
+
+        if (abilityInfoLine.Contains("Wis"))
+        {
+            AbilityScoreInitial.racialScores[4] = System.Convert.ToInt32(abilityInfoLine.Substring(abilityInfoLine.IndexOf("Wis") + 4, 1));
+        }
+        else
+        {
+            AbilityScoreInitial.racialScores[4] = 0;
+        }
+
+        if (abilityInfoLine.Contains("Cha"))
+        {
+            AbilityScoreInitial.racialScores[5] = System.Convert.ToInt32(abilityInfoLine.Substring(abilityInfoLine.IndexOf("Cha") + 4, 1));
+        }
+        else
+        {
+            AbilityScoreInitial.racialScores[5] = 0;
+        }
+    }
+    public void FindRacialModifiers()
+    {
+        if (Character_Info.characterSubrace == null || Character_Info.characterSubrace == "" || Character_Info.characterRace == "Dragonborn")//use subrace for race if you use one
+        {
+            xmlRaceName = "<name>" + Character_Info.characterRace;
+        }
+        else
+        {
+            xmlRaceName = "<name>" + Character_Info.characterSubrace;
+        }
+
+        if (xmlRaceName.Contains("("))//if the race has extra info remove it before searching
+        {
+            xmlRaceName = xmlRaceName.Substring(0, xmlRaceName.IndexOf("(") - 1);
+        }
 
         XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader>();//load xml
         List<string> XmlResult = new List<string>();
