@@ -58,15 +58,15 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader> ();//load xml
 		List<string> XmlResult  = new List<string> ();
 		XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml","spell" );
-		List<Spell_Class> IDList = new List<Spell_Class> ();
+		//List<Spell_Class> IDList = new List<Spell_Class> ();
 
-		foreach (var IDItem in IDList) {
-			string IDContained = IDItem.spellID;
+		//foreach (var IDItem in IDList) {
+		//	string IDContained = IDItem.spellID;
 		
 			foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 			{
 				idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
-				if (idLine.Contains(IDContained))
+				if (idLine.Contains("0010"))
 				{
 					Spell_Class SpellsSet = new Spell_Class();
 					SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
@@ -130,7 +130,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 						Load_Spells_from_XML.SpellsNine.Add (SpellsSet);
 					}
 				}
-			}
+			//}
 		}
 		foreach (var item in Load_Spells_from_XML.SpellsZero) {
 			print (item.spellName);
