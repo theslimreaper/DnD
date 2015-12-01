@@ -10,7 +10,7 @@ public class Screen_Changer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Set current screen to Character Overview screen if we are in the screen hub
-        if (Application.loadedLevelName == "Screen Hub")
+        if (Application.loadedLevelName == "Screen Hub" || Application.loadedLevelName == "Character Creation")
         {
             currentScreen = 0;
             SelectCurrentScreen(currentScreen);

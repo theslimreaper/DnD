@@ -43,6 +43,8 @@ public class Character_Creation : MonoBehaviour {
     {
         Character_Info.characterName = characterName.GetComponent<InputField>().text;
         Character_Info.characterAvatar = characterAvatar.GetComponent<Image>().sprite;
+        Data_Saver Save = ScriptableObject.CreateInstance<Data_Saver>();
+        Save.SaveCharacterData();
         Application.LoadLevel("Screen Hub");
     }
 }
