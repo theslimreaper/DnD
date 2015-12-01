@@ -181,7 +181,7 @@ public class Data_Saver : ScriptableObject {
 		contentList.Add (content);
 
 		i = 0;
-		foreach (string item in Character_Info.characterSpells)
+		foreach (var item in Character_Info.characterSpells)
 		{
 			content = "<spellID" + Character_Info.id + ">" + Character_Info.characterSpells[i].spellID + "</spellID" + Character_Info.id + ">";
 			contentList.Add(content);

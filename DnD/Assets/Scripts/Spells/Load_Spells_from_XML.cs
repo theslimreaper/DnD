@@ -78,11 +78,11 @@ public class Load_Spells_from_XML : MonoBehaviour {
 				SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
 				if (item.IndexOf("<roll>") != -1)
 				{
-					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>"),(item.IndexOf("</roll>")-item.IndexOf("<roll>")));
+					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>") + 6,(item.IndexOf("</roll>")-item.IndexOf("<roll>")) - 6);
 				}
-				SpellsSet.spellRange = item.Substring(item.IndexOf("<range>"),(item.IndexOf("</range>")-item.IndexOf("<range>")));
-				SpellsSet.spellID = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
-				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text>"),(item.IndexOf("</text>")-item.IndexOf("<text>")));
+				SpellsSet.spellRange = item.Substring(item.IndexOf("<range>") + 7,(item.IndexOf("</range>")-item.IndexOf("<range>")) - 7);
+				SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text> + 6"),(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
 
 
 				levelLine = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
