@@ -43,7 +43,6 @@ public class Load_Spells_from_ID : MonoBehaviour {
 	public GameObject spellClassesObj;
 	public GameObject spellDescriptionObj;
 	public GameObject spellComponentsObj;
-	public GameObject spellRitualObj;
 	public GameObject spellRollObj;
 	public GameObject spellIDObj;
 	
@@ -308,7 +307,6 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		spellClassesObj.GetComponent<Text>().text = SpellsTemp[position].spellClasses;
 		spellDescriptionObj.GetComponent<Text>().text = SpellsTemp[position].spellDescription;
 		spellComponentsObj.GetComponent<Text>().text = SpellsTemp[position].spellComponents;
-		spellRitualObj.GetComponent<Text>().text = SpellsTemp[position].spellRitual;
 		spellRollObj.GetComponent<Text>().text = SpellsTemp[position].spellRoll;
 		spellIDObj.GetComponent<Text>().text = SpellsTemp[position].spellID;
 	}
