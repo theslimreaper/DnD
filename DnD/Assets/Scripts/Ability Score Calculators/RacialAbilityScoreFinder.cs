@@ -39,7 +39,7 @@ public class RacialAbilityScoreFinder : MonoBehaviour {
         }
         else
         {
-            XmlResult = xmlLoader.LoadInnerXml("..\\XML Files/Character Features/races.xml", "race");
+            XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Character Features/races.xml", "race");
         }
 
         foreach (var item in XmlResult)//search through race list to find the race you use
@@ -130,7 +130,7 @@ public class RacialAbilityScoreFinder : MonoBehaviour {
         }
         else
         {
-            XmlResult = xmlLoader.LoadInnerXml("..\\XML Files/Character Features/races.xml", "race");
+            XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Character Features/races.xml", "race");
         }
 
         foreach (var item in XmlResult)//search through race list to find the race you use

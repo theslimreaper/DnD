@@ -65,7 +65,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
         }
         else
         {
-            XmlResult = xmlLoader.LoadInnerXml("..\\XML Files/Spells/spells.xml", "spell");
+            XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Spells/spells.xml", "spell");
         }
 
 		foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
