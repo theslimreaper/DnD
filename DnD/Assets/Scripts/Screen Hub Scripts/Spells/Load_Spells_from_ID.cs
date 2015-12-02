@@ -47,7 +47,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 	public GameObject spellIDObj;
 	
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		
 		SpellParentButtonDefault = SpellParentButton;
 		SpellParentRectDefault = SpellParentButtonDefault.GetComponent<RectTransform>();
@@ -69,14 +69,16 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		IDList = Character_Info.characterSpells;
 		string IDContained = "";
 
-		foreach (var IDItem in IDList) {
-			print (IDItem);
-			IDContained = IDItem;
+
+
+
 		
-			foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
-			{
-				idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
-				if (idLine.Contains("IDContained"))
+		foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
+		{
+			foreach (var IDItem in IDList) {
+				IDContained = IDItem;
+				idLine = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+				if (idLine.Contains(IDContained))
 				{
 					Spell_Class SpellsSet = new Spell_Class();
 					SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
@@ -97,56 +99,186 @@ public class Load_Spells_from_ID : MonoBehaviour {
 						SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
 					}
 					
-					SpellsSet.spellDescription = item.Substring(item.IndexOf("<text> + 6"),(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
+					SpellsSet.spellDescription = item.Substring(item.IndexOf("<text>") + 6,(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
 
 					
 					levelLine = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
 					nameLine = item.Substring(item.IndexOf("<name>"),(item.IndexOf("</name>")-item.IndexOf("<name>")));
 					if (levelLine.Contains("0"))
 					{
-						Load_Spells_from_XML.SpellsZero.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsZero)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+
+						}
+
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsZero.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("1"))
 					{
-						Load_Spells_from_XML.SpellsOne.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsOne)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsOne.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("2"))
 					{
-						Load_Spells_from_XML.SpellsTwo.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsTwo)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsTwo.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("3"))
 					{
-						Load_Spells_from_XML.SpellsThree.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsThree)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsThree.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("4"))
 					{
-						Load_Spells_from_XML.SpellsFour.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsFour)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsFour.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("5"))
 					{
-						Load_Spells_from_XML.SpellsFive.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsFive)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsFive.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("6"))
 					{
-						Load_Spells_from_XML.SpellsSix.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsSix)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsSix.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("7"))
 					{
-						Load_Spells_from_XML.SpellsSeven.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsSeven)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsSeven.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("8"))
 					{
-						Load_Spells_from_XML.SpellsEight.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsEight)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsEight.Add (SpellsSet);
+						}
 					}
 					else if (levelLine.Contains("9"))
 					{
-						Load_Spells_from_XML.SpellsNine.Add (SpellsSet);
+						bool newspell = true;
+						foreach (var spell in Load_Spells_from_ID.SpellsNine)
+						{
+							if (spell.spellID == IDContained)
+							{
+								newspell = false;
+							}
+							
+						}
+						
+						if (newspell == true)
+						{
+							Load_Spells_from_ID.SpellsNine.Add (SpellsSet);
+						}
 					}
 				}
 			}
 		}
 		foreach (var item in Load_Spells_from_XML.SpellsZero) {
-			print (item.spellName);
+			//print (item.spellName);
 		}
 		MakeButtons();
 	}
@@ -161,12 +293,12 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		List<Spell_Class> SpellsTemp = new List<Spell_Class>();
 		int j = 0;
 		
-		//DeleteList();
+		DeleteList();
 		ScrollBar = SpellScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
 		ScrollBar.value = 1;
 		if (dropdownValue.GetComponent<Dropdown> ().value == 0) 
 		{
-			foreach (var item in Load_Spells_from_XML.SpellsZero)
+			foreach (var item in Load_Spells_from_ID.SpellsZero)
 			{
 				
 				SpellsTemp.Add (item);
@@ -174,39 +306,39 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 1)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsOne;
+			SpellsTemp = Load_Spells_from_ID.SpellsOne;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 2)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsTwo;
+			SpellsTemp = Load_Spells_from_ID.SpellsTwo;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 3)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsThree;
+			SpellsTemp = Load_Spells_from_ID.SpellsThree;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 4)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsFour;
+			SpellsTemp = Load_Spells_from_ID.SpellsFour;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 5)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsFive;
+			SpellsTemp = Load_Spells_from_ID.SpellsFive;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 6)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsSix;
+			SpellsTemp = Load_Spells_from_ID.SpellsSix;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 7)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsSeven;
+			SpellsTemp = Load_Spells_from_ID.SpellsSeven;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 8)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsEight;
+			SpellsTemp = Load_Spells_from_ID.SpellsEight;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 9)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsNine;
+			SpellsTemp = Load_Spells_from_ID.SpellsNine;
 		}
 		
 		if (SpellParentRectDefault != null)
@@ -242,7 +374,8 @@ public class Load_Spells_from_ID : MonoBehaviour {
 					
 					ItemButton.transform.position = new Vector3(SpellParentText.transform.position.x + (pos * 150 * screenRatioW), SpellParentText.transform.position.y - (50 * (j - pos - posBehind) * screenRatio), 250);
 				}
-				
+
+				print ("hi");
 				dynamicObjects.Add(ItemButton);
 				Button tempButton = ItemButton.gameObject.GetComponent<Button>();
 				int position = i;
@@ -276,39 +409,39 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 1)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsOne;
+			SpellsTemp = Load_Spells_from_ID.SpellsOne;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 2)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsTwo;
+			SpellsTemp = Load_Spells_from_ID.SpellsTwo;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 3)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsThree;
+			SpellsTemp = Load_Spells_from_ID.SpellsThree;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 4)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsFour;
+			SpellsTemp = Load_Spells_from_ID.SpellsFour;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 5)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsFive;
+			SpellsTemp = Load_Spells_from_ID.SpellsFive;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 6)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsSix;
+			SpellsTemp = Load_Spells_from_ID.SpellsSix;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 7)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsSeven;
+			SpellsTemp = Load_Spells_from_ID.SpellsSeven;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 8)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsEight;
+			SpellsTemp = Load_Spells_from_ID.SpellsEight;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 9)
 		{
-			SpellsTemp = Load_Spells_from_XML.SpellsNine;
+			SpellsTemp = Load_Spells_from_ID.SpellsNine;
 		}
 		
 		spellNameObj.GetComponent<Text>().text = SpellsTemp[position].spellName;
@@ -322,6 +455,18 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		spellComponentsObj.GetComponent<Text>().text = SpellsTemp[position].spellComponents;
 		spellRollObj.GetComponent<Text>().text = SpellsTemp[position].spellRoll;
 		spellIDObj.GetComponent<Text>().text = SpellsTemp[position].spellID;
+	}
+
+	public void DeleteList()
+	{
+		foreach (var item in dynamicObjects)
+		{
+			Destroy(item);
+		}
+		
+		dynamicObjects.Clear();
+		
+		SpellScrollView.transform.position = new Vector3(SpellScrollView.transform.position.x, SpellScrollView.transform.position.y, -10000);
 	}
 	
 }

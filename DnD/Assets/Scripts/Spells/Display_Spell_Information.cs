@@ -31,6 +31,9 @@ public class Display_Spell_Information : MonoBehaviour
 	{
 		Character_Info.characterSpells.Add(backgroundID.GetComponent<Text>().text);
 
+		foreach (var item in Character_Info.characterSpells) {
+			print(item);
+		}
 		InfoScreen.SetActive (false);
 		spellScreen.SetActive (true);
 	}

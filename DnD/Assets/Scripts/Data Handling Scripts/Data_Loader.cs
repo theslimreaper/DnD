@@ -276,15 +276,28 @@ public class Data_Loader : ScriptableObject {
             Character_Info.combatCMD = elemList[0];
         elemList.Clear();
 
-        //Get proficiencies
+		//Get Spells
 
-        tagName = "Proficiency" + id;
+		tagName = "SpellID" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
 		int i = 0;
 		foreach (var item in elemList)
 		{
-			ProficiencyTracker.Proficiencies.Add (item);
+			Character_Info.characterSpells.Add (item);
 			Debug.Log(i);
+			i++;
+		}
+		elemList.Clear();
+
+        //Get proficiencies
+
+        tagName = "Proficiency" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		int x = 0;
+		foreach (var item in elemList)
+		{
+			ProficiencyTracker.Proficiencies.Add (item);
+			Debug.Log(x);
 			i++;
 		}
         elemList.Clear();

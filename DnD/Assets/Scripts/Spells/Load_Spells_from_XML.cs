@@ -48,7 +48,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 	public GameObject spellIDObj;
 
 	// Use this for initialization
-	void Start () {
+	public void Start () {
 		
 		SpellParentButtonDefault = SpellParentButton;
 		SpellParentRectDefault = SpellParentButtonDefault.GetComponent<RectTransform>();
@@ -69,8 +69,22 @@ public class Load_Spells_from_XML : MonoBehaviour {
 
 		foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 		{
+			var idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
+			bool cont = true;
+			
+			List<string> IDList = new List<string> ();
+			IDList = Character_Info.characterSpells;
+			foreach(var id in IDList)
+			{
+				if (idLine.Contains (id))
+				{
+					cont = false;
+				}
+			}
+
+
 			classLine = item.Substring(item.IndexOf("<classes>"),(item.IndexOf("</classes>")-item.IndexOf("<classes>")));
-			if (classLine.Contains(selectedClass))
+			if (classLine.Contains(selectedClass) && cont == true)
 			{
 				Spell_Class SpellsSet = new Spell_Class();
 				SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
@@ -152,7 +166,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 		List<Spell_Class> SpellsTemp = new List<Spell_Class>();
 		int j = 0;
 
-		//DeleteList();
+		DeleteList();
 		ScrollBar = SpellScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
 		ScrollBar.value = 1;
 		if (dropdownValue.GetComponent<Dropdown> ().value == 0) 
@@ -313,6 +327,18 @@ public class Load_Spells_from_XML : MonoBehaviour {
 		spellComponentsObj.GetComponent<Text>().text = SpellsTemp[position].spellComponents;
 		spellRollObj.GetComponent<Text>().text = SpellsTemp[position].spellRoll;
 		spellIDObj.GetComponent<Text>().text = SpellsTemp[position].spellID;
+	}
+
+	public void DeleteList()
+	{
+		foreach (var item in dynamicObjects)
+		{
+			Destroy(item);
+		}
+		
+		dynamicObjects.Clear();
+		
+		SpellScrollView.transform.position = new Vector3(SpellScrollView.transform.position.x, SpellScrollView.transform.position.y, -10000);
 	}
 
 }
