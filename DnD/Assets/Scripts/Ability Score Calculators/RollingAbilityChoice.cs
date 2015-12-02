@@ -10,6 +10,7 @@ public class RollingAbilityChoice : MonoBehaviour {
 	int previousValue=0;
 	int currentValue=0;
     public Message_Handler MessageBoxOK;
+    public Dice_Rolling[] rollForStats;
 	void Start(){
 		string temp;
 		dropDowns [dropDownNumber-1] = this.gameObject;
@@ -17,6 +18,12 @@ public class RollingAbilityChoice : MonoBehaviour {
 		FinalResults [dropDownNumber - 1] = GameObject.Find (temp).GetComponent<Text>();
 		temp = "Racial Modifier "+dropDownNumber.ToString();
 		RacialResult [dropDownNumber - 1] = GameObject.Find (temp).GetComponent<InputField>();
+
+        if(rollForStats.Length > 0)
+        for(int i = 0; i < rollForStats.Length; i++)
+        {
+                rollForStats[i].RollD6SetText(4);
+        }
 	}
 
 	public void CheckOtherScores()
