@@ -44,7 +44,6 @@ public class Load_Spells_from_XML : MonoBehaviour {
 	public GameObject spellClassesObj;
 	public GameObject spellDescriptionObj;
 	public GameObject spellComponentsObj;
-	public GameObject spellRitualObj;
 	public GameObject spellRollObj;
 	public GameObject spellIDObj;
 
@@ -80,20 +79,21 @@ public class Load_Spells_from_XML : MonoBehaviour {
 				SpellsSet.spellClasses = item.Substring(item.IndexOf("<classes>") + 9,(item.IndexOf("</classes>")-item.IndexOf("<classes>")) - 9);
 				SpellsSet.spellComponents = item.Substring(item.IndexOf("<components>") + 12,(item.IndexOf("</components>")-item.IndexOf("<components>")) - 12);
 				SpellsSet.spellDuration = item.Substring(item.IndexOf("<duration>") + 10,(item.IndexOf("</duration>")-item.IndexOf("<duration>")) - 10);
-				SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>") + 8,(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")) - 8);
+				//SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>") + 8,(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")) - 8);
 				SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
 				if (item.IndexOf("<roll>") != -1)
 				{
 					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>") + 6,(item.IndexOf("</roll>")-item.IndexOf("<roll>")) - 6);
 				}
 				SpellsSet.spellRange = item.Substring(item.IndexOf("<range>") + 7,(item.IndexOf("</range>")-item.IndexOf("<range>")) - 7);
-				SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
-				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text> + 6"),(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
-
+				if (item.IndexOf("<id>") != -1)
+				{
+					SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+				}
+				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text>") + 6,(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
 
 				levelLine = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
 				nameLine = item.Substring(item.IndexOf("<name>"),(item.IndexOf("</name>")-item.IndexOf("<name>")));
-				print (levelLine);
 				if (levelLine.Contains("0"))
 				{
 					Load_Spells_from_XML.SpellsZero.Add (SpellsSet);
@@ -137,7 +137,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 			}
 		}
 		foreach (var item in Load_Spells_from_XML.SpellsZero) {
-			print (item.spellName);
+			//print (item.spellName);
 		}
 		MakeButtons();
 	}
@@ -311,7 +311,6 @@ public class Load_Spells_from_XML : MonoBehaviour {
 		spellClassesObj.GetComponent<Text>().text = SpellsTemp[position].spellClasses;
 		spellDescriptionObj.GetComponent<Text>().text = SpellsTemp[position].spellDescription;
 		spellComponentsObj.GetComponent<Text>().text = SpellsTemp[position].spellComponents;
-		spellRitualObj.GetComponent<Text>().text = SpellsTemp[position].spellRitual;
 		spellRollObj.GetComponent<Text>().text = SpellsTemp[position].spellRoll;
 		spellIDObj.GetComponent<Text>().text = SpellsTemp[position].spellID;
 	}
