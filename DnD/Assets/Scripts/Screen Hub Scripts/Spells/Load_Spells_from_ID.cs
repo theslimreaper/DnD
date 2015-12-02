@@ -57,8 +57,14 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		
 		XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader> ();//load xml
 		List<string> XmlResult  = new List<string> ();
-		//XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml","spell" );
-		XmlResult = xmlLoader.LoadInnerXml ("C:/Users/dokeefe/Documents/DnD/XML Files/Spells/spells.xml","spell" );
+        if (Settings_Screen.is_online == true)
+        {
+            XmlResult = xmlLoader.LoadInnerXml("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Spells/spells.xml", "spell");
+        }
+        else
+        {
+            XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Spells/spells.xml", "spell");
+        }
 		//List<Spell_Class> IDList = new List<Spell_Class> ();
 
 		//foreach (var IDItem in IDList) {
