@@ -177,9 +177,6 @@ public class Data_Saver : ScriptableObject {
 
 		//Get spell IDs
 
-		content = "<spells>";
-		contentList.Add (content);
-
 		i = 0;
 		foreach (var item in Character_Info.characterSpells)
 		{
@@ -187,9 +184,6 @@ public class Data_Saver : ScriptableObject {
 			contentList.Add(content);
 			i++;
 		}
-
-		content = "</spells>";
-		contentList.Add (content);
 
 		//Get ability scores
 		

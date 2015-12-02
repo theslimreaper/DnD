@@ -45,6 +45,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 	public GameObject spellComponentsObj;
 	public GameObject spellRollObj;
 	public GameObject spellIDObj;
+	public GameObject addButton;
 	
 	// Use this for initialization
 	public void Start () {
@@ -66,7 +67,9 @@ public class Load_Spells_from_ID : MonoBehaviour {
             XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Spells/spells.xml", "spell");
         }
 		List<string> IDList = new List<string> ();
-		IDList = Character_Info.characterSpells;
+		foreach (var item in Character_Info.characterSpells) {
+			IDList.Add(item);
+		}
 		string IDContained = "";
 
 
@@ -298,11 +301,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		ScrollBar.value = 1;
 		if (dropdownValue.GetComponent<Dropdown> ().value == 0) 
 		{
-			foreach (var item in Load_Spells_from_ID.SpellsZero)
-			{
-				
-				SpellsTemp.Add (item);
-			}
+			SpellsTemp = Load_Spells_from_ID.SpellsZero;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 1)
 		{
@@ -396,16 +395,13 @@ public class Load_Spells_from_ID : MonoBehaviour {
 		
 		InfoScreen.SetActive (true);
 		spellScreen.SetActive (false);
+		addButton.SetActive (false);
 		
 		List<Spell_Class> SpellsTemp = new List<Spell_Class>();
 		
 		if (dropdownValue.GetComponent<Dropdown> ().value == 0) 
 		{
-			foreach (var item in Load_Spells_from_XML.SpellsZero)
-			{
-				
-				SpellsTemp.Add (item);
-			}
+			SpellsTemp = Load_Spells_from_ID.SpellsZero;
 		}
 		else if (dropdownValue.GetComponent<Dropdown> ().value == 1)
 		{
