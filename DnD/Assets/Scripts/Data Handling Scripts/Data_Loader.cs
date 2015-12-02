@@ -277,8 +277,8 @@ public class Data_Loader : ScriptableObject {
         elemList.Clear();
 
 		//Get Spells
-
-		tagName = "SpellID" + id;
+		Character_Info.characterSpells.Clear ();
+		tagName = "spellID" + id;
 		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
 		int i = 0;
 		foreach (var item in elemList)
@@ -288,6 +288,8 @@ public class Data_Loader : ScriptableObject {
 			i++;
 		}
 		elemList.Clear();
+
+
 
         //Get proficiencies
 

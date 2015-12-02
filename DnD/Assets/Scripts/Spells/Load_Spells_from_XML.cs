@@ -8,7 +8,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 	string levelLine;
 	string classLine;
 	string nameLine;
-	string selectedClass = "Wizard";
+	string selectedClass = Character_Info.characterClass;
 	public static List<Spell_Class> SpellsZero = new List<Spell_Class>();
 	public static List<Spell_Class> SpellsOne = new List<Spell_Class>();
 	public static List<Spell_Class> SpellsTwo = new List<Spell_Class>();
@@ -67,6 +67,17 @@ public class Load_Spells_from_XML : MonoBehaviour {
             XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Spells/spells.xml", "spell");
         }
 
+		List<Spell_Class> tempOne = new List<Spell_Class>();
+		List<Spell_Class> tempZero = new List<Spell_Class>();
+		List<Spell_Class> tempTwo = new List<Spell_Class>();
+		List<Spell_Class> tempThree = new List<Spell_Class>();
+		List<Spell_Class> tempFour = new List<Spell_Class>();
+		List<Spell_Class> tempFive = new List<Spell_Class>();
+		List<Spell_Class> tempSix = new List<Spell_Class>();
+		List<Spell_Class> tempSeven = new List<Spell_Class>();
+		List<Spell_Class> tempEight = new List<Spell_Class>();
+		List<Spell_Class> tempNine = new List<Spell_Class>();
+
 		foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 		{
 			var idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
@@ -110,49 +121,59 @@ public class Load_Spells_from_XML : MonoBehaviour {
 				nameLine = item.Substring(item.IndexOf("<name>"),(item.IndexOf("</name>")-item.IndexOf("<name>")));
 				if (levelLine.Contains("0"))
 				{
-					Load_Spells_from_XML.SpellsZero.Add (SpellsSet);
+					tempZero.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("1"))
 				{
-					Load_Spells_from_XML.SpellsOne.Add (SpellsSet);
+					tempOne.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("2"))
 				{
-					Load_Spells_from_XML.SpellsTwo.Add (SpellsSet);
+					tempTwo.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("3"))
 				{
-					Load_Spells_from_XML.SpellsThree.Add (SpellsSet);
+					tempThree.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("4"))
 				{
-					Load_Spells_from_XML.SpellsFour.Add (SpellsSet);
+					tempFour.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("5"))
 				{
-					Load_Spells_from_XML.SpellsFive.Add (SpellsSet);
+					tempFive.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("6"))
 				{
-					Load_Spells_from_XML.SpellsSix.Add (SpellsSet);
+					tempSix.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("7"))
 				{
-					Load_Spells_from_XML.SpellsSeven.Add (SpellsSet);
+					tempSeven.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("8"))
 				{
-					Load_Spells_from_XML.SpellsEight.Add (SpellsSet);
+					tempEight.Add (SpellsSet);
 				}
 				else if (levelLine.Contains("9"))
 				{
-					Load_Spells_from_XML.SpellsNine.Add (SpellsSet);
+					tempNine.Add (SpellsSet);
 				}
 			}
 		}
 		foreach (var item in Load_Spells_from_XML.SpellsZero) {
 			//print (item.spellName);
 		}
+		Load_Spells_from_XML.SpellsZero = tempZero;
+		Load_Spells_from_XML.SpellsOne = tempOne;
+		Load_Spells_from_XML.SpellsTwo = tempTwo;
+		Load_Spells_from_XML.SpellsThree = tempThree;
+		Load_Spells_from_XML.SpellsFour = tempFour;
+		Load_Spells_from_XML.SpellsFive = tempFive;
+		Load_Spells_from_XML.SpellsSix = tempSix;
+		Load_Spells_from_XML.SpellsSeven = tempSeven;
+		Load_Spells_from_XML.SpellsEight = tempEight;
+		Load_Spells_from_XML.SpellsNine = tempNine;
 		MakeButtons();
 	}
 	
@@ -264,6 +285,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 			}
 	}
 	
+
 	public void EditMode(int position){
 
 		InfoScreen.SetActive (true);
