@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class LevelUpTracker : MonoBehaviour {
+public class LevelUpHealth : MonoBehaviour {
 	int hd;
 	string xmlClass;
 	string xmlResultValue;
@@ -40,8 +40,16 @@ public class LevelUpTracker : MonoBehaviour {
 		xmlClass = "<classname>" + Character_Info.characterClass + "</classname>";//look at each class
 		XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader> ();//load xml
 		List<string> XmlResult  = new List<string> ();
-		XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml","class" );
-		
+
+		if(Settings_Screen.is_online==true)//look at setting to determine if you should use online xml or local copy
+		{
+			XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml","class" );
+		}
+		else
+		{
+			XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Character Features/classes.xml", "class");
+		}
+
 		foreach(var item in XmlResult)//search through class list to find the players class
 		{	
 			if(item.Contains(xmlClass))//when found look at the hit dice tag for that class and pull the value

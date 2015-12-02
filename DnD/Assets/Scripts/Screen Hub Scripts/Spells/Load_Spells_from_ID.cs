@@ -65,17 +65,19 @@ public class Load_Spells_from_ID : MonoBehaviour {
         {
             XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Spells/spells.xml", "spell");
         }
-		//List<Spell_Class> IDList = new List<Spell_Class> ();
+		List<string> IDList = new List<string> ();
+		IDList = Character_Info.characterSpells;
+		string IDContained = "";
 
-		//foreach (var IDItem in IDList) {
-		//	string IDContained = IDItem.spellID;
+		foreach (var IDItem in IDList) {
+			print (IDItem);
+			IDContained = IDItem;
 		
 			foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 			{
 				idLine = item.Substring(item.IndexOf("<id>"),(item.IndexOf("</id>")-item.IndexOf("<id>")));
-				if (idLine.Contains("0001"))
+				if (idLine.Contains("IDContained"))
 				{
-			print (idLine);
 					Spell_Class SpellsSet = new Spell_Class();
 					SpellsSet.spellName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
 					SpellsSet.spellLevel = item.Substring(item.IndexOf("<level>") + 7,(item.IndexOf("</level>")-item.IndexOf("<level>")) - 7);
@@ -83,20 +85,23 @@ public class Load_Spells_from_ID : MonoBehaviour {
 					SpellsSet.spellClasses = item.Substring(item.IndexOf("<classes>") + 9,(item.IndexOf("</classes>")-item.IndexOf("<classes>")) - 9);
 					SpellsSet.spellComponents = item.Substring(item.IndexOf("<components>") + 12,(item.IndexOf("</components>")-item.IndexOf("<components>")) - 12);
 					SpellsSet.spellDuration = item.Substring(item.IndexOf("<duration>") + 10,(item.IndexOf("</duration>")-item.IndexOf("<duration>")) - 10);
-					SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>") + 8,(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")) - 8);
-				SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
-				if (item.IndexOf("<roll>") != -1)
-				{
-					SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>") + 6,(item.IndexOf("</roll>")-item.IndexOf("<roll>")) - 6);
-				}
-				SpellsSet.spellRange = item.Substring(item.IndexOf("<range>") + 7,(item.IndexOf("</range>")-item.IndexOf("<range>")) - 7);
-				SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
-				SpellsSet.spellDescription = item.Substring(item.IndexOf("<text> + 6"),(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
-				
+					//SpellsSet.spellRitual = item.Substring(item.IndexOf("<ritual>") + 8,(item.IndexOf("</ritual>")-item.IndexOf("<ritual>")) - 8);
+					SpellsSet.spellSchool = item.Substring(item.IndexOf("<school>") + 8,(item.IndexOf("</school>")-item.IndexOf("<school>")) - 8);
+					if (item.IndexOf("<roll>") != -1)
+					{
+						SpellsSet.spellRoll = item.Substring(item.IndexOf("<roll>") + 6,(item.IndexOf("</roll>")-item.IndexOf("<roll>")) - 6);
+					}
+					SpellsSet.spellRange = item.Substring(item.IndexOf("<range>") + 7,(item.IndexOf("</range>")-item.IndexOf("<range>")) - 7);
+					if (item.IndexOf("<id>") != -1)
+					{
+						SpellsSet.spellID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+					}
+					
+					SpellsSet.spellDescription = item.Substring(item.IndexOf("<text> + 6"),(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
+
 					
 					levelLine = item.Substring(item.IndexOf("<level>"),(item.IndexOf("</level>")-item.IndexOf("<level>")));
 					nameLine = item.Substring(item.IndexOf("<name>"),(item.IndexOf("</name>")-item.IndexOf("<name>")));
-					print (levelLine);
 					if (levelLine.Contains("0"))
 					{
 						Load_Spells_from_XML.SpellsZero.Add (SpellsSet);
@@ -138,7 +143,7 @@ public class Load_Spells_from_ID : MonoBehaviour {
 						Load_Spells_from_XML.SpellsNine.Add (SpellsSet);
 					}
 				}
-			//}
+			}
 		}
 		foreach (var item in Load_Spells_from_XML.SpellsZero) {
 			print (item.spellName);

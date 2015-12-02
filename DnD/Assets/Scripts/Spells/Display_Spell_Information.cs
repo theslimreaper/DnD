@@ -29,7 +29,7 @@ public class Display_Spell_Information : MonoBehaviour
 
 	public void AddSpell()
 	{
-		//Character_Info.characterSpells.Add (backgroundID);
+		Character_Info.characterSpells.Add(backgroundID.GetComponent<Text>().text);
 
 		InfoScreen.SetActive (false);
 		spellScreen.SetActive (true);
