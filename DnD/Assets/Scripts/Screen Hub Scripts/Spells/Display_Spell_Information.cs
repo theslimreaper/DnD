@@ -9,7 +9,6 @@ public class Display_Spell_Information : MonoBehaviour
 	public GameObject InfoScreen;
 	public GameObject spellScreen;
 	public GameObject backgroundID;
-	public GameObject spellLevel;
 	public GameObject addButton;
 	public CanvasGroup[] screenCanvasGroups;
 
@@ -58,10 +57,6 @@ public class Display_Spell_Information : MonoBehaviour
 				{
 					valid = false;
 				}
-				else if (spellLevel.GetComponent<Text>().text != "0" && spellLevel.GetComponent<Text>().text != "1")
-				{
-					range = false;
-				}
 			}
 			else if (Character_Info.characterLevel == "1")
 			{
@@ -69,6 +64,32 @@ public class Display_Spell_Information : MonoBehaviour
 				int j = 0;
 				int k = 0;
 				foreach(var spell in Load_Spells_from_ID.SpellsOne)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					i++;
+				}
+				if (i > 4)
+				{
+					valid = false;
+				}
+				else if (j > 2 || k > 2)
+				{
+					valid = false;
+				}
+			}
+			else if (Character_Info.characterLevel == "2")
+			{
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				foreach(var spell in Load_Spells_from_ID.SpellsTwo)
 				{
 					if(spell.spellLevel == "0")
 					{
@@ -88,22 +109,45 @@ public class Display_Spell_Information : MonoBehaviour
 				{
 					valid = false;
 				}
-				else if (k > 2)
+				else if (k > 3)
 				{
 					valid = false;
 				}
-				else if (spellLevel.GetComponent<Text>().text != "0" && spellLevel.GetComponent<Text>().text != "1")
-				{
-					range = false;
-				}
-			}
-			else if (Character_Info.characterLevel == "2")
-			{
-				
 			}
 			else if (Character_Info.characterLevel == "3")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				foreach(var spell in Load_Spells_from_ID.SpellsThree)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					i++;
+				}
+				if (i > 5)
+				{
+					valid = false;
+				}
+				else if (j > 2 || l > 2)
+				{
+					valid = false;
+				}
+				else if (k > 4)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "4")
 			{
