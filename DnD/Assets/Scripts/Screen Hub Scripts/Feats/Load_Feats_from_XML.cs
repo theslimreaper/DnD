@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.UI;
 
-public class Load_Feats_from_ID : MonoBehaviour {
+public class Load_Feats_from_XML : MonoBehaviour {
 	string idLine;
 	string nameLine;
 	public static List<Feat_Class> FeatsList = new List<Feat_Class>();
@@ -48,45 +48,36 @@ public class Load_Feats_from_ID : MonoBehaviour {
         {
             XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Character Features/feats.xml", "feat");
         }
-		List<string> IDList = new List<string> ();
-		foreach (var item in Character_Info.characterFeats) {
-			IDList.Add(item);
-		}
-		string IDContained = "";
 		
 		foreach(var item in XmlResult)//loop through the spell list and sort the spells based off of spell level (if character class is correct)
 		{
-			foreach (var IDItem in IDList) {
-				IDContained = IDItem;
-				idLine = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
-				if (idLine.Contains(IDContained))
+			var idLine = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+			bool cont = true;
+			
+			List<string> IDList = new List<string> ();
+			IDList = Character_Info.characterFeats;
+			foreach(var id in IDList)
+			{
+				if (idLine.Contains (id))
 				{
-					Feat_Class FeatsSet = new Feat_Class();
-					FeatsSet.featName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
-					FeatsSet.featPrereq = item.Substring(item.IndexOf("<prerequisite>") + 14,(item.IndexOf("</prerequisite>")-item.IndexOf("<prerequisite>")) - 14);
-					if (item.IndexOf("<modifier>") != -1)
-					{
-						FeatsSet.featModifier = item.Substring(item.IndexOf("<modifier>") + 10,(item.IndexOf("</modifier>")-item.IndexOf("<modifier>")) - 10);
-					}
-					FeatsSet.featID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
-					
-					FeatsSet.featDescription = item.Substring(item.IndexOf("<text>") + 6,(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
-					nameLine = item.Substring(item.IndexOf("<name>") + 6,(item.IndexOf("</name>")-item.IndexOf("<name>")) - 6);
-					bool newfeat = true;
-					foreach (var feat in FeatsList)
-					{
-						if (feat.featID == IDContained)
-						{
-							newfeat = false;
-						}
-
-					}
-
-					if (newfeat == true)
-					{
-						FeatsList.Add (FeatsSet);
-					}
+					cont = false;
 				}
+			}
+			if (cont == true)
+			{
+				Feat_Class FeatsSet = new Feat_Class();
+				FeatsSet.featName = item.Substring((item.IndexOf("<name>") + 6),((item.IndexOf("</name>")-item.IndexOf("<name>")) - 6));
+				FeatsSet.featPrereq = item.Substring(item.IndexOf("<prerequisite>") + 14,(item.IndexOf("</prerequisite>")-item.IndexOf("<prerequisite>")) - 14);
+				if (item.IndexOf("<modifier>") != -1)
+				{
+					FeatsSet.featModifier = item.Substring(item.IndexOf("<modifier>") + 10,(item.IndexOf("</modifier>")-item.IndexOf("<modifier>")) - 10);
+				}
+				FeatsSet.featID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
+				
+				FeatsSet.featDescription = item.Substring(item.IndexOf("<text>") + 6,(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
+				nameLine = item.Substring(item.IndexOf("<name>") + 6,(item.IndexOf("</name>")-item.IndexOf("<name>")) - 6);
+				bool newfeat = true;
+				FeatsList.Add (FeatsSet);
 			}
 		}
 		MakeButtons();
