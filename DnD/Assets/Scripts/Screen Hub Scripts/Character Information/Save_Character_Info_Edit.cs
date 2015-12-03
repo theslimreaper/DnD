@@ -60,7 +60,7 @@ public class Save_Character_Info_Edit : MonoBehaviour {
 		displaySubRace.GetComponent<InputField>().text = editSubRace.GetComponent<InputField>().text;
 		displayAlignment.GetComponent<InputField>().text = editAlignment.GetComponent<InputField>().text;
 		displayAge.GetComponent<InputField>().text = editAge.GetComponent<InputField>().text;
-		displayGender.GetComponent<InputField>().text = editGender.GetComponent<InputField>().text;
+		displayGender.GetComponent<Dropdown>().value = editGender.GetComponent<Dropdown>().value;
 		displayLevel.GetComponent<InputField>().text = editLevel.GetComponent<InputField>().text;
 		displayHP.GetComponent<InputField>().text = editHP.GetComponent<InputField>().text;
         displayCurrHP.GetComponent<InputField>().text = editCurrHP.GetComponent<InputField>().text;
@@ -87,7 +87,6 @@ public class Save_Character_Info_Edit : MonoBehaviour {
         editSubRace.GetComponent<InputField>().text = displaySubRace.GetComponent<InputField>().text;
         editAlignment.GetComponent<InputField>().text = displayAlignment.GetComponent<InputField>().text;
         editAge.GetComponent<InputField>().text = displayAge.GetComponent<InputField>().text;
-        editGender.GetComponent<InputField>().text = displayGender.GetComponent<InputField>().text;
         editLevel.GetComponent<InputField>().text = displayLevel.GetComponent<InputField>().text;
         editHP.GetComponent<InputField>().text = displayHP.GetComponent<InputField>().text;
         editCurrHP.GetComponent<InputField>().text = displayCurrHP.GetComponent<InputField>().text;
@@ -102,6 +101,7 @@ public class Save_Character_Info_Edit : MonoBehaviour {
         editInt.GetComponent<InputField>().text = displayInt.GetComponent<InputField>().text;
         editWis.GetComponent<InputField>().text = displayWis.GetComponent<InputField>().text;
         editCha.GetComponent<InputField>().text = displayCha.GetComponent<InputField>().text;
+        editGender.GetComponent<Dropdown>().value = displayGender.GetComponent<Dropdown>().value;
         editAvatar.GetComponent<Image>().sprite = displayAvatar.GetComponent<Image>().sprite;
     }
 	

@@ -53,7 +53,19 @@ public class Data_Handler : MonoBehaviour {
 		Character_Info.characterName = Name.GetComponent<InputField> ().text;
 		Character_Info.characterHealth = Health.GetComponent<InputField> ().text;
         Character_Info.characterCurrHealth = currHealth.GetComponent<InputField>().text;
-        Character_Info.characterGender = Gender.GetComponent<InputField> ().text;
+        if ( Gender.GetComponent<Dropdown>().value == 0 )
+        {
+            Character_Info.characterGender = "Male";
+        }
+        else if (Gender.GetComponent<Dropdown>().value == 1 )
+        {
+            Character_Info.characterGender = "Female";
+        }
+        else if (Gender.GetComponent<Dropdown>().value == 2 )
+        {
+            Character_Info.characterGender = "Other";
+        }
+
 		Character_Info.characterAlignment = Alignment.GetComponent<InputField> ().text;
 		Character_Info.characterHeight = Height.GetComponent<InputField> ().text;
 		Character_Info.characterWeight = Weight.GetComponent<InputField> ().text;
@@ -84,7 +96,18 @@ public class Data_Handler : MonoBehaviour {
 		Name.GetComponent<InputField> ().text = Character_Info.characterName;
 		Health.GetComponent<InputField> ().text = Character_Info.characterHealth;
         currHealth.GetComponent<InputField>().text = Character_Info.characterCurrHealth;
-        Gender.GetComponent<InputField> ().text = Character_Info.characterGender;
+        if(Character_Info.characterGender == "Male")
+        {
+            Gender.GetComponent<Dropdown>().value = 0;
+        }
+        else if(Character_Info.characterGender == "Female")
+        {
+            Gender.GetComponent<Dropdown>().value = 1;
+        }
+        else if(Character_Info.characterGender == "Other")
+        {
+            Gender.GetComponent<Dropdown>().value = 2;
+        }
 		Alignment.GetComponent<InputField> ().text = Character_Info.characterAlignment;
 		Height.GetComponent<InputField> ().text = Character_Info.characterHeight;
 		Weight.GetComponent<InputField> ().text = Character_Info.characterWeight;
