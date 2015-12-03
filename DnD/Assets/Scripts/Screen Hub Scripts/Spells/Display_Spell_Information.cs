@@ -39,6 +39,37 @@ public class Display_Spell_Information : MonoBehaviour
 	
 	public void AddSpell()
 	{
+		List<Spell_Class> SpellsTemp = new List<Spell_Class>();
+		foreach (var spell in Load_Spells_from_ID.SpellsZero) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsOne) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsTwo) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsThree) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsFour) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsFive) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsSix) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsSeven) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsEight) {
+			SpellsTemp.Add(spell);
+		}
+		foreach (var spell in Load_Spells_from_ID.SpellsNine) {
+			SpellsTemp.Add(spell);
+		}
 		bool valid = true;
 		bool range = true;
 		if (Character_Info.characterClass.Contains("Bard")) {
@@ -46,7 +77,7 @@ public class Display_Spell_Information : MonoBehaviour
 			{
 				int i = 0;
 				int j = 0;
-				foreach(var spell in Load_Spells_from_ID.SpellsZero)
+				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
 					{
@@ -68,7 +99,7 @@ public class Display_Spell_Information : MonoBehaviour
 				int i = 0;
 				int j = 0;
 				int k = 0;
-				foreach(var spell in Load_Spells_from_ID.SpellsOne)
+				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
 					{
@@ -94,7 +125,7 @@ public class Display_Spell_Information : MonoBehaviour
 				int i = 0;
 				int j = 0;
 				int k = 0;
-				foreach(var spell in Load_Spells_from_ID.SpellsTwo)
+				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
 					{
@@ -110,11 +141,7 @@ public class Display_Spell_Information : MonoBehaviour
 				{
 					valid = false;
 				}
-				else if (j > 2)
-				{
-					valid = false;
-				}
-				else if (k > 3)
+				else if (j > 2 || k > 3)
 				{
 					valid = false;
 				}
@@ -125,7 +152,7 @@ public class Display_Spell_Information : MonoBehaviour
 				int j = 0;
 				int k = 0;
 				int l = 0;
-				foreach(var spell in Load_Spells_from_ID.SpellsThree)
+				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
 					{
@@ -141,50 +168,342 @@ public class Display_Spell_Information : MonoBehaviour
 					}
 					i++;
 				}
-				if (i > 5)
+				if (i > 6)
 				{
 					valid = false;
 				}
-				else if (j > 2 || l > 2)
-				{
-					valid = false;
-				}
-				else if (k > 4)
+				else if (j > 2 || k > 4 || l > 2)
 				{
 					valid = false;
 				}
 			}
 			else if (Character_Info.characterLevel == "4")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					i++;
+				}
+				if (i > 7)
+				{
+					valid = false;
+				}
+				else if (j > 3 || k > 4 || l > 3)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "5")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					i++;
+				}
+				if (i > 8)
+				{
+					valid = false;
+				}
+				else if (j > 3 || k > 4 || l > 3 || m > 2)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "6")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					i++;
+				}
+				if (i > 9)
+				{
+					valid = false;
+				}
+				else if (j > 3 || k > 4 || l > 3 || m > 3)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "7")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				int n = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					else if (spell.spellLevel == "4")
+					{
+						n++;
+					}
+					i++;
+				}
+				if (i > 10)
+				{
+					valid = false;
+				}
+				else if (j > 3 || k > 4 || l > 3 || m > 3 || n > 1)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "8")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				int n = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					else if (spell.spellLevel == "4")
+					{
+						n++;
+					}
+					i++;
+				}
+				if (i > 11)
+				{
+					valid = false;
+				}
+				else if (j > 3 || k > 4 || l > 3 || m > 3 || n > 2)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "9")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				int n = 0;
+				int o = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					else if (spell.spellLevel == "4")
+					{
+						n++;
+					}
+					else if (spell.spellLevel == "5")
+					{
+						o++;
+					}
+					i++;
+				}
+				if (i > 12)
+				{
+					valid = false;
+				}
+				else if (j > 3 || k > 4 || l > 3 || m > 3 || n > 3 || o > 1)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "10")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				int n = 0;
+				int o = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					else if (spell.spellLevel == "4")
+					{
+						n++;
+					}
+					else if (spell.spellLevel == "5")
+					{
+						o++;
+					}
+					i++;
+				}
+				if (i > 14)
+				{
+					valid = false;
+				}
+				else if (j > 4 || k > 4 || l > 3 || m > 3 || n > 3 || o > 2)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "11")
 			{
-				
+				int i = 0;
+				int j = 0;
+				int k = 0;
+				int l = 0;
+				int m = 0;
+				int n = 0;
+				int o = 0;
+				int p = 0;
+				foreach(var spell in SpellsTemp)
+				{
+					if(spell.spellLevel == "0")
+					{
+						j++;
+					}
+					else if (spell.spellLevel == "1")
+					{
+						k++;
+					}
+					else if (spell.spellLevel == "2")
+					{
+						l++;
+					}
+					else if (spell.spellLevel == "3")
+					{
+						m++;
+					}
+					else if (spell.spellLevel == "4")
+					{
+						n++;
+					}
+					else if (spell.spellLevel == "5")
+					{
+						o++;
+					}
+					else if (spell.spellLevel == "5")
+					{
+						p++;
+					}
+					i++;
+				}
+				if (i > 15)
+				{
+					valid = false;
+				}
+				else if (j > 4 || k > 4 || l > 3 || m > 3 || n > 3 || o > 2 || p > 1)
+				{
+					valid = false;
+				}
 			}
 			else if (Character_Info.characterLevel == "12")
 			{
