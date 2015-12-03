@@ -46,6 +46,8 @@ public class Load_Spells_from_XML : MonoBehaviour {
 	public GameObject spellComponentsObj;
 	public GameObject spellRollObj;
 	public GameObject spellIDObj;
+    public GameObject universalButtons;
+    public CanvasGroup universalCanvas;
 
 	// Use this for initialization
 	public void Start () {
@@ -290,6 +292,9 @@ public class Load_Spells_from_XML : MonoBehaviour {
 
 		InfoScreen.SetActive (true);
 		spellScreen.SetActive (false);
+        universalButtons.SetActive(false);
+        universalCanvas.alpha = 0;
+        universalCanvas.interactable = false;
 
 		List<Spell_Class> SpellsTemp = new List<Spell_Class>();
 		

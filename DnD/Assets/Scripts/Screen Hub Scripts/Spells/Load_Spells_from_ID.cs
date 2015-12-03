@@ -46,10 +46,22 @@ public class Load_Spells_from_ID : MonoBehaviour {
 	public GameObject spellRollObj;
 	public GameObject spellIDObj;
 	public GameObject addButton;
+    public GameObject universalButtons;
+    public CanvasGroup universalCanvas;
 	
 	// Use this for initialization
 	public void Start () {
-		
+
+        Load_Spells_from_ID.SpellsZero.Clear();
+        Load_Spells_from_ID.SpellsOne.Clear();
+        Load_Spells_from_ID.SpellsTwo.Clear();
+        Load_Spells_from_ID.SpellsThree.Clear();
+        Load_Spells_from_ID.SpellsFour.Clear();
+        Load_Spells_from_ID.SpellsFive.Clear();
+        Load_Spells_from_ID.SpellsSix.Clear();
+        Load_Spells_from_ID.SpellsSeven.Clear();
+        Load_Spells_from_ID.SpellsEight.Clear();
+        Load_Spells_from_ID.SpellsNine.Clear();
 		SpellParentButtonDefault = SpellParentButton;
 		SpellParentRectDefault = SpellParentButtonDefault.GetComponent<RectTransform>();
 		ParentRectHeight = SpellParentRectDefault.rect.height;
@@ -391,7 +403,9 @@ public class Load_Spells_from_ID : MonoBehaviour {
 	}
 	
 	public void EditMode(int position){
-		
+        universalButtons.SetActive(false);
+        universalCanvas.alpha = 0;
+        universalCanvas.interactable = false;
 		InfoScreen.SetActive (true);
 		spellScreen.SetActive (false);
 		addButton.SetActive (false);
