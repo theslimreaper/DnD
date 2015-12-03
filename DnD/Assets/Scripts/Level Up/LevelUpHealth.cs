@@ -14,9 +14,10 @@ public class LevelUpHealth : MonoBehaviour {
 	public Text conModifier;
 	public int con;
 	public Text FinalResult;
+	public GameObject nextPage;
 	void Start()
 	{
-		print ("begin");
+		Character_Info.characterHealth="10";
 		Character_Info.characterClass = "Barbarian";
 		AbilityScoreInitial.AbilityScores [2] = 9;
 		UpdateHealth ();
@@ -80,7 +81,9 @@ public class LevelUpHealth : MonoBehaviour {
 
 			Character_Info.characterHealth= (System.Convert.ToInt32(Character_Info.characterHealth)+bonus).ToString();
 		}
+
 		HealthPage.SetActive (false);
+		nextPage.SetActive (true);
 		print (Character_Info.characterHealth);
 	}
 	public void onHealthInputUpdate()

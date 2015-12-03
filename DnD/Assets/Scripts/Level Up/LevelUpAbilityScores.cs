@@ -4,18 +4,16 @@ using System.Collections;
 
 public class LevelUpAbilityScores : MonoBehaviour {
 	public GameObject AbilityScoresPage;
+	public GameObject previousPage;
 	public Dropdown DropDown1;
 	public Text CurrentValue1;
 	public Dropdown DropDown2;
 	public Text CurrentValue2;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	public void openAbilityScorePage()
+	{
+		AbilityScoresPage.SetActive (true);
+		previousPage.SetActive (false);
 	}
 	public void UpdateScores()//called once done on the screen to increase the two listed values by one
 	{
@@ -27,6 +25,7 @@ public class LevelUpAbilityScores : MonoBehaviour {
 	{
 		CurrentValue1.text="Before Upgrade: "+AbilityScoreInitial.AbilityScores[DropDown1.value];
 		CurrentValue2.text="Before Upgrade: "+AbilityScoreInitial.AbilityScores[DropDown2.value];
-
 	}
+
+	
 }
