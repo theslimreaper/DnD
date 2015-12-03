@@ -11,6 +11,8 @@ public class Display_Spell_Information : MonoBehaviour
 	public GameObject backgroundID;
 	public GameObject addButton;
 	public CanvasGroup[] screenCanvasGroups;
+	public GameObject universalButtons;
+	public CanvasGroup universalCanvas;
 
 	// Use this for initialization
 	void Start ()
@@ -30,6 +32,9 @@ public class Display_Spell_Information : MonoBehaviour
 		addButton.SetActive (true);
 		screenCanvasGroups[0].alpha = 1;
 		screenCanvasGroups[0].interactable = true;
+		universalButtons.SetActive (true);
+		universalCanvas.alpha = 1;
+		universalCanvas.interactable = true;
 	}
 	
 	public void AddSpell()
@@ -429,10 +434,7 @@ public class Display_Spell_Information : MonoBehaviour
 		if (valid == true && range == true) {
 			Character_Info.characterSpells.Add (backgroundID.GetComponent<Text> ().text);
 
-			InfoScreen.SetActive (false);
-			spellScreen.SetActive (true);
-			screenCanvasGroups [0].alpha = 1;
-			screenCanvasGroups [0].interactable = true;
+			DisplayMode ();
 		}
 		else if (valid == false) {
 			print ("cannot have that many spells known");
