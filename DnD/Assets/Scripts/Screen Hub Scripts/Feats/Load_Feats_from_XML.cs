@@ -75,10 +75,11 @@ public class Load_Feats_from_XML : MonoBehaviour {
 				FeatsSet.featID = item.Substring(item.IndexOf("<id>") + 4,(item.IndexOf("</id>")-item.IndexOf("<id>")) - 4);
 				
 				FeatsSet.featDescription = item.Substring(item.IndexOf("<text>") + 6,(item.IndexOf("</text>")-item.IndexOf("<text>")) - 6);
-				nameLine = item.Substring(item.IndexOf("<name>") + 6,(item.IndexOf("</name>")-item.IndexOf("<name>")) - 6);
-				bool newfeat = true;
-				FeatsList.Add (FeatsSet);
+				FeatsList.Add(FeatsSet);
 			}
+		}
+		foreach (var item in FeatsList) {
+			print (item.featName);
 		}
 		MakeButtons();
 	}
@@ -92,7 +93,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 		DeleteList();
 		ScrollBar = FeatScrollView.gameObject.transform.GetChild(1).GetComponent<Scrollbar>();
 		ScrollBar.value = 1;
-		FeatsTemp = Load_Feats_from_ID.FeatsList;
+		FeatsTemp = Load_Feats_from_XML.FeatsList;
 		
 		if (FeatParentRectDefault != null)
 		{
@@ -150,7 +151,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 		featScreen.SetActive (false);
 		
 		List<Feat_Class> FeatsTemp = new List<Feat_Class>();
-		FeatsTemp = Load_Feats_from_ID.FeatsList;
+		FeatsTemp = Load_Feats_from_XML.FeatsList;
 		
 		featNameObj.GetComponent<Text>().text = FeatsTemp[position].featName;
 		featModifierObj.GetComponent<Text>().text = FeatsTemp[position].featModifier;
