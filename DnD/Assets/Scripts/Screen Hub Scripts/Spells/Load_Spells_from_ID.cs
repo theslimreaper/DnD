@@ -374,7 +374,6 @@ public class Load_Spells_from_ID : MonoBehaviour {
 					ItemButton.transform.position = new Vector3(SpellParentText.transform.position.x + (pos * 150 * screenRatioW), SpellParentText.transform.position.y - (50 * (j - pos - posBehind) * screenRatio), 250);
 				}
 
-				print ("hi");
 				dynamicObjects.Add(ItemButton);
 				Button tempButton = ItemButton.gameObject.GetComponent<Button>();
 				int position = i;

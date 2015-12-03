@@ -185,6 +185,16 @@ public class Data_Saver : ScriptableObject {
 			i++;
 		}
 
+		//Get feat IDs
+
+		i = 0;
+		foreach (var item in Character_Info.characterFeats)
+		{
+			content = "<featID" + Character_Info.id + ">" + Character_Info.characterFeats[i] + "</featID" + Character_Info.id + ">";
+			contentList.Add(content);
+			i++;
+		}
+
 		//Get ability scores
 		
 		content = "<Strength" + Character_Info.id + ">" + AbilityScoreInitial.AbilityScores[0] + "</Strength" + Character_Info.id + ">";

@@ -289,7 +289,18 @@ public class Data_Loader : ScriptableObject {
 		}
 		elemList.Clear();
 
-
+		//Get Feats
+		Character_Info.characterFeats.Clear ();
+		tagName = "featID" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		int j = 0;
+		foreach (var item in elemList)
+		{
+			Character_Info.characterFeats.Add (item);
+			Debug.Log(j);
+			j++;
+		}
+		elemList.Clear();
 
         //Get proficiencies
 

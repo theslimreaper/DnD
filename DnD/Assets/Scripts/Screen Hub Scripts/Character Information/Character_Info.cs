@@ -33,6 +33,7 @@ public class Character_Info : ScriptableObject {
     public static int platinum = 0;
 	public static List<Item_Types> characterItems = new List<Item_Types>();
 	public static List<string> characterSpells = new List<string>();
+	public static List<string> characterFeats = new List<string>();
     public static string combatAC = "";
     public static string combatBAB = "";
     public static string combatInitiative = "";
