@@ -82,11 +82,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 		}
 		MakeButtons();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 	
 	public void MakeButtons()
 	{
