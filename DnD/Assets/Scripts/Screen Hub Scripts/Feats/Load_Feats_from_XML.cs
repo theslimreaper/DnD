@@ -100,7 +100,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 			ParentRect.sizeDelta = new Vector2(FeatParentRectDefault.rect.width, 0);
 			FeatScrollView.transform.position = new Vector3(FeatScrollView.transform.position.x, FeatScrollView.transform.position.y, 250);
 			int posBehind = 0;
-			for (int i = 0; i < FeatsTemp.Count; i++)
+			for (int i = 0; i < 71; i++)
 			{
 				GameObject ItemButton = (GameObject)Instantiate(Select_Item_Button);
 				GameObject itemNameText = ItemButton.gameObject.transform.GetChild(0).gameObject;
@@ -110,7 +110,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 				
 				if (j == 0 || j == 1)
 				{
-					ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (j * 150 * screenRatioW), FeatParentText.transform.position.y, 250);
+					ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (j * 50 * screenRatioW), FeatParentText.transform.position.y, 250);
 				}
 				else
 				{
@@ -126,7 +126,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 						pos = 1;
 					}
 					
-					ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (pos * 150 * screenRatioW), FeatParentText.transform.position.y - (50 * (j - pos - posBehind) * screenRatio), 250);
+					ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (pos * 600 * screenRatioW), FeatParentText.transform.position.y - (75 * (j - pos - posBehind) * screenRatio), 250);
 				}
 
 				dynamicObjects.Add(ItemButton);
