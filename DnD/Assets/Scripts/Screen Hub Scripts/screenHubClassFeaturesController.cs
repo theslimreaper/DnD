@@ -20,11 +20,13 @@ public class screenHubClassFeaturesController : MonoBehaviour {
 		if (firstPress) {
 			int i = 0;
 			foreach (string name in Character_Info.characterClassFeaturesNames) {
-				GameObject item = Instantiate (listedFeature, new Vector3 (listedFeature.transform.position.x, listedFeature.transform.position.y - 80 * i, listedFeature.transform.position.z), Quaternion.identity)as GameObject;
+				print (Character_Info.characterClassFeaturesNames[i]);
+		
+				GameObject item = Instantiate (listedFeature, new Vector3 (listedFeature.transform.position.x, listedFeature.transform.position.y - 20 * i, listedFeature.transform.position.z), Quaternion.identity)as GameObject;
 				spawnedItems.Add (item);
 				item.transform.SetParent (DropDownContent.transform);
 				item.transform.localScale = new Vector3 (1, 1, 1);
-				item.transform.localPosition.Set (60, listedFeature.transform.position.y - 27 * i, 0);
+				item.transform.localPosition.Set (60, listedFeature.transform.position.y - 20 * i, 0);
 				foreach (Transform child in item.transform) {
 					if (child.name == "Label") {
 						child.GetComponent<Text> ().text = Character_Info.characterClassFeaturesNames [i];

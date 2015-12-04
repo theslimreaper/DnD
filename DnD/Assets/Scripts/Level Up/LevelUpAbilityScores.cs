@@ -6,6 +6,7 @@ public class LevelUpAbilityScores : MonoBehaviour {
 	public GameObject Page1;
 	public GameObject AbilityScoresPage;
 	public GameObject featspage;
+	public GameObject ClassFeaturesPage;
 	public Dropdown DropDown1;
 	public Text CurrentValue1;
 	public Dropdown DropDown2;
@@ -31,6 +32,12 @@ public class LevelUpAbilityScores : MonoBehaviour {
 		CurrentValue1.text="Before Upgrade: "+AbilityScoreInitial.AbilityScores[DropDown1.value];
 		CurrentValue2.text="Before Upgrade: "+AbilityScoreInitial.AbilityScores[DropDown2.value];
 	}
-
+	public void openClassFeaturesPage()
+	{
+		Page1.SetActive (false);
+		featspage.SetActive (false);
+		AbilityScoresPage.SetActive (false);
+		ClassFeaturesPage.SetActive (true);
+	}
 	
 }

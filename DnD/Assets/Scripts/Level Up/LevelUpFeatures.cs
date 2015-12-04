@@ -77,10 +77,12 @@ public class LevelUpFeatures : MonoBehaviour {
 		{
 			if(!item.GetComponent<Toggle>().isOn)//remove feats that werent picked
 			{
+				print ("removed value number");
+
 				selectedFeats.Remove(item);
 			}
 		}
-
+	
 		foreach(GameObject item in selectedFeats)
 		{
 			Character_Info.characterClassFeaturesNames.Add (item.GetComponent<LevelUpClassFeaturePopup>().title);
