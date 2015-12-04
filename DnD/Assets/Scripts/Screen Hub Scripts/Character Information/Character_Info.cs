@@ -42,4 +42,6 @@ public class Character_Info : ScriptableObject {
     public static string combatFortitude = "";
     public static string combatCMB = "";
     public static string combatCMD = "";
+	public static List<string> characterClassFeaturesNames= new List<string>();
+	public static List<string>  characterClassFeaturesDescriptions= new List<string>();
 }

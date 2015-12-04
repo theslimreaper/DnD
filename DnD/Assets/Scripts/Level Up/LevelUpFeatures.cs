@@ -7,10 +7,16 @@ using UnityEngine.UI;
 public class LevelUpFeatures : MonoBehaviour {
 	public string xmlClass;
 	public string autolevelString;
-	public string currentLevelString;
+	string currentLevelString;
 	public string tempstring;
 	int i = 0;
+	public List<string> XmlResult=new List<string>();
 	public List<string> featuresForLevel= new List<string>();
+	public List<string> featuresNames= new List<string>();
+	public List<string> featuresDescriptions=new List<string>();
+	public List<GameObject> selectedFeats = new List<GameObject> ();
+	public GameObject listedFeature;
+	public GameObject DropDownContent;
 	void Start()
 	{
 		Character_Info.characterClass = "Barbarian";
@@ -22,45 +28,66 @@ public class LevelUpFeatures : MonoBehaviour {
 	{
 		xmlClass = "<classname>" + Character_Info.characterClass + "</classname>";//look at each class
 		XML_Loader xmlLoader = ScriptableObject.CreateInstance<XML_Loader> ();//load xml
-		List<string> XmlResult  = new List<string> ();
+		XmlResult  = new List<string> ();
 		
 		if(Settings_Screen.is_online==true)//look at setting to determine if you should use online xml or local copy
 		{
-			XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml","class" );
+			XmlResult = xmlLoader.LoadInnerXml ("https://raw.githubusercontent.com/theslimreaper/DnD/master/XML%20Files/Character%20Features/classes.xml",Character_Info.characterClass.Substring (0, 4)+"autolevel" );
 		}
 		else
 		{
-			XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Character Features/classes.xml", "class");
+			XmlResult = xmlLoader.LoadInnerXmlFromFile("..\\XML Files/Character Features/classes.xml",Character_Info.characterClass.Substring (0, 4).ToLower()+"autolevel");
 		}
 
-		currentLevelString="<autolevel level=\""+Character_Info.characterLevel+"\">";
+		currentLevelString = XmlResult [System.Convert.ToInt32 (Character_Info.characterLevel)];
+		int i=0;
+		while(currentLevelString.IndexOf("<feature")!=-1)//features still in string
+		{
+			currentLevelString=currentLevelString.Substring(currentLevelString.IndexOf("<feature"));
+			featuresForLevel.Add(currentLevelString.Substring(0,currentLevelString.IndexOf("</feature>")));
+			featuresNames.Add (featuresForLevel[i].Substring(featuresForLevel[i].IndexOf("<name>")+6,featuresForLevel[i].IndexOf("</name>")-featuresForLevel[i].IndexOf("<name>")-6));
+			featuresDescriptions.Add (featuresForLevel[i].Substring(featuresForLevel[i].IndexOf("<text>")+6,featuresForLevel[i].IndexOf("</text>")-featuresForLevel[i].IndexOf("<text>")-6));
+			currentLevelString=currentLevelString.Substring(currentLevelString.IndexOf("</feature"));
+			i++;
+		}
 
-		foreach(var item in XmlResult)//search through class list to find the players class
-		{	
-			if(item.Contains(xmlClass))
+		i = 0;
+		foreach(string name in featuresNames)
+		{
+			GameObject item=Instantiate(listedFeature,new Vector3(listedFeature.transform.position.x,listedFeature.transform.position.y-80*i,listedFeature.transform.position.z),Quaternion.identity)as GameObject;
+			item.transform.SetParent(DropDownContent.transform);
+			item.transform.localScale=new Vector3(1,1,1);
+			item.transform.localPosition.Set(60,listedFeature.transform.position.y-27*i,0);
+			foreach( Transform child in item.transform)
 			{
-				print ("end found at: " +item.IndexOf("</autolevel>"));
-				autolevelString=item.Substring(	item.IndexOf(currentLevelString),	item.IndexOf("</autolevel>")	);//find all text within autolevel
-				break;
+				if(child.name=="Label")
+				{
+					child.GetComponent<Text>().text=featuresNames[i];
+				}
+			}
+			selectedFeats.Add (item);
+			item.GetComponent<LevelUpClassFeaturePopup>().title=featuresNames[i];
+			item.GetComponent<LevelUpClassFeaturePopup>().Description=featuresDescriptions[i];
+			i++;
+		}
+		listedFeature.SetActive (false);
+	}
+
+	public void FeaturesPageDone()
+	{
+		foreach(GameObject item in selectedFeats)
+		{
+			if(!item.GetComponent<Toggle>().isOn)//remove feats that werent picked
+			{
+				selectedFeats.Remove(item);
 			}
 		}
-		print (autolevelString);
-		tempstring = autolevelString;
-		while(autolevelString.IndexOf("<feature")!=-1)
+
+		foreach(GameObject item in selectedFeats)
 		{
-			featuresForLevel.Add(autolevelString.Substring(	autolevelString.IndexOf("<feature")	,autolevelString.IndexOf("</feature")+10));//find next <feature>
-			print ("feature found: " + featuresForLevel[i]);
-
-			autolevelString=autolevelString.Substring(autolevelString.IndexOf("</feature>")+10);//cut off last used string
-			print("remaining string: "+autolevelString);
-
-
-			print ("next string begins at :"+autolevelString.IndexOf("<feature")+"\nends at: "+autolevelString.IndexOf("</feature"));
-			i++;
-			if (i>10)
-				break;
-			                                          
+			Character_Info.characterClassFeaturesNames.Add (item.GetComponent<LevelUpClassFeaturePopup>().title);
+			Character_Info.characterClassFeaturesNames.Add (item.GetComponent<LevelUpClassFeaturePopup>().Description);
 		}
-
+		Application.LoadLevel ("Screen Hub");
 	}
 }

@@ -14,7 +14,8 @@ public class LevelUpHealth : MonoBehaviour {
 	public Text conModifier;
 	public int con;
 	public Text FinalResult;
-	public GameObject nextPage;
+	public GameObject abilityScorePage;
+	public GameObject classFeaturePage;
 	void Start()
 	{
 		Character_Info.characterHealth="10";
@@ -83,8 +84,10 @@ public class LevelUpHealth : MonoBehaviour {
 		}
 
 		HealthPage.SetActive (false);
-		nextPage.SetActive (true);
-		print (Character_Info.characterHealth);
+		if (Character_Info.characterLevel == "4"|| Character_Info.characterLevel == "8" || Character_Info.characterLevel == "12" || Character_Info.characterLevel == "16" || Character_Info.characterLevel == "19")
+			abilityScorePage.SetActive (true);
+		else
+			classFeaturePage.SetActive (true);
 	}
 	public void onHealthInputUpdate()
 	{

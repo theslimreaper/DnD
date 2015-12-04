@@ -204,7 +204,8 @@
 
 	<barbautolevel level="12">
 	</barbautolevel>
-
+	<barbautolevel level="13">
+	</barbautolevel>
 	<barbautolevel level="14">
 		<feature optional="YES">
 			<name>Retaliation (Path of the Berserker)</name>
@@ -242,7 +243,8 @@
 
 	<barbautolevel level="16">
 	</barbautolevel>
-
+	<barbautolevel level="17">
+	</barbautolevel>
 	<barbautolevel level="18">
 		<slots></slots>
 		<feature>
