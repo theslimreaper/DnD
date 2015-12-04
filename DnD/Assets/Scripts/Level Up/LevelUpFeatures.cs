@@ -15,6 +15,7 @@ public class LevelUpFeatures : MonoBehaviour {
 	public List<string> featuresNames= new List<string>();
 	public List<string> featuresDescriptions=new List<string>();
 	public List<GameObject> selectedFeats = new List<GameObject> ();
+	public List<GameObject> killthese = new List<GameObject> ();
 	public GameObject listedFeature;
 	public GameObject DropDownContent;
 	void Start()
@@ -77,12 +78,12 @@ public class LevelUpFeatures : MonoBehaviour {
 		{
 			if(!item.GetComponent<Toggle>().isOn)//remove feats that werent picked
 			{
-				print ("removed value number");
-
-				selectedFeats.Remove(item);
+				killthese.Add (item);
 			}
 		}
-	
+		for (int i=0; i<killthese.Count; i++) {
+			selectedFeats.Remove(killthese[i]);
+		}
 		foreach(GameObject item in selectedFeats)
 		{
 			Character_Info.characterClassFeaturesNames.Add (item.GetComponent<LevelUpClassFeaturePopup>().title);
