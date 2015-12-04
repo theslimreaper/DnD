@@ -19,6 +19,8 @@ public class LevelUpHealth : MonoBehaviour {
 	void Start()
 	{
 		UpdateHealth ();
+		if (Character_Info.characterHealth == null || Character_Info.characterHealth == "")
+			Character_Info.characterHealth = "0";
 	}
 
 
