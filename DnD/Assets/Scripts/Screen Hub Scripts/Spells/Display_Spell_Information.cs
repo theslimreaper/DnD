@@ -9,10 +9,12 @@ public class Display_Spell_Information : MonoBehaviour
 	public GameObject InfoScreen;
 	public GameObject spellScreen;
 	public GameObject backgroundID;
+	public GameObject errorScreen;
 	public GameObject addButton;
 	public CanvasGroup[] screenCanvasGroups;
 	public GameObject universalButtons;
 	public CanvasGroup universalCanvas;
+	public Message_Handler MessageBoxOK;
 
 	// Use this for initialization
 	void Start ()
@@ -2061,16 +2063,13 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 		}
 
-		if (valid == true && range == true) {
+		if (valid == true) {
 			Character_Info.characterSpells.Add (backgroundID.GetComponent<Text> ().text);
 
 			DisplayMode ();
 		}
 		else if (valid == false) {
-			print ("cannot have that many spells known");
-		}
-		if (range == false) {
-			print ("level range is invalid");
+			MessageBoxOK.ShowBox ("The limit for spells known for the selected level has been reached! Therefore, no more spells of this level can be added at the moment!");
 		}
 	}
 }
