@@ -179,9 +179,9 @@ public class Data_Saver : ScriptableObject {
 		i = 0;
 		foreach (var item in Character_Info.characterClassFeaturesNames)
 		{
-			content = "<ClassFeatureName" + Character_Info.id + ">" + Character_Info.characterClassFeaturesNames+ "</ClassFeatureName" + Character_Info.id + ">";
+			content = "<ClassFeatureName" + Character_Info.id + ">" + Character_Info.characterClassFeaturesNames[i]+ "</ClassFeatureName" + Character_Info.id + ">";
 			contentList.Add(content);
-			content = "<ClassFeatureDescription" + Character_Info.id + ">" + Character_Info.characterClassFeaturesDescriptions+ "</ClassFeatureDescription" + Character_Info.id + ">";
+			content = "<ClassFeatureDescription" + Character_Info.id + ">" + Character_Info.characterClassFeaturesDescriptions[i]+ "</ClassFeatureDescription" + Character_Info.id + ">";
 			contentList.Add(content);
 			i++;
 		}
