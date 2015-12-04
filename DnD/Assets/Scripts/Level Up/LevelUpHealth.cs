@@ -18,9 +18,6 @@ public class LevelUpHealth : MonoBehaviour {
 	public GameObject classFeaturePage;
 	void Start()
 	{
-		Character_Info.characterHealth="10";
-		Character_Info.characterClass = "Barbarian";
-		AbilityScoreInitial.AbilityScores [2] = 9;
 		UpdateHealth ();
 	}
 
@@ -84,6 +81,7 @@ public class LevelUpHealth : MonoBehaviour {
 		}
 
 		HealthPage.SetActive (false);
+		print (Character_Info.characterLevel);
 		if (Character_Info.characterLevel == "4"|| Character_Info.characterLevel == "8" || Character_Info.characterLevel == "12" || Character_Info.characterLevel == "16" || Character_Info.characterLevel == "19")
 			abilityScorePage.SetActive (true);
 		else

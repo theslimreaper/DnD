@@ -3,16 +3,19 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class featureHolder : MonoBehaviour {
-	public string featureName;
-	public string featureDescription;
-	public Text Label;
+	public Text featureName;
+	public Text featureDescription;
+	public GameObject SelectedFeatPage;
+	public GameObject FeatsListPage;
+	public GameObject ClassFeaturePage;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
-	void Update () {
-	
+	public void acceptFeat(){
+		ClassFeaturePage.SetActive (true);
+		this.gameObject.SetActive (false);
+	}
+	public void cancelFeat(){
+		SelectedFeatPage.SetActive (false);
+		FeatsListPage.SetActive (true);
 	}
 }

@@ -289,6 +289,31 @@ public class Data_Loader : ScriptableObject {
 		}
 		elemList.Clear();
 
+		Character_Info.characterClassFeaturesNames.Clear ();
+		tagName = "ClassFeatureName" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		i = 0;
+		foreach (var item in elemList)
+		{
+			Character_Info.characterClassFeaturesNames.Add (item);
+			Debug.Log(i);
+			i++;
+		}
+		elemList.Clear();
+
+		Character_Info.characterClassFeaturesDescriptions.Clear ();
+		tagName = "ClassFeatureDescription" + id;
+		elemList = XML.LoadInnerXmlFromFile(output_file, tagName);
+		i = 0;
+		foreach (var item in elemList)
+		{
+			Character_Info.characterClassFeaturesDescriptions.Add (item);
+			Debug.Log(i);
+			i++;
+		}
+		elemList.Clear();
+
+
 		//Get Feats
 		Character_Info.characterFeats.Clear ();
 		tagName = "featID" + id;

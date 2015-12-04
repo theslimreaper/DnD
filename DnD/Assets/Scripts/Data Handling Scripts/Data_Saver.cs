@@ -175,6 +175,17 @@ public class Data_Saver : ScriptableObject {
         content = "</combat>";
         contentList.Add(content);
 
+
+		i = 0;
+		foreach (var item in Character_Info.characterClassFeaturesNames)
+		{
+			content = "<ClassFeatureName" + Character_Info.id + ">" + Character_Info.characterClassFeaturesNames+ "</ClassFeatureName" + Character_Info.id + ">";
+			contentList.Add(content);
+			content = "<ClassFeatureDescription" + Character_Info.id + ">" + Character_Info.characterClassFeaturesDescriptions+ "</ClassFeatureDescription" + Character_Info.id + ">";
+			contentList.Add(content);
+			i++;
+		}
+
 		//Get spell IDs
 
 		i = 0;

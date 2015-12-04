@@ -19,8 +19,6 @@ public class LevelUpFeatures : MonoBehaviour {
 	public GameObject DropDownContent;
 	void Start()
 	{
-		Character_Info.characterClass = "Barbarian";
-		Character_Info.characterLevel = "3";
 		FindFeatures ();
 	}
 	// Update is called once per frame
@@ -86,7 +84,7 @@ public class LevelUpFeatures : MonoBehaviour {
 		foreach(GameObject item in selectedFeats)
 		{
 			Character_Info.characterClassFeaturesNames.Add (item.GetComponent<LevelUpClassFeaturePopup>().title);
-			Character_Info.characterClassFeaturesNames.Add (item.GetComponent<LevelUpClassFeaturePopup>().Description);
+			Character_Info.characterClassFeaturesDescriptions.Add (item.GetComponent<LevelUpClassFeaturePopup>().Description);
 		}
 		Application.LoadLevel ("Screen Hub");
 	}

@@ -3,8 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class LevelUpAbilityScores : MonoBehaviour {
+	public GameObject Page1;
 	public GameObject AbilityScoresPage;
-	public GameObject previousPage;
+	public GameObject featspage;
 	public Dropdown DropDown1;
 	public Text CurrentValue1;
 	public Dropdown DropDown2;
@@ -12,8 +13,12 @@ public class LevelUpAbilityScores : MonoBehaviour {
 	// Use this for initialization
 	public void openAbilityScorePage()
 	{
+		Page1.SetActive (false);
 		AbilityScoresPage.SetActive (true);
-		previousPage.SetActive (false);
+	}
+	public void openFeatsPage(){
+		Page1.SetActive (false);
+		featspage.SetActive (true);
 	}
 	public void UpdateScores()//called once done on the screen to increase the two listed values by one
 	{

@@ -107,13 +107,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 				ItemButton.transform.SetParent(FeatParentButton, false);
 				ItemButton.transform.localScale = new Vector3(0.18f, 0.1f, 0);
 				itemNameText.transform.localScale = new Vector3(1, 1, 1);
-				
-				if (j == 0 || j == 1)
-				{
-					ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (j * 50 * screenRatioW), FeatParentText.transform.position.y, 250);
-				}
-				else
-				{
+
 					int mod = j % 2;
 					int pos = 0;
 					if (mod == 0)
@@ -126,8 +120,8 @@ public class Load_Feats_from_XML : MonoBehaviour {
 						pos = 1;
 					}
 					
-					ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (pos * 600 * screenRatioW), FeatParentText.transform.position.y - (75 * (j - pos - posBehind) * screenRatio), 250);
-				}
+				ItemButton.transform.position = new Vector3(FeatParentText.transform.position.x + (pos * 600 * screenRatioW), FeatParentText.transform.position.y - (75 * (j - pos - posBehind) * screenRatio)-50, 250);
+
 
 				dynamicObjects.Add(ItemButton);
 				Button tempButton = ItemButton.gameObject.GetComponent<Button>();
