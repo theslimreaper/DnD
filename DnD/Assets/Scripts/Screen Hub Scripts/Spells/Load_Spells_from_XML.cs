@@ -9,6 +9,7 @@ public class Load_Spells_from_XML : MonoBehaviour {
 	string classLine;
 	string nameLine;
 	string selectedClass = Character_Info.characterClass;
+	string selectedLevel = Character_Info.characterLevel;
 	public static List<Spell_Class> SpellsZero = new List<Spell_Class>();
 	public static List<Spell_Class> SpellsOne = new List<Spell_Class>();
 	public static List<Spell_Class> SpellsTwo = new List<Spell_Class>();
@@ -94,6 +95,12 @@ public class Load_Spells_from_XML : MonoBehaviour {
 					cont = false;
 				}
 			}
+
+
+
+
+
+
 
 
 			classLine = item.Substring(item.IndexOf("<classes>"),(item.IndexOf("</classes>")-item.IndexOf("<classes>")));
@@ -186,6 +193,143 @@ public class Load_Spells_from_XML : MonoBehaviour {
 
 	public void MakeButtons()
 	{
+		bool first = true;
+		bool second = true;
+		bool third = true;
+		bool fourth = true;
+		bool fifth = true;
+		bool sixth = true;
+		bool seventh = true;
+		bool eighth = true;
+		bool ninth = true;
+		if (selectedClass == "Bard" || selectedClass == "Wizard" || selectedClass == "Sorcerer" || selectedClass == "Cleric" || selectedClass == "Druid") {
+			if (selectedLevel == "0" || selectedLevel == "1" || selectedLevel == "2") {
+				second = false;
+				third = false;
+				fourth = false;
+				fifth = false;
+				sixth = false;
+				seventh = false;
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "3" || selectedLevel == "4")
+			{
+				third = false;
+				fourth = false;
+				fifth = false;
+				sixth = false;
+				seventh = false;
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "5" || selectedLevel == "6")
+			{
+				fourth = false;
+				fifth = false;
+				sixth = false;
+				seventh = false;
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "7" || selectedLevel == "8")
+			{
+				fifth = false;
+				sixth = false;
+				seventh = false;
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "9" || selectedLevel == "10")
+			{
+				sixth = false;
+				seventh = false;
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "11" || selectedLevel == "12")
+			{
+				seventh = false;
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "13" || selectedLevel == "14")
+			{
+				eighth = false;
+				ninth = false;
+			}
+			else if (selectedLevel == "15" || selectedLevel == "16")
+			{
+				ninth = false;
+			}
+		} else if (selectedClass == "Eldritch Knight" || selectedClass == "Arcane Trickster") {
+			fifth = false;
+			sixth = false;
+			seventh = false;
+			eighth = false;
+			ninth = false;
+			if (selectedLevel == "0" || selectedLevel == "1" || selectedLevel == "2" )
+			{
+				first = false;
+				second = false;
+				third = false;
+				fourth = false;
+			}
+			else if (selectedLevel == "3" || selectedLevel == "4" || selectedLevel == "5" || selectedLevel == "6")
+			{
+				second = false;
+				third = false;
+				fourth = false;
+			}
+			else if (selectedLevel == "7" || selectedLevel == "8" || selectedLevel == "9" || selectedLevel == "10" || selectedLevel == "11" || selectedLevel == "12")
+			{
+				third = false;
+				fourth = false;
+			}
+			else if (selectedLevel == "13" || selectedLevel == "14" || selectedLevel == "15" || selectedLevel == "16" || selectedLevel == "17" || selectedLevel == "18")
+			{
+				
+				fourth = false;
+			}
+		} else if (selectedClass == "Paladin" || selectedClass == "Ranger") {
+			sixth = false;
+			seventh = false;
+			eighth = false;
+			ninth = false;
+			if (selectedLevel == "0" || selectedLevel == "1")
+			{
+				first = false;
+				second = false;
+				third = false;
+				fourth = false;
+				fifth = false;
+			}
+			else if (selectedLevel == "2" || selectedLevel == "3" || selectedLevel == "4")
+			{
+				second = false;
+				third = false;
+				fourth = false;
+				fifth = false;
+			}
+			else if (selectedLevel == "5" || selectedLevel == "6" || selectedLevel == "7" || selectedLevel == "8")
+			{
+				third = false;
+				fourth = false;
+				fifth = false;
+			}
+			else if (selectedLevel == "9" || selectedLevel == "10" || selectedLevel == "11" || selectedLevel == "12")
+			{
+				fourth = false;
+				fifth = false;
+			}
+			else if (selectedLevel == "13" || selectedLevel == "14" || selectedLevel == "15" || selectedLevel == "16")
+			{
+				fifth = false;
+			}
+		}
+
+
+
 		List<Spell_Class> SpellsTemp = new List<Spell_Class>();
 		int j = 0;
 
@@ -200,42 +344,45 @@ public class Load_Spells_from_XML : MonoBehaviour {
 			SpellsTemp.Add (item);
 			}
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 1)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 1 && first != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsOne;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 2)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 2 && second != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsTwo;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 3)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 3 && third != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsThree;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 4)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 4 && fourth != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsFour;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 5)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 5 && fifth != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsFive;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 6)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 6 && sixth != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsSix;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 7)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 7 && seventh != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsSeven;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 8)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 8 && eighth != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsEight;
 		}
-		else if (dropdownValue.GetComponent<Dropdown> ().value == 9)
+		else if (dropdownValue.GetComponent<Dropdown> ().value == 9 && ninth != false)
 		{
 			SpellsTemp = Load_Spells_from_XML.SpellsNine;
 		}
+
+
+
 
 		if (SpellParentRectDefault != null)
 		{

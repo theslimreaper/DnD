@@ -75,8 +75,8 @@ public class Display_Spell_Information : MonoBehaviour
 		if (Character_Info.characterClass.Contains("Bard")) {
 			if (Character_Info.characterLevel == "0")
 			{
-				int i = 0;
-				int j = 0;
+				int i = 1;
+				int j = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -96,9 +96,9 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "1")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -122,9 +122,9 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "2")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -148,10 +148,10 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "3")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -179,10 +179,10 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "4")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -210,11 +210,11 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "5")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -246,11 +246,11 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "6")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -282,12 +282,12 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "7")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -323,12 +323,12 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "8")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -364,13 +364,13 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "9")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -410,13 +410,13 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "10")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -456,14 +456,14 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "11")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -507,14 +507,14 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "12")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -558,15 +558,15 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "13")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -614,15 +614,15 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "14")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -670,16 +670,16 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "15")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -731,16 +731,16 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "16")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -792,17 +792,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "17")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -858,17 +858,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "18")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -924,17 +924,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "19")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -990,17 +990,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "20")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1059,8 +1059,8 @@ public class Display_Spell_Information : MonoBehaviour
 		if (Character_Info.characterClass.Contains("Sorcerer")) {
 			if (Character_Info.characterLevel == "0")
 			{
-				int i = 0;
-				int j = 0;
+				int i = 1;
+				int j = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1081,9 +1081,9 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "1")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1108,9 +1108,9 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "2")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1135,10 +1135,10 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "3")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1167,10 +1167,10 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "4")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1199,11 +1199,11 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "5")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1236,11 +1236,11 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "6")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1273,12 +1273,12 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "7")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1315,12 +1315,12 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "8")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1357,13 +1357,13 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "9")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1402,15 +1402,15 @@ public class Display_Spell_Information : MonoBehaviour
 					valid = false;
 				}
 			}
-			else if (Character_Info.characterLevel == "10")
+			else if (Character_Info.characterLevel == "11")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1451,14 +1451,14 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "11")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1503,14 +1503,14 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "12")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1555,15 +1555,15 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "13")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1612,15 +1612,15 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "14")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1669,16 +1669,16 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "15")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1731,16 +1731,16 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "16")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1793,17 +1793,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "17")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1860,17 +1860,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "18")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1927,17 +1927,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "19")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
@@ -1994,17 +1994,17 @@ public class Display_Spell_Information : MonoBehaviour
 			}
 			else if (Character_Info.characterLevel == "20")
 			{
-				int i = 0;
-				int j = 0;
-				int k = 0;
-				int l = 0;
-				int m = 0;
-				int n = 0;
-				int o = 0;
-				int p = 0;
-				int q = 0;
-				int r = 0;
-				int s = 0;
+				int i = 1;
+				int j = 1;
+				int k = 1;
+				int l = 1;
+				int m = 1;
+				int n = 1;
+				int o = 1;
+				int p = 1;
+				int q = 1;
+				int r = 1;
+				int s = 1;
 				foreach(var spell in SpellsTemp)
 				{
 					if(spell.spellLevel == "0")
