@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine.UI;
 using System;
 using System.Text;
 using System.Diagnostics;
+using System.Windows.Forms;
+using System.IO;
 
 public class Image_Loader : MonoBehaviour {
     public GameObject avatarImage;
@@ -24,17 +25,19 @@ public class Image_Loader : MonoBehaviour {
 
     public void openDialog()
     {
+        var fileDialog = new OpenFileDialog();
+        
+            fileDialog.Filter = "png files (*.PNG)|*.PNG|jpg files (*.JPG)|*.JPG|All files (*.*)|*.*";
+            fileDialog.FilterIndex = 2;
+            fileDialog.RestoreDirectory = true;
+            fileDialog.InitialDirectory = Directory.GetCurrentDirectory();
+            fileDialog.ShowDialog();
+                string path = fileDialog.FileName;
 
-        var path = EditorUtility.OpenFilePanel(
-                "",
-                "",
-                ";*.png;*jpg");
-
-        if( path.Length != 0)
-        {
-            filename.GetComponent<InputField>().text = path;
-        }
-
+                if (path.Length != 0)
+                {
+                    filename.GetComponent<InputField>().text = path;
+                }
     }
 	
 	// Update is called once per frame

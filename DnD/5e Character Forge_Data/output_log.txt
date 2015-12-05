@@ -1,0 +1,38 @@
+Initialize engine version: 5.2.1f1 (44735ea161b3)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics Family (ID=0xa16)
+    Vendor:   Intel
+    VRAM:     896 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.DirectoryServices.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.DirectoryServices.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Windows.Forms.dll (this message is harmless)
+Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.337 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Xml.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 18dc -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.263576 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 595.
+Total: 0.835637 ms (FindLiveObjects: 0.054312 ms CreateObjectMapping: 0.032501 ms MarkObjects: 0.732572 ms  DeleteObjects: 0.014967 ms)
+

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine.UI;
 using System;
 using System.Text;
@@ -19,7 +18,7 @@ public class Sound_Loader : MonoBehaviour {
     public void openDialog()
     {
 
-        var path = EditorUtility.OpenFilePanel(
+       /* var path = EditorUtility.OpenFilePanel(
                 "",
                 "",
                 ";*.ogg;*wav");
@@ -27,7 +26,7 @@ public class Sound_Loader : MonoBehaviour {
         if( path.Length != 0)
         {
             filename.GetComponent<InputField>().text = path;
-        }
+        }*/
 
     }
 	

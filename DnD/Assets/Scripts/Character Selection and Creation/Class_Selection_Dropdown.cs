@@ -40,7 +40,6 @@ public class Class_Selection_Dropdown : MonoBehaviour
 
     void GetClasses()
     {
-        int i = 0;
         XML_Loader XML = ScriptableObject.CreateInstance<XML_Loader>();
         if (Settings_Screen.is_online == true)
         {

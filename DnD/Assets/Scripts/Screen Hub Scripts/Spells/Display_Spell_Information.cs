@@ -73,7 +73,6 @@ public class Display_Spell_Information : MonoBehaviour
 			SpellsTemp.Add(spell);
 		}
 		bool valid = true;
-		bool range = true;
 		if (Character_Info.characterClass.Contains("Bard")) {
 			if (Character_Info.characterLevel == "0")
 			{

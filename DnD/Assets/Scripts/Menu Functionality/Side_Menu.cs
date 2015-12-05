@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine.UI;
 using System;
 using System.Text;
@@ -96,14 +95,6 @@ public class Side_Menu : MonoBehaviour {
 
 	//Deselect selected game objects such as input fields
 	public void DeselectObjects(){
-			GameObject[] objs = Selection.gameObjects;
-			List<GameObject> parents = new List<GameObject>();
-			foreach (GameObject obj in objs) {
-				if (obj.transform.parent != null) {
-					parents.Add(obj.transform.parent.gameObject);
-				}
-			}
-			Selection.objects = parents.ToArray();
 	}
 
 	//Show all pause menu game objects

@@ -91,7 +91,7 @@ public class Load_Character_Selection : MonoBehaviour {
 
         if( dynamicObjects.Count > 0)
         {
-            ParentRect.sizeDelta = new Vector2( ParentRectDefault.rect.width, (ParentRectHeight - ( dynamicObjects[characters.Count - 1].transform.position.y - ( 1.7f*dynamicObjects[characters.Count - 1].GetComponent<RectTransform>().rect.height )) ));
+            ParentRect.sizeDelta = new Vector2(ParentRectDefault.rect.width, (ParentRectDefault.rect.height - (dynamicObjects[characters.Count - 1].transform.position.y - (2.3f * screenRatio * dynamicObjects[characters.Count - 1].GetComponent<RectTransform>().rect.height))));
             ScrollBar.value = 1;
         }
 
