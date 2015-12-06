@@ -21,7 +21,7 @@ Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\Syste
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Windows.Forms.dll (this message is harmless)
 Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.337 seconds
+- Completed reload, in  0.346 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -29,10 +29,22 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Xml.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 18dc -> priority: 1 
+  Thread -> id: 2bfc -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 5.263576 ms
+UnloadTime: 4.570347 ms
 
 Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 595.
-Total: 0.835637 ms (FindLiveObjects: 0.054312 ms CreateObjectMapping: 0.032501 ms MarkObjects: 0.732572 ms  DeleteObjects: 0.014967 ms)
+Total: 0.755238 ms (FindLiveObjects: 0.049607 ms CreateObjectMapping: 0.029080 ms MarkObjects: 0.659443 ms  DeleteObjects: 0.015823 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.658730 ms
+
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 283.
+Total: 0.451175 ms (FindLiveObjects: 0.028225 ms CreateObjectMapping: 0.029080 ms MarkObjects: 0.365644 ms  DeleteObjects: 0.026942 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.509764 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 599.
+Total: 0.928438 ms (FindLiveObjects: 0.049607 ms CreateObjectMapping: 0.025231 ms MarkObjects: 0.839914 ms  DeleteObjects: 0.012401 ms)
 
