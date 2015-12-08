@@ -21,7 +21,7 @@ Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\Syste
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Windows.Forms.dll (this message is harmless)
 Loading C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Windows.Forms.dll into Unity Child Domain
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.061 seconds
+- Completed reload, in  0.113 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -29,22 +29,10 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.dll (this message is harmless)
 Platform assembly: C:\Users\mborsos\Documents\DnD\DnD\5e Character Forge_Data\Managed\System.Xml.dll (this message is harmless)
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2264 -> priority: 1 
+  Thread -> id: 1b8c -> priority: 1 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 4.761509 ms
+UnloadTime: 4.649891 ms
 
 Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 595.
-Total: 0.874981 ms (FindLiveObjects: 0.068424 ms CreateObjectMapping: 0.057305 ms MarkObjects: 0.719315 ms  DeleteObjects: 0.028652 ms)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.281966 ms
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 283.
-Total: 0.411831 ms (FindLiveObjects: 0.034212 ms CreateObjectMapping: 0.024803 ms MarkObjects: 0.327583 ms  DeleteObjects: 0.023948 ms)
-
-Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.446471 ms
-
-Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 599.
-Total: 0.786457 ms (FindLiveObjects: 0.054312 ms CreateObjectMapping: 0.024803 ms MarkObjects: 0.697077 ms  DeleteObjects: 0.009408 ms)
+Total: 1.004561 ms (FindLiveObjects: 0.067141 ms CreateObjectMapping: 0.040627 ms MarkObjects: 0.853599 ms  DeleteObjects: 0.041482 ms)
 

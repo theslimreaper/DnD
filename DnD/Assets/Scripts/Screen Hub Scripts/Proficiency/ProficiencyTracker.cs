@@ -13,6 +13,8 @@ public class ProficiencyTracker : MonoBehaviour {
 	public Text BonusText;
 	float bonus=0;
 	bool addDelete=true;
+    public Message_Handler MessageBoxOK;
+    public GameObject panel;
 
 	public void start()
 	{
@@ -37,23 +39,52 @@ public class ProficiencyTracker : MonoBehaviour {
 		Popup.SetActive (true);
 	}
 
+    public void cancelPrompt()
+    {
+		newValue.text = "";
+        updateList();
+		Popup.SetActive (false);
+        panel.SetActive(false);
+	}
+
 	public void closePrompt(int keep)
 	{
 		if (addDelete == true) //if adding new value update proficiencies list
 		{
 			if (newValue.text != null && newValue.text.Length != 0 && keep == 1) {
-				Proficiencies.Add (newValue.text);
-				newValue.text = "";
+                if(Proficiencies.Contains(newValue.text))
+                    {
+                            MessageBoxOK.ShowBox("Please enter a proficiency which has not already been entered!");
+                            return;
+                    }
+                    Proficiencies.Add(newValue.text);
+				    newValue.text = "";
 			}
+            else
+            {
+                MessageBoxOK.ShowBox("Please enter a name for the proficiency to add!");
+                return;
+            }
 		}
 		else//if removing the value look for it in the list
 		{
 			if (newValue.text != null && newValue.text.Length != 0 && keep == 1) {
-				Proficiencies.Remove(newValue.text);
+				if(!Proficiencies.Remove(newValue.text))
+                {
+                    MessageBoxOK.ShowBox("The entered proficiency was not found!");
+                    return;
+                }
 				newValue.text = "";
 			}
+            else
+            {
+                MessageBoxOK.ShowBox("Please enter a name for the proficiency to delete!");
+                return;
+            }
 		}
+        updateList();
 		Popup.SetActive (false);
+        panel.SetActive(false);
 	}
 
 	public void updateList()

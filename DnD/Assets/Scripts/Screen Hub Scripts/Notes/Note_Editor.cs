@@ -32,6 +32,11 @@ public class Note_Editor : MonoBehaviour {
 
 	public void SaveNote(int position)
 	{
+        if (title.GetComponent<InputField>().text == "")
+        {
+            MessageBoxOK.ShowBox("Please enter a title for the note!");
+            return;
+        }
         if (position == -1)
         {
             Note_List_Info.noteTitles.Add(title.GetComponent<InputField>().text);

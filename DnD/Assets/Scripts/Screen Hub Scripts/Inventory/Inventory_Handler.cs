@@ -150,6 +150,11 @@ public class Inventory_Handler : MonoBehaviour {
 
     public void SaveItem()
     {
+        if(itemEditor.itemName.transform.GetChild(0).GetComponent<InputField>().text == "")
+        {
+            MessageBoxOK.ShowBox("Please enter a name for the item!");
+            return;
+        }
         itemEditor.SaveItemInfo();
         HideItemEditor();
         categorizer.CategorizeItems(itemCategory.value);
