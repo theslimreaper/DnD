@@ -31,7 +31,7 @@ public class Load_Feats_from_ID : MonoBehaviour {
 	
 	// Use this for initialization
 	public void Start () {
-		
+        FeatsList.Clear();
 		FeatParentButtonDefault = FeatParentButton;
 		FeatParentRectDefault = FeatParentButtonDefault.GetComponent<RectTransform>();
 		ParentRectHeight = FeatParentRectDefault.rect.height;
