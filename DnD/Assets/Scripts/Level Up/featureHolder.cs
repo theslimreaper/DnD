@@ -14,7 +14,7 @@ public class featureHolder : MonoBehaviour {
 	public void acceptFeat(){
 		ClassFeaturePage.SetActive (true);
 		this.gameObject.SetActive (false);
-		Character_Info.characterSpells.Add (BackgroundID.GetComponent<Text> ().text);
+		Character_Info.characterFeats.Add (BackgroundID.GetComponent<Text> ().text);
 	}
 	public void cancelFeat(){
 		SelectedFeatPage.SetActive (false);
