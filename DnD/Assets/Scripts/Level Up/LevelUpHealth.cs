@@ -16,6 +16,7 @@ public class LevelUpHealth : MonoBehaviour {
 	public Text FinalResult;
 	public GameObject abilityScorePage;
 	public GameObject classFeaturePage;
+	public Text AbilityScoreModifierText;
 	void Start()
 	{
 		UpdateHealth ();
@@ -85,7 +86,10 @@ public class LevelUpHealth : MonoBehaviour {
 		HealthPage.SetActive (false);
 		print (Character_Info.characterLevel);
 		if (Character_Info.characterLevel == "4"|| Character_Info.characterLevel == "8" || Character_Info.characterLevel == "12" || Character_Info.characterLevel == "16" || Character_Info.characterLevel == "19")
+		{
+			AbilityScoreModifierText.text="For reaching level "+Character_Info.characterLevel+" you can either:\ngain a new feat or\nincrease ability scores";
 			abilityScorePage.SetActive (true);
+		}
 		else
 			classFeaturePage.SetActive (true);
 	}
