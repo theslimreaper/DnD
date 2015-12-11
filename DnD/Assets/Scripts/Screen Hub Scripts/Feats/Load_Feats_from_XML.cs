@@ -78,9 +78,7 @@ public class Load_Feats_from_XML : MonoBehaviour {
 				FeatsList.Add(FeatsSet);
 			}
 		}
-		foreach (var item in FeatsList) {
-			print (item.featName);
-		}
+
 		MakeButtons();
 	}
 

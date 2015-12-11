@@ -70,6 +70,7 @@ public class LevelUpFeatures : MonoBehaviour {
 			i++;
 		}
 		listedFeature.SetActive (false);
+		//DropDownContent.GetComponent<DynamicScrollView> ().checkList ();
 	}
 
 	public void FeaturesPageDone()
