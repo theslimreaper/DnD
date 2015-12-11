@@ -11,6 +11,7 @@ public class screenHubClassFeaturesController : MonoBehaviour {
 	public GameObject listedFeature;
 	public GameObject DropDownContent;
 	public List<GameObject> spawnedItems= new List<GameObject>();
+	public GameObject FeatsInfo;
 	bool firstPress=true;
 	// Use this for initialization
 	public void onClassFeatsClick()//go to class features
@@ -38,6 +39,7 @@ public class screenHubClassFeaturesController : MonoBehaviour {
 			}
 			listedFeature.SetActive(false);
 			firstPress=false;
+			FeatsInfo.SetActive(false);
 		}
 	}
 	public void onChosenFeatsClick()//go to feats
