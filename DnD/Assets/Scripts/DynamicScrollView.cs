@@ -16,6 +16,6 @@ public class DynamicScrollView : MonoBehaviour {
 			}
 		}
 		//print ("The lowest number found was: " + lowestNumber + "\nThe Extra Height is: " + extraHeight);
-		this.GetComponent<RectTransform>().sizeDelta = new Vector2(this.GetComponent<RectTransform>().rect.width, extraHeight-lowestNumber);
+		this.GetComponent<RectTransform>().sizeDelta = new Vector2(0, extraHeight-lowestNumber);
 	}
 }
