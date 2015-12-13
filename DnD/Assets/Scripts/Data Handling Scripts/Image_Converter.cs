@@ -25,7 +25,7 @@ public class Image_Converter : ScriptableObject
     {
         Sprite sprite;
         Texture2D texture;
-        byte[] b64_bytes = System.Convert.FromBase64String(base64);
+        byte[] b64_bytes = Convert.FromBase64String(base64);
         texture = new Texture2D(1, 1, TextureFormat.Alpha8, false);
         texture.LoadImage(b64_bytes);
         Rect tempRect = new Rect(0, 0, texture.width, texture.height);

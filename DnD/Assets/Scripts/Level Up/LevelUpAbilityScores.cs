@@ -29,8 +29,8 @@ public class LevelUpAbilityScores : MonoBehaviour {
 	}
 	public void UpdateCurrentStatShown()//updates the text to show the current value of the stat they want to upgrade
 	{
-		CurrentValue1.text="Before Upgrade: "+AbilityScoreInitial.AbilityScores[DropDown1.value];
-		CurrentValue2.text="Before Upgrade: "+AbilityScoreInitial.AbilityScores[DropDown2.value];
+		CurrentValue1.text="Before Upgrade (base): "+AbilityScoreInitial.AbilityScores[DropDown1.value];
+		CurrentValue2.text="Before Upgrade (base): "+AbilityScoreInitial.AbilityScores[DropDown2.value];
 	}
 	public void openClassFeaturesPage()
 	{
