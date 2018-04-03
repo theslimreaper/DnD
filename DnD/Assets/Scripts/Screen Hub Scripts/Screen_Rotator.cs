@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Screen_Rotator : MonoBehaviour {
-	int currentScreen;
 	public GameObject[] arms;
 	public int transitionSpeed;
 	int moving;

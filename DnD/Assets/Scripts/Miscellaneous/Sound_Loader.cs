@@ -71,7 +71,7 @@ public class Sound_Loader : MonoBehaviour {
         {
             yield return null;
         }
-        clip = www.audioClip;
+        clip = www.GetAudioClip();
         yield return clip;
         Background_Music.Instance.SoundChanger(clip);
         Settings_Screen.BGMusicClip = SoundConverter.ConvertSoundToString(clip);

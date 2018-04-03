@@ -263,6 +263,6 @@ public class skybox : MonoBehaviour {
 		cubeMesh.SetTriangles(new int[] {18,17,16,16,19,18}, 4);	// top
 		cubeMesh.SetTriangles(new int[] {20,21,22,22,23,20}, 5);	// bottom
 		cubeMesh.RecalculateNormals();
-		cubeMesh.Optimize();
+		;
 	}
 }

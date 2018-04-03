@@ -831,8 +831,8 @@ public class TerrainToolkitEditor : Editor {
 					if (ter == null) {
 						return;
 					}
-					TerrainData terData = ter.terrainData;
-					Undo.RegisterUndo(terData, "Terrain Erosion");
+					TerrainData tdat = ter.terrainData;
+					Undo.RegisterUndo(tdat, "Terrain Erosion");
 					// Start time...
 					DateTime startTime = DateTime.Now;
 					TerrainToolkit.ErosionProgressDelegate erosionProgressDelegate = new TerrainToolkit.ErosionProgressDelegate(updateErosionProgress);
@@ -861,12 +861,12 @@ public class TerrainToolkitEditor : Editor {
 			break;
 			// -------------------------------------------------------------------------------------------------------- TEXTURING TOOLS
 			case 2:
-			Terrain ter = (Terrain) terrain.GetComponent(typeof(Terrain));
-			if (ter == null) {
+			Terrain te = (Terrain) terrain.GetComponent(typeof(Terrain));
+			if (te == null) {
 				return;
 			}
-			TerrainData terData = ter.terrainData;
-			terrain.splatPrototypes = terData.splatPrototypes;
+			TerrainData terd = te.terrainData;
+			terrain.splatPrototypes = terd.splatPrototypes;
 			EditorGUILayout.Separator();
 			float mouseX;
 			EditorGUILayout.BeginHorizontal();
@@ -1095,7 +1095,7 @@ public class TerrainToolkitEditor : Editor {
 			EditorGUIUtility.LookLikeControls();
 			EditorGUILayout.EndHorizontal();
 			if (GUI.changed) {
-				terData.splatPrototypes = terrain.splatPrototypes;
+				terd.splatPrototypes = terrain.splatPrototypes;
 			}
 			if (nTextures == 0 && !assignTexture) {
 				EditorGUILayout.BeginHorizontal();
@@ -1114,7 +1114,7 @@ public class TerrainToolkitEditor : Editor {
 				buttonRect.height = 18;
 				if (GUI.Button(buttonRect, "Add texture")) {
 					terrain.addSplatPrototype(terrain.defaultTexture, nTextures);
-					terData.splatPrototypes = terrain.splatPrototypes;
+					terd.splatPrototypes = terrain.splatPrototypes;
 					EditorUtility.SetDirty(terrain);
 				}
 				EditorGUILayout.EndHorizontal();

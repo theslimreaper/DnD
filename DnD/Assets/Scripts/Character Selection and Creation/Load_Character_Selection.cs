@@ -82,7 +82,7 @@ public class Load_Character_Selection : MonoBehaviour {
 				//Otherwise, bring up a message stating unsaved data will be lost, and have the character be chosen when the user specifies to continue
                     tempButton.onClick.AddListener(delegate { audioSource.PlayOneShot(audioClipAlert); });
 					tempButton.onClick.AddListener (() => MessageBoxYN.ShowBox ("WARNING: Loading another character will result in the loss of unsaved changes for the current character! Continue?"));
-					tempButton.onClick.AddListener (() => (MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button> ().onClick.AddListener (() => SelectCharacter (position))));
+				//	tempButton.onClick.AddListener (() => (MessageBoxYN.gameObject.transform.GetChild (0).gameObject.transform.GetChild (0).gameObject.transform.GetChild (1).gameObject.GetComponent<Button> ().onClick.AddListener (() => SelectCharacter (position))));
                 }
                 i++;
 			}

@@ -93,23 +93,16 @@ public class Side_Menu : MonoBehaviour {
 		Application.LoadLevel ("Credits");
 	}
 
-	//Deselect selected game objects such as input fields
-	public void DeselectObjects(){
-	}
 
-	//Show all pause menu game objects
-	void ShowPauseMenu(){
-		DeselectObjects ();
-		is_paused = true;
-		//PauseMenu.SetActive(true);
-        StartCoroutine(ScreenIn());
-	}
-
+    //Show all pause menu game objects
+    void ShowPauseMenu(){
+        is_paused = true;
+        PauseMenu.SetActive(true);
+    }
 	//Hide all pause menu game objects
 	void HidePauseMenu(){
 		is_paused = false;
-		//PauseMenu.SetActive (false);
-        StartCoroutine(ScreenOut());
+        PauseMenu.SetActive(false);
     }
 
 	//Toggle show/hide pause menu
@@ -120,31 +113,9 @@ public class Side_Menu : MonoBehaviour {
 			ShowPauseMenu ();
 			break;
 		case true:
-			HidePauseMenu ();
+                HidePauseMenu ();
 			break;
 		}
 	}
-
-    //Slide side menu out of view
-    IEnumerator ScreenOut()
-    {
-        while (SideMenuMain.transform.position.x >= -2000)
-        {
-            Vector3 new_position = new Vector3(100*transition_speed, SideMenuMain.transform.position.y, SideMenuMain.transform.position.z);
-            SideMenuMain.transform.position -= new_position;
-            yield return null;
-        }
-    }
-
-    //Slide side menu into view
-    IEnumerator ScreenIn()
-    {
-        while (SideMenuMain.transform.position.x < 0)
-        {
-            Vector3 new_position = new Vector3(100*transition_speed, SideMenuMain.transform.position.y, SideMenuMain.transform.position.z);
-            SideMenuMain.transform.position += new_position;
-            yield return null;
-        }
-    }
 
 }
